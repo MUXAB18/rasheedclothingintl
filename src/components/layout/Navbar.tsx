@@ -14,6 +14,7 @@ export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [hoveredMenu, setHoveredMenu] = useState<string | null>(null);
+  const [expandedMobileMenu, setExpandedMobileMenu] = useState<string | null>(null);
   const pathname = usePathname();
 
   // Lock body scroll when mobile menu is open
@@ -62,7 +63,7 @@ export function Navbar() {
           "fixed inset-x-0 top-0 z-50 flex justify-center transition-all duration-500 pointer-events-none pt-4 md:pt-6 px-4 md:px-8"
         )}
       >
-        <div className="w-full max-w-5xl relative group pointer-events-auto">
+        <div className="w-full max-w-7xl relative group pointer-events-auto px-4">
           {/* Ambient Glow Behind Navbar */}
           <div className="absolute inset-0 bg-gradient-to-r from-white/10 via-white/5 to-white/10 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-1000 pointer-events-none" />
 
@@ -102,7 +103,7 @@ export function Navbar() {
                   <Link
                     href={item.href}
                     className={cn(
-                      "relative flex items-center gap-1 text-[14px] font-medium transition-colors duration-300 px-4 py-2.5 rounded-full z-10",
+                      "relative flex items-center gap-1 text-[14px] font-medium transition-colors duration-300 px-4 py-2.5 rounded-full z-10 whitespace-nowrap",
                       pathname === item.href ? "text-white" : "text-white/70 hover:text-white"
                     )}
                   >
@@ -240,9 +241,9 @@ export function Navbar() {
               </button>
             </div>
 
-            {/* Navigation Links — evenly distributed */}
-            <div className="flex-1 overflow-y-auto overscroll-contain px-6 flex flex-col justify-center py-4">
-              <nav className="flex flex-col h-full justify-evenly" aria-label="Main navigation">
+            {/* Navigation Links — scrollable layout */}
+            <div className="flex-1 overflow-y-auto overscroll-contain px-6 py-4">
+              <nav className="flex flex-col gap-2" aria-label="Main navigation">
                 {navigation.main.map((item, i) => (
                   <motion.div
                     key={item.name}
@@ -255,46 +256,84 @@ export function Navbar() {
                     }}
                     className="flex flex-col"
                   >
-                    <Link
-                      href={item.href}
-                      onClick={() => setMobileMenuOpen(false)}
-                      className={cn(
-                        "flex items-center justify-between py-5 group border-b border-white/[0.06] w-full",
-                      )}
-                      style={{ WebkitTapHighlightColor: 'transparent' }}
-                    >
-                      <span
+                    {item.dropdown ? (
+                      <button
+                        onClick={() => setExpandedMobileMenu(expandedMobileMenu === item.name ? null : item.name)}
                         className={cn(
-                          "text-[26px] font-sans font-light tracking-[0.01em] leading-none transition-colors duration-200",
-                          pathname === item.href
-                            ? "text-white"
-                            : "text-white/60 group-hover:text-white/90 group-active:text-white"
+                          "flex items-center justify-between py-4 group border-b border-white/[0.06] w-full text-left outline-none focus:outline-none"
                         )}
+                        style={{ WebkitTapHighlightColor: 'transparent' }}
                       >
-                        {item.name}
-                      </span>
-                      <ArrowRight
-                        className="w-4 h-4 text-white/0 group-hover:text-white/35 -translate-x-2 group-hover:translate-x-0 transition-all duration-250 shrink-0"
-                        strokeWidth={1.5}
-                      />
-                    </Link>
-
-                    {/* Sub-items (e.g. Collections dropdown) */}
-                    {item.dropdown && (
-                      <div className="flex flex-col gap-1 pl-3 pt-3 pb-4 ml-1 border-l border-white/[0.08]">
-                        {item.dropdown.map((subItem) => (
-                          <Link
-                            key={subItem.name}
-                            href={subItem.href}
-                            onClick={() => setMobileMenuOpen(false)}
-                            className="text-[14px] font-light tracking-wide text-white/40 hover:text-white/75 active:text-white py-1.5 transition-colors duration-200"
-                            style={{ WebkitTapHighlightColor: 'transparent' }}
-                          >
-                            {subItem.name}
-                          </Link>
-                        ))}
-                      </div>
+                        <span
+                          className={cn(
+                            "text-[26px] font-sans font-light tracking-[0.01em] leading-none transition-colors duration-200",
+                            expandedMobileMenu === item.name
+                              ? "text-white"
+                              : "text-white/60 group-hover:text-white/90"
+                          )}
+                        >
+                          {item.name}
+                        </span>
+                        <ChevronDown
+                          className={cn(
+                            "w-5 h-5 transition-all duration-300",
+                            expandedMobileMenu === item.name ? "text-white rotate-180" : "text-white/40 group-hover:text-white/80"
+                          )}
+                          strokeWidth={1.5}
+                        />
+                      </button>
+                    ) : (
+                      <Link
+                        href={item.href}
+                        onClick={() => setMobileMenuOpen(false)}
+                        className={cn(
+                          "flex items-center justify-between py-4 group border-b border-white/[0.06] w-full",
+                        )}
+                        style={{ WebkitTapHighlightColor: 'transparent' }}
+                      >
+                        <span
+                          className={cn(
+                            "text-[26px] font-sans font-light tracking-[0.01em] leading-none transition-colors duration-200",
+                            pathname === item.href
+                              ? "text-white"
+                              : "text-white/60 group-hover:text-white/90 group-active:text-white"
+                          )}
+                        >
+                          {item.name}
+                        </span>
+                        <ArrowRight
+                          className="w-4 h-4 text-white/0 group-hover:text-white/35 -translate-x-2 group-hover:translate-x-0 transition-all duration-250 shrink-0"
+                          strokeWidth={1.5}
+                        />
+                      </Link>
                     )}
+
+                    {/* Sub-items Accordion */}
+                    <AnimatePresence>
+                      {item.dropdown && expandedMobileMenu === item.name && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+                          className="overflow-hidden"
+                        >
+                          <div className="flex flex-col gap-1 pl-4 pt-3 pb-3 ml-2 border-l-2 border-white/[0.08] mt-2 mb-2">
+                            {item.dropdown.map((subItem) => (
+                              <Link
+                                key={subItem.name}
+                                href={subItem.href}
+                                onClick={() => setMobileMenuOpen(false)}
+                                className="text-[16px] font-light tracking-wide text-white/50 hover:text-white/90 active:text-white py-2 transition-colors duration-200"
+                                style={{ WebkitTapHighlightColor: 'transparent' }}
+                              >
+                                {subItem.name}
+                              </Link>
+                            ))}
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
                   </motion.div>
                 ))}
               </nav>

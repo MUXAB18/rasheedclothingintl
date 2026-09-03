@@ -16,6 +16,27 @@ export const navigation: {
       href: '/collections'
     },
     { name: 'Portfolio', href: '/portfolio' },
+    {
+      name: 'Explore',
+      href: '/manufacturing',
+      dropdown: [
+        { name: 'Manufacturing', href: '/manufacturing' },
+        { name: 'Quality Control', href: '/quality' },
+        { name: 'Sustainability', href: '/sustainability' },
+        { name: 'Global Reach', href: '/global' },
+        { name: 'Export Services', href: '/export-services' },
+      ]
+    },
+    {
+      name: 'Services',
+      href: '/private-label',
+      dropdown: [
+        { name: 'Private Label', href: '/private-label' },
+        { name: 'Custom Manufacturing', href: '/custom-manufacturing' },
+        { name: 'Customization & Printing', href: '/customization' },
+        { name: 'Fabric Sourcing', href: '/fabrics' },
+      ]
+    },
     { name: 'Design Studio', href: '/design-studio' },
     { name: 'Quote', href: '/contact' },
   ],

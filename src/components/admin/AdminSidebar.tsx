@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname, useRouter } from 'next/navigation';
 import { createClient } from '@/lib/supabase/client';
 import {
@@ -73,8 +74,13 @@ export function AdminSidebar() {
       {/* Brand */}
       <div className="p-6 border-b border-white/[0.08]">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 bg-gradient-to-br from-white/20 to-white/5 rounded-xl flex items-center justify-center backdrop-blur-sm">
-            <span className="text-white font-black text-lg">R</span>
+          <div className="relative w-10 h-10 flex items-center justify-center shrink-0">
+            <Image
+              src="/browserlogo.png"
+              alt="RCI Logo"
+              fill
+              className="object-contain"
+            />
           </div>
           <div>
             <p className="text-white text-sm font-bold leading-tight">RCI Admin</p>

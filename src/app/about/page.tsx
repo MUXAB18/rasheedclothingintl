@@ -63,7 +63,7 @@ export default function AboutPage() {
             className="relative h-full min-h-[400px] lg:min-h-0 w-full bg-[#F8F8F8] rounded-3xl overflow-hidden"
           >
             <Image
-              src="/media__1775817925946.webp"
+              src="/aboutus/factory-image.jpeg"
               alt="Manufacturing Facility"
               fill
               className="object-cover grayscale hover:grayscale-0 transition-all duration-700"
@@ -95,6 +95,40 @@ export default function AboutPage() {
             </p>
           </div>
         </motion.section>
+
+        {/* Gallery */}
+        <SectionHeading 
+          eyebrow="Inside Our Factory"
+          title="Manufacturing Excellence"
+          subtitle="A glimpse into our state-of-the-art facilities and dedicated workforce."
+        />
+
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-32">
+          {[
+            "/aboutus/factory-image.jpeg",
+            "/aboutus/factory-image-2.jpeg",
+            "/aboutus/factory-image-3.jpeg",
+            "/aboutus/factory-image-4.jpeg",
+            "/aboutus/factory-image-5.jpeg",
+            "/aboutus/factory-image-6.jpeg"
+          ].map((src, i) => (
+            <motion.div 
+              key={src}
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: i * 0.1 }}
+              className="relative aspect-square md:aspect-[4/3] rounded-2xl overflow-hidden group bg-gray-100"
+            >
+              <Image
+                src={src}
+                alt={`Factory Image ${i + 1}`}
+                fill
+                className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
+              />
+            </motion.div>
+          ))}
+        </div>
 
         {/* Values */}
         <SectionHeading 
