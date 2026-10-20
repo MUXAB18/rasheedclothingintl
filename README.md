@@ -346,5 +346,5 @@ rci-wear/
 ---
 ## Project Setup
 
-This project is maintained collaboratively using Git and GitHub.
-*Built with care for performance, accessibility, and scalability. BY Musab*
+
+*Built with care for performance, accessibility, and scalability. BY Musab Iftikha(Software Engineer)*
