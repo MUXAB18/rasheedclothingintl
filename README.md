@@ -44,7 +44,7 @@ A production-grade, high-performance marketing & e-commerce web application buil
 
 ### Prerequisites
 
-- **Node.js** >= 18.0
+- **Node.js** >= 18.0.1
 - **npm** >= 9.0
 
 ### Install
@@ -89,7 +89,7 @@ npm run preview
 
 ---
 
-## Deployment
+## Deployment Stage
 
 ### Vercel (Recommended)
 
@@ -345,4 +345,4 @@ rci-wear/
 
 ---
 
-*Built with care for performance, accessibility, and scalability.*
+*Built with care for performance, accessibility, and scalability. BY Musab*
