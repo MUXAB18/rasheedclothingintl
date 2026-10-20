@@ -296,9 +296,9 @@ A lightweight preloader renders on first paint to mask any unavoidable reflow fr
 
 ---
 
-## Running Lighthouse / Performance Tests
 
-### In Chrome DevTools
+### In Chrome Devloper Tools
+
 
 1. Open production URL (or npm run preview)
 2. DevTools → Lighthouse tab
