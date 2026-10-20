@@ -1,4 +1,4 @@
-# RCI-WEAR — Rasheed Clothing International
+# Rasheed Clothing International
 
 > **Premium custom clothing — Where Imagination Meets Fabrication.**
 
