@@ -347,7 +347,7 @@ rci-wear/
 ## Project Setup
 
 
-*Built with care for performance, accessibility, and scalability. BY Musab Iftikha(Software Engineer)*
+
 ## 🤝 Contributing
 Thank you for your interest in Rasheed Clothing International. To contribute, fork the repository, create a feature branch, make your changes, test the site locally with npm run dev, and open a pull request describing your change clearly.
 
