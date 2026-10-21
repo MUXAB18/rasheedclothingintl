@@ -353,3 +353,7 @@ Thank you for your interest in Rasheed Clothing International. To contribute, fo
 
 ## 📄 License
 This project is developed for Rasheed Clothing International for learning and demonstration purposes. Please contact the repository owner before reusing the code or branding for commercial purposes.
+
+
+## 👥 Contributors
+This project is built and maintained collaboratively. See the contributors graph for everyone who has contributed code, design and documentation to Rasheed Clothing International.
