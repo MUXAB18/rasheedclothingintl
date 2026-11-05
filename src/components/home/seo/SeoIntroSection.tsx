@@ -21,15 +21,15 @@ export function SeoIntroSection() {
       {/* Same ambient glow as the footer so the two read as one surface */}
       <div className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[1000px] h-[400px] bg-white/[0.03] blur-[120px] rounded-full" />
 
-      <div className="container mx-auto px-6 md:px-12 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start [&>*]:min-w-0">
           {/* Copy */}
           <div className="lg:col-span-7">
-            <p className="font-sans text-[10px] font-bold tracking-[3px] uppercase text-white/50 mb-5 flex items-center gap-3">
+            <p className="font-sans text-[11px] font-bold tracking-[3px] uppercase text-white/60 mb-6 flex items-center gap-3">
               <span className="h-px w-8 bg-white/30" />
               Sialkot · Pakistan · Worldwide
             </p>
-            <h2 className="text-3xl md:text-5xl font-display leading-[1.1] mb-8">
+            <h2 className="text-4xl md:text-5xl font-sans font-black tracking-tight leading-[1.05] text-balance mb-8">
               Top Clothing Manufacturer &amp; Exporter in Sialkot, Pakistan
             </h2>
             <div className="space-y-5 text-[15px] md:text-base text-white/65 leading-relaxed max-w-2xl">
@@ -74,7 +74,7 @@ export function SeoIntroSection() {
                   key={s.label}
                   className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 hover:border-white/25 transition-colors"
                 >
-                  <dd className="text-3xl md:text-4xl font-display text-white mb-2">{s.value}</dd>
+                  <dd className="text-3xl md:text-4xl font-sans font-black tracking-tight text-white mb-2">{s.value}</dd>
                   <dt className="text-[12px] text-white/55 leading-snug">{s.label}</dt>
                 </div>
               ))}
