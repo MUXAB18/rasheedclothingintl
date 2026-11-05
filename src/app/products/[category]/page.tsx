@@ -15,9 +15,10 @@ import { Button } from "@/components/ui/Button";
 export default function CategoryPage({
   params,
 }: {
-  params: { category: string };
+  params: Promise<{ category: string }>;
 }) {
-  const product = products.find((p) => p.id === params.category);
+  const { category } = React.use(params);
+  const product = products.find((p) => String(p.id) === category);
 
   if (!product) {
     notFound();

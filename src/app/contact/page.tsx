@@ -95,7 +95,7 @@ export default function ContactPage() {
       });
 
       setFormStatus("success");
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      window.location.href = "/thank-you";
       setFormData({
         firstName: "",
         lastName: "",
@@ -208,6 +208,9 @@ export default function ContactPage() {
                     </p>
                     <p className="font-sans text-gray-500">
                       9:00 AM - 6:00 PM (PKT)
+                    </p>
+                    <p className="font-sans text-xs font-bold text-green-600 mt-2">
+                      We reply to every enquiry within 24 hours.
                     </p>
                   </div>
                 </div>
@@ -387,6 +390,30 @@ export default function ContactPage() {
               </form>
             )}
           </motion.div>
+        </div>
+
+        {/* Map & Directions */}
+        <div className="mt-20">
+          <div className="flex flex-wrap items-end justify-between gap-4 mb-6">
+            <h3 className="text-2xl font-sans font-bold tracking-tight">
+              Find Our Factory
+            </h3>
+            <a
+              href="https://www.google.com/maps/dir/?api=1&destination=Sialkot,+Pakistan"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm font-bold underline"
+            >
+              Get Directions
+            </a>
+          </div>
+          <iframe
+            title="Rasheed Clothing International location in Sialkot, Pakistan"
+            src="https://www.google.com/maps?q=Sialkot,+Pakistan&output=embed"
+            className="w-full h-[400px] rounded-3xl border border-gray-100"
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          />
         </div>
       </div>
     </div>

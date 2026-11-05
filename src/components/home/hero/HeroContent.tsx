@@ -25,6 +25,8 @@ interface HeroContentProps {
 }
 
 export function HeroContent({ mobile = false }: HeroContentProps) {
+  // Only one <h1> per page: the mobile variant is the indexed one; desktop copy is a styled div.
+  const Heading: React.ElementType = mobile ? "h1" : "div";
   return (
     <motion.div
       className="flex flex-col z-20 w-full h-full justify-center pt-8 lg:pt-0"
@@ -45,7 +47,7 @@ export function HeroContent({ mobile = false }: HeroContentProps) {
 
       {/* Main Headline */}
       <motion.div variants={fadeInUp} className="mb-6 lg:mb-8">
-        <h1
+        <Heading
           className={`font-sans text-[clamp(3rem,5vw,5rem)] font-bold leading-[1.05] tracking-tight ${
             mobile ? "text-white" : "text-near-black"
           }`}
@@ -55,7 +57,7 @@ export function HeroContent({ mobile = false }: HeroContentProps) {
           into Premium
           <br />
           Apparel
-        </h1>
+        </Heading>
       </motion.div>
 
       {/* Supporting Copy */}

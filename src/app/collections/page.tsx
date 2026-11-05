@@ -2,12 +2,6 @@ import React from "react";
 import { CollectionsSection } from "@/components/home/collections/CollectionsSection";
 import { getPublishedCollections } from "@/lib/api/collection.service";
 
-export const metadata = {
-  title: "Our Collections | Rasheed Clothing International",
-  description:
-    "From formal wear to everyday luxury — the full spectrum of our craft.",
-};
-
 export default async function CollectionsPage() {
   // Fetch collections from database
   const collections = await getPublishedCollections();

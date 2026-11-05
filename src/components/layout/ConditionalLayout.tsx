@@ -3,6 +3,9 @@
 import { usePathname } from "next/navigation";
 import { Navbar } from "./Navbar";
 import { Footer } from "./Footer";
+import { RelatedLinks } from "./RelatedLinks";
+import { Breadcrumbs } from "./Breadcrumbs";
+import { StickyMobileCTA } from "@/components/ui/StickyMobileCTA";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 
 export function ConditionalLayout({ children }: { children: React.ReactNode }) {
@@ -21,9 +24,12 @@ export function ConditionalLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
       <Navbar />
-      <main className="flex-grow">{children}</main>
+      <Breadcrumbs />
+      <main className="flex-grow pb-16 md:pb-0">{children}</main>
+      <RelatedLinks />
       <Footer />
       <WhatsAppButton />
+      <StickyMobileCTA />
     </>
   );
 }

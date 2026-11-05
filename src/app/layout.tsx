@@ -28,30 +28,46 @@ const cormorant = Cormorant_Garamond({
 export const viewport = {
   width: "device-width",
   initialScale: 1,
-  maximumScale: 1,
-  userScalable: false,
 };
 
 export const metadata = {
-  title:
-    "Rasheed Clothing International | Premium Apparel Manufacturing Pakistan | Where Imagination Meets Fabrication",
+  applicationName: "Rasheed Clothing International",
+  category: "business",
+  metadataBase: new URL("https://www.rasheedclothingintl.me"),
+  title: {
+    default:
+      "Top Clothing Manufacturer in Sialkot, Pakistan | Rasheed Clothing",
+    template: "%s | Rasheed Clothing",
+  },
   description:
-    "Leading clothing manufacturer in Sialkot, Pakistan. Custom apparel manufacturing, private label, OEM services. Hoodies, activewear, corporate uniforms. Export to 15+ countries. MOQ 50 units.",
+    "Top clothing manufacturer and apparel supplier in Sialkot, Pakistan. Custom hoodies, activewear, streetwear and uniforms exported to Asia, UK, USA, Europe and worldwide. Private label, OEM, low MOQ 50 units.",
   keywords:
-    "clothing manufacturer Pakistan, apparel manufacturing Sialkot, custom clothing manufacturer, private label clothing, OEM clothing Pakistan, wholesale apparel manufacturer, export clothing Pakistan, hoodie manufacturer, activewear manufacturer, corporate uniform manufacturer",
+    "best clothing manufacturer in Pakistan, top clothing manufacturer in Asia, clothing manufacturer Sialkot, best clothes supplier Pakistan, Sialkot clothing exporter, apparel exporter Pakistan, garment manufacturer Asia, top apparel supplier, private label clothing manufacturer, OEM clothing Pakistan, wholesale clothing supplier, hoodie manufacturer Pakistan, activewear manufacturer Sialkot, sportswear manufacturer Pakistan, custom clothing manufacturer, streetwear manufacturer, corporate uniform manufacturer, low MOQ clothing manufacturer",
+  alternates: { canonical: "/" },
   openGraph: {
     title:
       "Rasheed Clothing International - Where Imagination Meets Fabrication",
     description:
       "Premium B2B apparel manufacturing from Pakistan. Custom clothing solutions for international brands.",
-    url: "https://rasheedclothingintl.me",
+    url: "https://www.rasheedclothingintl.me",
     siteName: "Rasheed Clothing International",
     locale: "en_US",
     type: "website",
+    images: [
+      {
+        url: "/custom_hoodie_1.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Custom hoodies manufactured by Rasheed Clothing International",
+      },
+    ],
   },
-  icons: {
-    icon: "/newlogo-white.png",
-    apple: "/newlogo-white.png",
+  twitter: {
+    card: "summary_large_image",
+    title: "Rasheed Clothing International",
+    description:
+      "Premium B2B apparel manufacturing from Sialkot, Pakistan.",
+    images: ["/custom_hoodie_1.jpg"],
   },
 };
 
@@ -72,17 +88,51 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "Organization",
+              "@type": ["Organization", "LocalBusiness", "ClothingStore"],
+              "@id": "https://www.rasheedclothingintl.me/#business",
               name: "Rasheed Clothing International",
-              url: "https://rasheedclothingintl.me/",
-              logo: "https://rasheedclothingintl.me/newlogo.png",
+              url: "https://www.rasheedclothingintl.me/",
+              logo: "https://www.rasheedclothingintl.me/logo-512.png",
               description:
                 "Premium apparel manufacturing and private-label clothing solutions in Pakistan.",
               address: {
                 "@type": "PostalAddress",
                 addressLocality: "Sialkot",
+                addressRegion: "Punjab",
                 addressCountry: "PK",
               },
+              geo: {
+                "@type": "GeoCoordinates",
+                latitude: 32.4945,
+                longitude: 74.5229,
+              },
+              openingHoursSpecification: {
+                "@type": "OpeningHoursSpecification",
+                dayOfWeek: [
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday",
+                ],
+                opens: "09:00",
+                closes: "19:00",
+              },
+              image: "https://www.rasheedclothingintl.me/custom_hoodie_1.jpg",
+              areaServed: [
+                "Pakistan", "Asia", "United Kingdom", "United States", "Canada",
+                "Australia", "United Arab Emirates", "Europe", "Worldwide",
+              ],
+              knowsAbout: [
+                "Clothing manufacturing", "Apparel export", "Private label clothing",
+                "OEM garment production", "Hoodie manufacturing", "Activewear manufacturing",
+                "Streetwear manufacturing", "Corporate uniforms",
+              ],
+              sameAs: [
+                "https://instagram.com/rasheedclothingintl",
+                "https://www.linkedin.com/company/rasheed-clothing-international/",
+              ],
               contactPoint: {
                 "@type": "ContactPoint",
                 telephone: "+923496014611",
@@ -91,18 +141,32 @@ export default function RootLayout({
             }),
           }}
         />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              name: "Rasheed Clothing International",
+              alternateName: ["RCI Clothing", "Rasheed Clothing Sialkot"],
+              url: "https://www.rasheedclothingintl.me/",
+              inLanguage: "en",
+              publisher: { "@id": "https://www.rasheedclothingintl.me/#business" },
+            }),
+          }}
+        />
       </head>
       <body className="bg-[#0a0a0a] text-near-black antialiased overflow-x-hidden flex flex-col min-h-screen">
         {/* Google Analytics */}
         <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-425WFFBRLP"
+          src="https://www.googletagmanager.com/gtag/js?id=G-JZHHWJ6J4G"
           strategy="afterInteractive"
         />
         <Script id="ga-init" strategy="afterInteractive">{`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-          gtag('config', 'G-425WFFBRLP');
+          gtag('config', 'G-JZHHWJ6J4G');
         `}</Script>
         {/* AdSense */}
         <Script

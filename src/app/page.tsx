@@ -6,6 +6,7 @@ import { CollectionsSection } from "@/components/home/collections/CollectionsSec
 import { CapabilitiesSection } from "@/components/home/capabilities/CapabilitiesSection";
 import { ProcessTimelineSection } from "@/components/home/process/ProcessTimelineSection";
 import { PortfolioPreviewWrapper } from "@/components/home/portfolio/PortfolioPreviewWrapper";
+import { SeoIntroSection } from "@/components/home/seo/SeoIntroSection";
 import { HomeFaqSection } from "@/components/home/faq/HomeFaqSection";
 import { HomeCtaSection } from "@/components/home/cta/HomeCtaSection";
 
@@ -33,6 +34,8 @@ export default async function Home() {
 
       {/* 8. PORTFOLIO HIGHLIGHTS */}
       <PortfolioPreviewWrapper />
+
+      <SeoIntroSection />
 
       {/* 9. FAQs */}
       <HomeFaqSection />

@@ -14,9 +14,6 @@ export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [hoveredMenu, setHoveredMenu] = useState<string | null>(null);
-  const [expandedMobileMenu, setExpandedMobileMenu] = useState<string | null>(
-    null,
-  );
   const pathname = usePathname();
 
   // Lock body scroll when mobile menu is open
@@ -228,12 +225,12 @@ export function Navbar() {
             aria-label="Navigation menu"
           >
             {/* Drawer Header */}
-            <div className="flex items-center justify-between px-6 pt-[calc(env(safe-area-inset-top)+20px)] pb-5 border-b border-white/[0.07] shrink-0">
+            <div className="flex items-center justify-between px-6 pt-[calc(env(safe-area-inset-top)+14px)] pb-3 border-b border-white/[0.07] shrink-0">
               <Link
                 href="/"
                 onClick={() => setMobileMenuOpen(false)}
                 className="relative flex items-center"
-                style={{ width: 160, height: 55 }}
+                style={{ width: 140, height: 44 }}
               >
                 <Image
                   src="/rasheed-clothing-logo-transparent.png"
@@ -253,110 +250,71 @@ export function Navbar() {
               </button>
             </div>
 
-            {/* Navigation Links — scrollable layout */}
-            <div className="flex-1 overflow-y-auto overscroll-contain px-6 py-4">
-              <nav className="flex flex-col gap-2" aria-label="Main navigation">
+            {/* Navigation Links — everything visible at once, no scrolling */}
+            <div className="flex-1 min-h-0 overflow-y-auto overscroll-contain px-6 py-1">
+              <nav
+                className="flex flex-col justify-evenly min-h-full"
+                aria-label="Main navigation"
+              >
                 {navigation.main.map((item, i) => (
                   <motion.div
                     key={item.name}
                     initial={{ opacity: 0, x: 16 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{
-                      delay: 0.08 + i * 0.045,
-                      duration: 0.4,
+                      delay: 0.05 + i * 0.03,
+                      duration: 0.35,
                       ease: [0.22, 1, 0.36, 1],
                     }}
-                    className="flex flex-col"
+                    className="flex flex-col border-b border-white/[0.06] py-[clamp(2px,0.6vh,8px)]"
                   >
                     {item.dropdown ? (
-                      <button
-                        onClick={() =>
-                          setExpandedMobileMenu(
-                            expandedMobileMenu === item.name ? null : item.name,
-                          )
-                        }
-                        className={cn(
-                          "flex items-center justify-between py-4 group border-b border-white/[0.06] w-full text-left outline-none focus:outline-none",
-                        )}
-                        style={{ WebkitTapHighlightColor: "transparent" }}
-                      >
-                        <span
-                          className={cn(
-                            "text-[26px] font-sans font-light tracking-[0.01em] leading-none transition-colors duration-200",
-                            expandedMobileMenu === item.name
-                              ? "text-white"
-                              : "text-white/60 group-hover:text-white/90",
-                          )}
-                        >
+                      <>
+                        <span className="text-[10px] uppercase tracking-[0.25em] text-white/35 mb-0.5">
                           {item.name}
                         </span>
-                        <ChevronDown
-                          className={cn(
-                            "w-5 h-5 transition-all duration-300",
-                            expandedMobileMenu === item.name
-                              ? "text-white rotate-180"
-                              : "text-white/40 group-hover:text-white/80",
-                          )}
-                          strokeWidth={1.5}
-                        />
-                      </button>
+                        <div className="grid grid-cols-2 gap-x-3">
+                          {item.dropdown.map((subItem) => (
+                            <Link
+                              key={subItem.name}
+                              href={subItem.href}
+                              onClick={() => setMobileMenuOpen(false)}
+                              className={cn(
+                                "text-[14px] font-light py-[3px] transition-colors duration-200",
+                                pathname === subItem.href
+                                  ? "text-white"
+                                  : "text-white/65 active:text-white",
+                              )}
+                              style={{ WebkitTapHighlightColor: "transparent" }}
+                            >
+                              {subItem.name}
+                            </Link>
+                          ))}
+                        </div>
+                      </>
                     ) : (
                       <Link
                         href={item.href}
                         onClick={() => setMobileMenuOpen(false)}
-                        className={cn(
-                          "flex items-center justify-between py-4 group border-b border-white/[0.06] w-full",
-                        )}
+                        className="flex items-center justify-between py-0.5 w-full"
                         style={{ WebkitTapHighlightColor: "transparent" }}
                       >
                         <span
                           className={cn(
-                            "text-[26px] font-sans font-light tracking-[0.01em] leading-none transition-colors duration-200",
+                            "text-[clamp(16px,2.6vh,22px)] font-sans font-light leading-tight transition-colors duration-200",
                             pathname === item.href
                               ? "text-white"
-                              : "text-white/60 group-hover:text-white/90 group-active:text-white",
+                              : "text-white/70 active:text-white",
                           )}
                         >
                           {item.name}
                         </span>
                         <ArrowRight
-                          className="w-4 h-4 text-white/0 group-hover:text-white/35 -translate-x-2 group-hover:translate-x-0 transition-all duration-250 shrink-0"
+                          className="w-4 h-4 text-white/30 shrink-0"
                           strokeWidth={1.5}
                         />
                       </Link>
                     )}
-
-                    {/* Sub-items Accordion */}
-                    <AnimatePresence>
-                      {item.dropdown && expandedMobileMenu === item.name && (
-                        <motion.div
-                          initial={{ height: 0, opacity: 0 }}
-                          animate={{ height: "auto", opacity: 1 }}
-                          exit={{ height: 0, opacity: 0 }}
-                          transition={{
-                            duration: 0.3,
-                            ease: [0.22, 1, 0.36, 1],
-                          }}
-                          className="overflow-hidden"
-                        >
-                          <div className="flex flex-col gap-1 pl-4 pt-3 pb-3 ml-2 border-l-2 border-white/[0.08] mt-2 mb-2">
-                            {item.dropdown.map((subItem) => (
-                              <Link
-                                key={subItem.name}
-                                href={subItem.href}
-                                onClick={() => setMobileMenuOpen(false)}
-                                className="text-[16px] font-light tracking-wide text-white/50 hover:text-white/90 active:text-white py-2 transition-colors duration-200"
-                                style={{
-                                  WebkitTapHighlightColor: "transparent",
-                                }}
-                              >
-                                {subItem.name}
-                              </Link>
-                            ))}
-                          </div>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
                   </motion.div>
                 ))}
               </nav>
@@ -371,7 +329,7 @@ export function Navbar() {
                 duration: 0.4,
                 ease: [0.22, 1, 0.36, 1],
               }}
-              className="px-6 pt-5 pb-36 border-t border-white/[0.07] shrink-0"
+              className="px-6 pt-3 pb-[calc(env(safe-area-inset-bottom)+16px)] border-t border-white/[0.07] shrink-0"
             >
               <Button
                 href="/request-quote"

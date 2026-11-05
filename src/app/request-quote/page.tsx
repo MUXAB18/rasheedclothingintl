@@ -262,8 +262,7 @@ export default function RequestQuotePage() {
           body: JSON.stringify(payload),
         });
         if (res.ok) {
-          setStep(5);
-          window.scrollTo({ top: 0, behavior: "smooth" });
+          window.location.href = "/thank-you";
         } else {
           console.error("Failed to submit order request");
         }

@@ -6,6 +6,26 @@ import { getBlogPostBySlug } from "@/lib/api/blog.service";
 import { notFound } from "next/navigation";
 import { BlogViewTracker } from "@/components/blog/BlogViewTracker";
 import { SocialShare } from "@/components/blog/SocialShare";
+import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const post = await getBlogPostBySlug(slug);
+  if (!post || !post.isPublished)
+    return pageMeta({ title: "Post Not Found", description: "", path: `/blog/${slug}`, noindex: true });
+  return pageMeta({
+    title: post.title,
+    description: (post.excerpt || post.content.replace(/<[^>]+>/g, " ")).replace(/\s+/g, " ").trim().slice(0, 158),
+    path: `/blog/${slug}`,
+    image: post.coverImage || undefined,
+    type: "article",
+  });
+}
 
 export default async function BlogPostPage({
   params,
@@ -21,7 +41,7 @@ export default async function BlogPostPage({
 
   // Construct the full URL for sharing
   const baseUrl =
-    process.env.NEXT_PUBLIC_SITE_URL || "https://rasheedclothingintl.me";
+    process.env.NEXT_PUBLIC_SITE_URL || "https://www.rasheedclothingintl.me";
   const postUrl = `${baseUrl}/blog/${slug}`;
 
   return (

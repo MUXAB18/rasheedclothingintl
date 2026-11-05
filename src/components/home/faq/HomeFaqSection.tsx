@@ -41,6 +41,20 @@ export function HomeFaqSection() {
 
   return (
     <section className="py-24 md:py-32 bg-white relative overflow-hidden">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: faqs.map((f) => ({
+              "@type": "Question",
+              name: f.question,
+              acceptedAnswer: { "@type": "Answer", text: f.answer },
+            })),
+          }),
+        }}
+      />
       <div className="container mx-auto px-6 md:px-12 relative z-10 max-w-4xl">
         {/* Section Header */}
         <motion.div
