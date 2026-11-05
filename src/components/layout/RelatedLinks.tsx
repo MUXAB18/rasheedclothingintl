@@ -7,6 +7,16 @@ import { ArrowUpRight } from "lucide-react";
 type L = { href: string; label: string; blurb: string };
 
 const ALL: Record<string, L> = {
+  "/clothing-manufacturer-europe": {
+    href: "/clothing-manufacturer-europe",
+    label: "Manufacturer for Europe",
+    blurb: "Custom clothing for UK and EU brands, made in Pakistan."
+  },
+  "/apparel-manufacturer-pakistan": {
+    href: "/apparel-manufacturer-pakistan",
+    label: "Apparel Manufacturer in Pakistan",
+    blurb: "Any garment made to order in Sialkot."
+  },
   "/products": {
     "href": "/products",
     "label": "Clothing Products",
@@ -106,12 +116,28 @@ const ALL: Record<string, L> = {
 
 const RELATED: Record<string, string[]> = {
   "/": [
-    "/products",
+    "/clothing-manufacturer-europe",
+    "/apparel-manufacturer-pakistan",
     "/private-label",
     "/manufacturing",
-    "/global",
     "/case-studies",
     "/blog"
+  ],
+  "/clothing-manufacturer-europe": [
+    "/private-label",
+    "/export-services",
+    "/global",
+    "/apparel-manufacturer-pakistan",
+    "/quality",
+    "/request-quote"
+  ],
+  "/apparel-manufacturer-pakistan": [
+    "/manufacturing",
+    "/clothing-manufacturer-europe",
+    "/custom-manufacturing",
+    "/quality",
+    "/products",
+    "/request-quote"
   ],
   "/about": [
     "/manufacturing",
@@ -178,6 +204,7 @@ const RELATED: Record<string, string[]> = {
     "/request-quote"
   ],
   "/global": [
+    "/clothing-manufacturer-europe",
     "/export-services",
     "/manufacturing",
     "/products",

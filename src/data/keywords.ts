@@ -19,6 +19,16 @@ export const keywordMap: Record<string, KeywordTarget> = {
     secondary: ["Sialkot", "Pakistan", "apparel exporter", "garment manufacturer", "clothing supplier"],
     semantic: ["private label", "OEM", "wholesale", "bulk", "hoodies", "activewear", "export", "MOQ", "Asia"],
   },
+  "/clothing-manufacturer-europe": {
+    primary: "clothing manufacturer for Europe",
+    secondary: ["UK", "Germany", "France", "Netherlands", "private label", "low MOQ", "made in Pakistan"],
+    semantic: ["GSP+", "REACH", "customs", "sea freight", "air freight", "sizing", "labelling", "Brexit"],
+  },
+  "/apparel-manufacturer-pakistan": {
+    primary: "apparel manufacturer in Sialkot",
+    secondary: ["garment factory", "clothing manufacturer", "Pakistan", "hoodies", "uniforms"],
+    semantic: ["Sialkot Chamber of Commerce", "cut and sew", "wholesale", "private label", "sportswear", "tech pack"],
+  },
   "/private-label": {
     primary: "private label clothing",
     secondary: ["white label", "start a clothing brand", "clothing line", "low MOQ"],

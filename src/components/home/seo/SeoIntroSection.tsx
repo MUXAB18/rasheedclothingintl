@@ -12,6 +12,7 @@ const LINKS = [
   { href: "/private-label", label: "Private label clothing" },
   { href: "/custom-manufacturing", label: "Custom manufacturing" },
   { href: "/global", label: "Export services" },
+  { href: "/clothing-manufacturer-europe", label: "Manufacturer for Europe" },
   { href: "/products", label: "Product range" },
 ];
 

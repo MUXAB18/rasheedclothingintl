@@ -54,12 +54,14 @@ export const navigation: {
       { name: "Sustainability", href: "/sustainability" },
       { name: "Global Reach", href: "/global" },
       { name: "Export Services", href: "/export-services" },
+      { name: "Manufacturer for Europe", href: "/clothing-manufacturer-europe" },
     ],
     services: [
       { name: "Private Label", href: "/private-label" },
       { name: "Custom Manufacturing", href: "/custom-manufacturing" },
       { name: "Customization & Printing", href: "/customization" },
       { name: "Fabric Sourcing", href: "/fabrics" },
+      { name: "Apparel Manufacturer Pakistan", href: "/apparel-manufacturer-pakistan" },
     ],
     resources: [
       { name: "Design Studio", href: "/design-studio" },
