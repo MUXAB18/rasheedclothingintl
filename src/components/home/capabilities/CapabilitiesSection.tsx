@@ -8,7 +8,7 @@ import { CheckCircle2 } from "lucide-react";
 
 export function CapabilitiesSection() {
   return (
-    <section className="bg-white py-24 md:py-32 overflow-hidden relative w-full font-sans">
+    <section className="bg-white py-14 md:py-20 overflow-hidden relative w-full font-sans">
       <div className="container mx-auto px-4 md:px-8 max-w-[1400px]">
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-0 relative">
           {/* HUGE TEXT ON THE LEFT */}

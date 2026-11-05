@@ -43,7 +43,7 @@ const processSteps = [
 
 export function ProcessTimelineSection() {
   return (
-    <section className="bg-[#F5F5F0] py-24 md:py-32 overflow-hidden w-full">
+    <section className="bg-[#F5F5F0] py-14 md:py-20 overflow-hidden w-full">
       <div className="container mx-auto px-6 md:px-12 max-w-[1400px]">
         {/* Header (Optional, but good for context if needed, though screenshot doesn't show one. I'll add a minimal one just in case, or leave it out if they just want the timeline. I'll add a subtle header.) */}
         <div className="mb-24 flex flex-col items-center text-center">

@@ -40,7 +40,7 @@ export function HomeFaqSection() {
   };
 
   return (
-    <section className="py-24 md:py-32 bg-white relative overflow-hidden">
+    <section className="py-14 md:py-20 bg-white relative overflow-hidden">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

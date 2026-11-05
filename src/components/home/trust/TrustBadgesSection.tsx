@@ -123,7 +123,7 @@ export function TrustBadgesSection() {
   ];
 
   return (
-    <section className="relative py-12 md:py-16 bg-gray-50 border-y border-gray-200">
+    <section className="relative py-8 md:py-12 bg-gray-50 border-y border-gray-200">
       <div className="container mx-auto px-6 md:px-12">
         {/* Grid */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 md:gap-8">

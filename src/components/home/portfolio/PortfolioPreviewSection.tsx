@@ -14,7 +14,7 @@ export function PortfolioPreviewSection({
   if (!projects || projects.length === 0) return null;
 
   return (
-    <section className="bg-[#faf9f6] py-16 md:py-32 lg:py-48 overflow-hidden w-full selection:bg-black selection:text-white">
+    <section className="bg-[#faf9f6] py-12 md:py-20 lg:py-24 overflow-hidden w-full selection:bg-black selection:text-white">
       <div className="container mx-auto px-5 md:px-8 max-w-[1400px]">
         {/* Header */}
         <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-10 md:mb-16 gap-4 md:gap-8 text-center md:text-left">

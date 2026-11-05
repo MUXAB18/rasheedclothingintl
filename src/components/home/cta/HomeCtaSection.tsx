@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/Button";
 
 export function HomeCtaSection() {
   return (
-    <section className="py-32 relative overflow-hidden bg-[#F5F5F0]">
+    <section className="py-16 md:py-24 relative overflow-hidden bg-[#F5F5F0]">
       <div className="container mx-auto px-6 md:px-12 relative z-10 text-center">
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}

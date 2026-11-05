@@ -20,19 +20,19 @@ const LINKS = [
 
 export function SeoIntroSection() {
   return (
-    <section className="relative overflow-hidden bg-near-black text-white py-20 md:py-28 border-t border-white/10">
+    <section className="relative overflow-hidden bg-near-black text-white py-14 md:py-20 border-t border-white/10">
       {/* Same ambient glow as the footer so the two read as one surface */}
       <div className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[1000px] h-[400px] bg-white/[0.03] blur-[120px] rounded-full" />
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start [&>*]:min-w-0">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start [&>*]:min-w-0">
           {/* Copy */}
           <div className="lg:col-span-7">
             <p className="font-sans text-[11px] font-bold tracking-[3px] uppercase text-white/60 mb-6 flex items-center gap-3">
               <span className="h-px w-8 bg-white/30" />
               Sialkot · Pakistan · Worldwide
             </p>
-            <h2 className="text-4xl md:text-5xl font-sans font-black tracking-tight leading-[1.05] text-balance mb-8">
+            <h2 className="text-4xl md:text-5xl font-sans font-black tracking-tight leading-[1.05] text-balance mb-5 md:mb-8">
               Best Clothing Manufacturer in Sialkot, Pakistan &amp; Asia
             </h2>
             <div className="space-y-5 text-[15px] md:text-base text-white/65 leading-relaxed max-w-2xl">
@@ -71,13 +71,13 @@ export function SeoIntroSection() {
 
           {/* Stats + CTA */}
           <div className="lg:col-span-5">
-            <dl className="grid grid-cols-2 gap-4">
+            <dl className="grid grid-cols-2 gap-3 md:gap-4">
               {STATS.map((s) => (
                 <div
                   key={s.label}
-                  className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 hover:border-white/25 transition-colors"
+                  className="rounded-2xl border border-white/10 bg-white/[0.03] p-4 md:p-6 hover:border-white/25 transition-colors"
                 >
-                  <dd className="text-3xl md:text-4xl font-sans font-black tracking-tight text-white mb-2">{s.value}</dd>
+                  <dd className="text-2xl md:text-4xl font-sans font-black tracking-tight text-white mb-1 md:mb-2">{s.value}</dd>
                   <dt className="text-[12px] text-white/55 leading-snug">{s.label}</dt>
                 </div>
               ))}
@@ -86,7 +86,7 @@ export function SeoIntroSection() {
             <ChamberBadge className="mt-4 w-full justify-center" />
             <IsoBadges dark className="mt-4" />
 
-            <div className="mt-4 rounded-2xl border border-white/10 bg-white/[0.03] p-6 flex items-center justify-between gap-4">
+            <div className="mt-3 md:mt-4 rounded-2xl border border-white/10 bg-white/[0.03] p-4 md:p-6 flex items-center justify-between gap-4">
               <div>
                 <p className="font-bold text-white mb-1">Ready to start your order?</p>
                 <p className="text-[13px] text-white/55">Samples in days, bulk shipped worldwide.</p>
