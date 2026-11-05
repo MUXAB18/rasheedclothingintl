@@ -38,7 +38,7 @@ export const navigation: {
       ],
     },
     { name: "Design Studio", href: "/design-studio" },
-    { name: "Quote", href: "/contact" },
+    { name: "Contact", href: "/contact" },
   ],
   footer: {
     quickLinks: [

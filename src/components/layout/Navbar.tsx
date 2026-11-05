@@ -174,7 +174,7 @@ export function Navbar() {
                 href="/request-quote"
                 className="relative py-3.5 px-8 md:px-10 rounded-full bg-white text-black hover:bg-gray-100 transition-colors border-none text-[14px] font-semibold z-10 shadow-[0_0_20px_rgba(255,255,255,0.1)]"
               >
-                Request a Quote
+                Get a Quote
               </Button>
             </div>
 
@@ -341,7 +341,7 @@ export function Navbar() {
                 className="w-full bg-[#efefef] text-[#0a0a0a] py-[15px] rounded-full text-[10px] font-semibold uppercase tracking-[0.22em] border-none hover:bg-white active:bg-white/90 transition-colors duration-200 flex items-center justify-center gap-2.5 group"
                 style={{ WebkitTapHighlightColor: "transparent" }}
               >
-                Request a Quote
+                Get a Quote
                 <ArrowRight
                   className="w-3.5 h-3.5 transition-transform duration-250 group-hover:translate-x-0.5"
                   strokeWidth={2}
