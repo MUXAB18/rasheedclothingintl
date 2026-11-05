@@ -63,6 +63,7 @@ export const navigation: {
       { name: "Customization & Printing", href: "/customization" },
       { name: "Fabric Sourcing", href: "/fabrics" },
       { name: "Apparel Manufacturer Pakistan", href: "/apparel-manufacturer-pakistan" },
+      { name: "Streetwear Manufacturer", href: "/streetwear-manufacturer" },
       { name: "Hoodie Manufacturer", href: "/hoodie-manufacturer" },
       { name: "Activewear Manufacturer", href: "/activewear-manufacturer" },
     ],

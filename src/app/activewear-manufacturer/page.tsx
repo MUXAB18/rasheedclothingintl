@@ -3,10 +3,10 @@ import { PillarPage, type PillarProps } from "@/components/seo/PillarPage";
 
 const P: PillarProps = {
   "path": "/activewear-manufacturer",
-  "metaTitle": "Activewear & Gymwear Manufacturer in Pakistan",
+  "metaTitle": "Sportswear & Activewear Manufacturer in Pakistan",
   "metaDescription": "Activewear and gymwear manufacturer in Sialkot, Pakistan. Custom singlets, leggings, shorts and tracksuits with sublimation and embroidery. Low MOQ, worldwide shipping.",
-  "eyebrow": "Activewear Manufacturer",
-  "h1": "Activewear & Gymwear Manufacturer in Sialkot, Pakistan",
+  "eyebrow": "Sportswear Manufacturer",
+  "h1": "Sportswear, Activewear & Team Uniform Manufacturer in Sialkot, Pakistan",
   "intro": [
     "Sialkot is world-famous for sportswear, and Rasheed Clothing International builds custom activewear and gymwear for fitness brands, gyms, teams and retailers across Asia, the UK, Europe and the USA.",
     "We make singlets, tank tops, shorts, leggings, tracksuits and team kits to your design, with low minimums from 50 units."
@@ -61,6 +61,12 @@ const P: PillarProps = {
           "title": "Fitness sets",
           "text": "Coordinated collections for fitness brands."
         }
+      ]
+    },
+    {
+      "heading": "Team uniforms and sports kits",
+      "body": [
+        "Sialkot is a centre for team sports apparel. We make custom jerseys, shorts and training kits for football (soccer), basketball, baseball, cricket, cycling and other sports, plus club tracksuits and warm-ups, with names, numbers and sponsor logos applied by sublimation, heat transfer or embroidery."
       ]
     },
     {

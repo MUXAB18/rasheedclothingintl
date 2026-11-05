@@ -40,9 +40,14 @@ export const keywordMap: Record<string, KeywordTarget> = {
     semantic: ["fleece", "oversized", "streetwear", "merch", "GSM", "private label"],
   },
   "/activewear-manufacturer": {
-    primary: "activewear manufacturer",
-    secondary: ["gymwear", "sportswear", "singlets", "leggings", "tracksuits"],
-    semantic: ["sublimation", "performance fabric", "team kits", "fitness brand", "Sialkot"],
+    primary: "sportswear manufacturer",
+    secondary: ["activewear manufacturer", "gymwear", "team uniforms", "sports kits", "tracksuits"],
+    semantic: ["sublimation", "performance fabric", "jerseys", "fitness brand", "football", "basketball", "Sialkot"],
+  },
+  "/streetwear-manufacturer": {
+    primary: "streetwear manufacturer",
+    secondary: ["OEM", "ODM", "private label", "varsity jackets", "bomber jackets", "joggers"],
+    semantic: ["puff print", "DTF", "DTG", "chenille", "embroidery", "GSM", "tech pack", "patches"],
   },
   "/private-label": {
     primary: "private label clothing",
@@ -51,7 +56,7 @@ export const keywordMap: Record<string, KeywordTarget> = {
   },
   "/custom-manufacturing": {
     primary: "custom clothing manufacturer",
-    secondary: ["OEM", "cut and sew", "bulk production", "tech pack"],
+    secondary: ["OEM", "ODM", "cut and sew", "CMT", "FOB", "bulk production", "tech pack"],
     semantic: ["sampling", "pattern", "lead time", "fabric", "stitching", "production", "specifications"],
   },
   "/products": {
