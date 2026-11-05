@@ -61,7 +61,7 @@ const P: PillarProps = {
       heading: "Sizing, labelling and compliance for the EU and UK",
       body: [
         "European buyers have specific requirements. Tell us your target market and we will follow your brief for size charts (EU, UK or US), fibre-content and care labelling, country-of-origin marking and any chemical restrictions you need to meet, such as REACH. We can provide test reports if your retail customers ask for them.",
-        "Our quality control checks measurements, stitching and finishing at several stages, with a 99.5% quality pass rate across production.",
+        "We hold ISO 9001 (quality), ISO 14001 (environmental) and ISO 45001 (health and safety) certification. Our quality control checks measurements, stitching and finishing at several stages, with a 99.5% quality pass rate across production.",
       ],
     },
     {

@@ -19,11 +19,21 @@ export const companyData = {
     qualityRate: "99.5%",
   },
 
+  // ISO certifications. Add `number` and `issuer` (certification body) once you have the certificates;
+  // they are then shown on the badges and in structured data.
+  isoCertifications: [
+    { code: "ISO 9001", name: "ISO 9001 Quality Management", short: "Quality", number: "", issuer: "" },
+    { code: "ISO 14001", name: "ISO 14001 Environmental Management", short: "Environment", number: "", issuer: "" },
+    { code: "ISO 45001", name: "ISO 45001 Occupational Health & Safety", short: "Health & Safety", number: "", issuer: "" },
+  ],
+
   // Certifications & Accreditations
   accreditations: [
     "Approved Member - Sialkot Chamber of Commerce & Industry",
     "Export Excellence Award 2023",
-    "Quality Management Certified",
+    "ISO 9001 Certified: Quality Management",
+    "ISO 14001 Certified: Environmental Management",
+    "ISO 45001 Certified: Occupational Health & Safety",
   ],
 
   // Manufacturing Capabilities

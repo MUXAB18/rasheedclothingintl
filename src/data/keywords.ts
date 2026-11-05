@@ -81,7 +81,7 @@ export const keywordMap: Record<string, KeywordTarget> = {
   },
   "/quality": {
     primary: "quality control",
-    secondary: ["inspection", "defect", "quality assurance", "garment testing"],
+    secondary: ["ISO 9001", "ISO 14001", "ISO 45001", "inspection", "defect", "quality assurance", "garment testing"],
     semantic: ["AQL", "stitching", "measurements", "fabric", "standards", "pre-shipment", "checks"],
   },
   "/global": {

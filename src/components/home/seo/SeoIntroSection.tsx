@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { ChamberBadge } from "@/components/ui/ChamberBadge";
+import { IsoBadges } from "@/components/ui/IsoBadges";
 
 const STATS = [
   { value: "10,000+", label: "Units made every month" },
@@ -83,6 +84,7 @@ export function SeoIntroSection() {
             </dl>
 
             <ChamberBadge className="mt-4 w-full justify-center" />
+            <IsoBadges dark className="mt-4" />
 
             <div className="mt-4 rounded-2xl border border-white/10 bg-white/[0.03] p-6 flex items-center justify-between gap-4">
               <div>

@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Check } from "lucide-react";
 import { ChamberBadge } from "@/components/ui/ChamberBadge";
+import { IsoBadges } from "@/components/ui/IsoBadges";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { SITE_URL } from "@/lib/seo";
 import { BUSINESS_ID, WEBSITE_ID } from "@/lib/schema";
@@ -95,6 +96,8 @@ export function PillarPage(p: PillarProps) {
             Rasheed Clothing International is a verified member of the Sialkot Chamber of Commerce &amp; Industry.
           </p>
         </div>
+
+        <IsoBadges className="mb-6" />
 
         <dl className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-20">
           {p.stats.map((s) => (

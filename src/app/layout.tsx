@@ -142,6 +142,11 @@ export default function RootLayout({
                 "OEM garment production", "Hoodie manufacturing", "Activewear manufacturing",
                 "Streetwear manufacturing", "Corporate uniforms",
               ],
+              hasCertification: [
+                { "@type": "Certification", name: "ISO 9001 Quality Management" },
+                { "@type": "Certification", name: "ISO 14001 Environmental Management" },
+                { "@type": "Certification", name: "ISO 45001 Occupational Health and Safety" },
+              ],
               memberOf: {
                 "@type": "Organization",
                 name: "Sialkot Chamber of Commerce & Industry",
