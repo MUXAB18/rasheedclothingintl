@@ -34,11 +34,11 @@ export default function ProductsPage() {
                 <h2 className="text-3xl font-display mb-3 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
                   {product.title}
                 </h2>
-                <p className="text-white/80 text-sm mb-6 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500 delay-100 line-clamp-3">
+                <div className="text-white/80 text-sm mb-6 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500 delay-100 line-clamp-3">
                   <p className="text-gray-600 mb-4 line-clamp-2">
                     {product.desc}
                   </p>
-                </p>
+                </div>
                 <Link
                   href={`/products/${productSlug(product)}`}
                   className="inline-block mt-2 font-medium text-black hover:underline underline-offset-4"

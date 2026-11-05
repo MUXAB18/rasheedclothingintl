@@ -53,7 +53,7 @@ export default function AboutPage() {
                 <div className="text-4xl font-sans font-black tracking-tight mb-2">
                   {companyData.statistics.yearsOfExperience}+
                 </div>
-                <div className="text-xs font-bold tracking-[2px] uppercase text-near-black/50 font-sans">
+                <div className="text-xs font-bold tracking-[2px] uppercase text-near-black/70 font-sans">
                   Years Excellence
                 </div>
               </div>
@@ -61,7 +61,7 @@ export default function AboutPage() {
                 <div className="text-4xl font-sans font-black tracking-tight mb-2">
                   {companyData.statistics.countriesServed}
                 </div>
-                <div className="text-xs font-bold tracking-[2px] uppercase text-near-black/50 font-sans">
+                <div className="text-xs font-bold tracking-[2px] uppercase text-near-black/70 font-sans">
                   Countries Served
                 </div>
               </div>

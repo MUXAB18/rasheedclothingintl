@@ -29,7 +29,7 @@ export default function CategoryPage({
       <div className="container mx-auto px-6 md:px-12">
         <Link
           href="/products"
-          className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-near-black/50 hover:text-near-black transition-colors mb-12"
+          className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-near-black/70 hover:text-near-black transition-colors mb-12"
         >
           <ArrowLeft className="w-4 h-4" /> Back to Catalog
         </Link>

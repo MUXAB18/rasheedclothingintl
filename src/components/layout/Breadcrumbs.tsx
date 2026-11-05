@@ -29,16 +29,18 @@ export function Breadcrumbs() {
   };
 
   return (
-    <nav aria-label="Breadcrumb" className="max-w-7xl mx-auto px-6 pt-28 -mb-24 relative z-10 text-xs text-neutral-500">
+    <nav aria-label="Breadcrumb" className="max-w-7xl mx-auto px-6 pt-28 -mb-24 relative z-10 text-xs">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <ol className="flex flex-wrap items-center gap-2">
+      {/* Dark pill: readable on both light and dark pages. Vertical padding gives ~36px touch targets
+          while negative margins keep the page layout exactly as before. */}
+      <ol className="inline-flex flex-wrap items-center gap-x-2 rounded-full bg-[#0a0a0a]/85 px-4 -my-2.5 text-white/70 shadow-sm">
         {crumbs.map((c, i) => (
           <li key={c.href} className="flex items-center gap-2">
             {i > 0 && <span aria-hidden>/</span>}
             {i === crumbs.length - 1 ? (
-              <span aria-current="page" className="text-neutral-400">{c.name}</span>
+              <span aria-current="page" className="py-2.5 text-white">{c.name}</span>
             ) : (
-              <Link href={c.href} className="hover:text-neutral-300">{c.name}</Link>
+              <Link href={c.href} className="py-2.5 hover:text-white">{c.name}</Link>
             )}
           </li>
         ))}

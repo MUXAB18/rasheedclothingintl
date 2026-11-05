@@ -12,7 +12,15 @@ const prismaClientSingleton = () => {
       throw new Error("DATABASE_URL is required");
     }
 
-    const pool = new Pool({ connectionString });
+    const pool = new Pool({
+      connectionString,
+      // Serverless-friendly: few connections per instance (the Supabase pooler multiplexes them),
+      // time out rather than hang forever, and release idle connections.
+      max: 10,
+      connectionTimeoutMillis: 20000,
+      idleTimeoutMillis: 10000,
+      allowExitOnIdle: true,
+    });
     const adapter = new PrismaPg(pool);
 
     return new PrismaClient({

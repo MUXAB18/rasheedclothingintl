@@ -1,7 +1,12 @@
 import type { Metadata } from "next";
 import { permanentRedirect } from "next/navigation";
-import { findProduct, productSlug } from "@/data/products";
+import { findProduct, productSlug, products } from "@/data/products";
 import { pageMeta } from "@/lib/seo";
+
+// Pre-build every product page so it is served from the CDN instead of rendered per request
+export function generateStaticParams() {
+  return products.map((p) => ({ category: productSlug(p) }));
+}
 
 export async function generateMetadata({
   params,

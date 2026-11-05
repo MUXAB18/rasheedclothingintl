@@ -183,6 +183,8 @@ export function Navbar() {
               className="lg:hidden relative z-50 p-4 text-white hover:bg-white/10 rounded-full transition-colors mr-1 outline-none focus:outline-none focus:ring-0 active:outline-none -webkit-tap-highlight-color-transparent"
               style={{ WebkitTapHighlightColor: "transparent" }}
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+              aria-expanded={mobileMenuOpen}
             >
               {mobileMenuOpen ? (
                 <X className="w-6 h-6" />

@@ -120,7 +120,7 @@ export default function ContactPage() {
           subtitle="Reach out to discuss your manufacturing requirements, request samples, or ask for a quote."
         />
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mt-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mt-16 [&>*]:min-w-0">
           {/* Contact Information */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -138,7 +138,7 @@ export default function ContactPage() {
                     <MapPin className="w-5 h-5 text-gray-500 group-hover:text-white transition-colors duration-300" />
                   </div>
                   <div>
-                    <h3 className="text-[11px] font-sans font-bold tracking-[2px] uppercase text-gray-400 mb-2">
+                    <h3 className="text-[11px] font-sans font-bold tracking-[2px] uppercase text-gray-500 mb-2">
                       Headquarters
                     </h3>
                     <p className="font-sans font-bold text-lg text-near-black mb-1">
@@ -155,7 +155,7 @@ export default function ContactPage() {
                     <Phone className="w-5 h-5 text-gray-500 group-hover:text-white transition-colors duration-300" />
                   </div>
                   <div>
-                    <h3 className="text-[11px] font-sans font-bold tracking-[2px] uppercase text-gray-400 mb-2">
+                    <h3 className="text-[11px] font-sans font-bold tracking-[2px] uppercase text-gray-500 mb-2">
                       Phone / WhatsApp
                     </h3>
                     <div className="space-y-1">
@@ -182,7 +182,7 @@ export default function ContactPage() {
                     <Mail className="w-5 h-5 text-gray-500 group-hover:text-white transition-colors duration-300" />
                   </div>
                   <div>
-                    <h3 className="text-[11px] font-sans font-bold tracking-[2px] uppercase text-gray-400 mb-2">
+                    <h3 className="text-[11px] font-sans font-bold tracking-[2px] uppercase text-gray-500 mb-2">
                       Email Address
                     </h3>
                     <p className="font-sans font-bold text-lg text-near-black">
@@ -201,7 +201,7 @@ export default function ContactPage() {
                     <Clock className="w-5 h-5 text-gray-500 group-hover:text-white transition-colors duration-300" />
                   </div>
                   <div>
-                    <h3 className="text-[11px] font-sans font-bold tracking-[2px] uppercase text-gray-400 mb-2">
+                    <h3 className="text-[11px] font-sans font-bold tracking-[2px] uppercase text-gray-500 mb-2">
                       Business Hours
                     </h3>
                     <p className="font-sans font-bold text-near-black mb-1">
@@ -210,7 +210,7 @@ export default function ContactPage() {
                     <p className="font-sans text-gray-500">
                       9:00 AM - 7:00 PM (PKT)
                     </p>
-                    <p className="font-sans text-xs font-bold text-green-600 mt-2">
+                    <p className="font-sans text-xs font-bold text-green-700 mt-2">
                       We reply to every enquiry within 24 hours.
                     </p>
                   </div>
@@ -275,6 +275,7 @@ export default function ContactPage() {
                     <input
                       type="text"
                       id="firstName"
+                      autoComplete="given-name"
                       required
                       value={formData.firstName}
                       onChange={handleChange}
@@ -291,6 +292,7 @@ export default function ContactPage() {
                     <input
                       type="text"
                       id="lastName"
+                      autoComplete="family-name"
                       required
                       value={formData.lastName}
                       onChange={handleChange}
@@ -308,6 +310,7 @@ export default function ContactPage() {
                   </label>
                   <div className="relative">
                     <PhoneInput
+                      numberInputProps={{ "aria-label": "Phone number" }}
                       international
                       defaultCountry="US"
                       value={formData.phone || undefined}
@@ -337,6 +340,8 @@ export default function ContactPage() {
                   </label>
                   <input
                     type="email"
+                    autoComplete="email"
+                    inputMode="email"
                     id="email"
                     required
                     value={formData.email}

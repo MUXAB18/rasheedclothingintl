@@ -20,7 +20,7 @@ export function PlaceholderPage({ title, description }: PlaceholderPageProps) {
       <div className="container mx-auto px-6 md:px-12 relative z-10 flex flex-col items-center text-center">
         <Link
           href="/"
-          className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-near-black/50 hover:text-near-black transition-colors mb-16"
+          className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-near-black/70 hover:text-near-black transition-colors mb-16"
         >
           <ArrowLeft className="w-4 h-4" /> Return Home
         </Link>

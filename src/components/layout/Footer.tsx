@@ -118,7 +118,7 @@ export function Footer() {
                 reserved.
               </p>
 
-              <div className="md:hidden flex items-center gap-1 text-[10px] text-white/40">
+              <div className="md:hidden flex items-center gap-1 text-[10px] text-white/60">
                 <span>Designed & Developed by</span>
                 <a
                   href="https://musabiftikhar.tech"
@@ -149,7 +149,7 @@ export function Footer() {
             {/* Right side: Social & Legal */}
             <div className="flex flex-col-reverse sm:flex-row md:items-center gap-5 md:gap-6 w-full md:w-auto items-start">
               {/* Legal Links */}
-              <div className="flex flex-wrap items-center gap-4 text-[10px] font-bold tracking-[1px] uppercase text-white/40 z-10">
+              <div className="flex flex-wrap items-center gap-4 text-[10px] font-bold tracking-[1px] uppercase text-white/65 z-10">
                 <Link
                   href="/privacy"
                   className="hover:text-white transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-0 hover:after:w-full after:bg-white after:transition-all after:duration-300"

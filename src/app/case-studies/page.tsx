@@ -79,7 +79,7 @@ export default function CaseStudiesPage() {
                 className={`w-full lg:w-1/2 ${idx % 2 !== 0 ? "lg:order-1" : ""}`}
               >
                 <div className="mb-8 border-b border-near-black/10 pb-8">
-                  <span className="text-sm font-bold uppercase tracking-[2px] text-near-black/50 block mb-2">
+                  <span className="text-sm font-bold uppercase tracking-[2px] text-near-black/70 block mb-2">
                     {study.category}
                   </span>
                   <h2 className="text-4xl md:text-5xl font-sans font-black tracking-tight">
@@ -97,7 +97,7 @@ export default function CaseStudiesPage() {
                       <div className="text-2xl md:text-3xl font-black tracking-tight mb-1">
                         {stat.value}
                       </div>
-                      <div className="text-xs uppercase tracking-[1px] font-bold text-near-black/50">
+                      <div className="text-xs uppercase tracking-[1px] font-bold text-near-black/70">
                         {stat.label}
                       </div>
                     </div>

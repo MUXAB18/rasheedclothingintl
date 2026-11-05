@@ -523,7 +523,7 @@ export function DesignStudio() {
               </motion.div>
             </AnimatePresence>
 
-            <div className="absolute bottom-6 text-center text-xs font-sans text-gray-500 font-bold tracking-widest uppercase pointer-events-none">
+            <div className="absolute bottom-6 text-center text-xs font-sans text-gray-600 font-bold tracking-widest uppercase pointer-events-none">
               Click to Edit &bull; Drag to Move
             </div>
           </div>

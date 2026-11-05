@@ -255,7 +255,7 @@ export default function PrivateLabelPage() {
               <p className="text-4xl font-sans font-black tracking-tight mb-2">
                 {stat.num}
               </p>
-              <p className="text-sm text-near-black/50 uppercase tracking-[1px] font-bold">
+              <p className="text-sm text-near-black/70 uppercase tracking-[1px] font-bold">
                 {stat.label}
               </p>
             </div>

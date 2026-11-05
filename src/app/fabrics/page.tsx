@@ -440,7 +440,7 @@ export default function FabricsPage() {
               <p className="text-4xl font-sans font-black tracking-tight mb-2">
                 {stat.num}
               </p>
-              <p className="text-sm text-near-black/50 uppercase tracking-[1px] font-bold">
+              <p className="text-sm text-near-black/70 uppercase tracking-[1px] font-bold">
                 {stat.label}
               </p>
             </div>
@@ -562,7 +562,7 @@ export default function FabricsPage() {
                   {g.examples.map((ex) => (
                     <span
                       key={ex}
-                      className="text-xs text-near-black/50 font-medium"
+                      className="text-xs text-near-black/70 font-medium"
                     >
                       → {ex}
                     </span>

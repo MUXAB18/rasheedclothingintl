@@ -235,7 +235,7 @@ export function FAQClient() {
                   className="w-full flex items-center justify-between p-6 md:p-8 text-left bg-white hover:bg-gray-50 transition-colors"
                 >
                   <div className="flex-1 pr-4">
-                    <span className="inline-block text-[10px] font-sans font-bold tracking-wider uppercase text-gray-400 mb-2">
+                    <span className="inline-block text-[10px] font-sans font-bold tracking-wider uppercase text-gray-500 mb-2">
                       {faq.category}
                     </span>
                     <h2 className="text-base md:text-lg font-sans font-bold text-black">

@@ -109,3 +109,46 @@
     color: #A2A2A2;
   }
 }
+
+/* ── Mobile / touch ───────────────────────────────────────────── */
+/* iOS Safari zooms the page when a focused field is under 16px: keep fields at 16px on touch screens */
+@media (pointer: coarse) {
+  input,
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
+}
+
+/* Remove the tap delay and double-tap zoom on controls; keep pinch-zoom for accessibility */
+a,
+button,
+input,
+select,
+textarea,
+[role="button"] {
+  touch-action: manipulation;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+/* Respect users who ask for less motion (also helps low-end phones) */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Elements that slide in from the side (entrance animations) must never create a sideways scroll area on phones.
+   `clip` (unlike `hidden`) does not create a scroll container, so sticky positioning keeps working. */
+main {
+  overflow-x: clip;
+}

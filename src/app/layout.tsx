@@ -36,6 +36,8 @@ const cormorant = Cormorant_Garamond({
 export const viewport = {
   width: "device-width",
   initialScale: 1,
+  themeColor: "#0a0a0a",
+  colorScheme: "light dark",
 };
 
 const HOME_TITLE = "Top Clothing Manufacturer in Sialkot, Pakistan | Rasheed Clothing";

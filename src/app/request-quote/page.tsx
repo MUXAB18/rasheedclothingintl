@@ -35,6 +35,8 @@ const InputField = ({
         required={required}
         type={type}
         id={id}
+        autoComplete={AUTOCOMPLETE[id]}
+        inputMode={type === "email" ? "email" : id === "website" ? "url" : undefined}
         placeholder={placeholder}
         value={formData[id as keyof typeof formData] as string}
         onChange={(e) =>
@@ -54,6 +56,15 @@ const InputField = ({
   </div>
 );
 
+// Lets phones autofill saved details and show the right keyboard
+const AUTOCOMPLETE: Record<string, string> = {
+  name: "name",
+  email: "email",
+  company: "organization",
+  website: "url",
+  country: "country-name",
+};
+
 const PhoneInputField = ({
   label,
   id,
@@ -70,6 +81,7 @@ const PhoneInputField = ({
     </label>
     <div className="relative">
       <PhoneInput
+        numberInputProps={{ "aria-label": "Phone number" }}
         international
         defaultCountry="US"
         value={formData[id as keyof typeof formData] || undefined}

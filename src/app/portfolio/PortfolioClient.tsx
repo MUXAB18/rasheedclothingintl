@@ -89,7 +89,7 @@ export function PortfolioClient({
             "text-sm font-sans tracking-wide transition-colors duration-300",
             activeCategory === "All"
               ? "text-black font-bold"
-              : "text-gray-400 hover:text-black font-medium",
+              : "text-gray-500 hover:text-black font-medium",
           )}
         >
           All
@@ -102,7 +102,7 @@ export function PortfolioClient({
               "text-sm font-sans tracking-wide transition-colors duration-300",
               activeCategory === category
                 ? "text-black font-bold"
-                : "text-gray-400 hover:text-black font-medium",
+                : "text-gray-500 hover:text-black font-medium",
             )}
           >
             {category}
@@ -162,9 +162,9 @@ export function PortfolioClient({
                   <span className="text-xs text-gray-500 font-sans uppercase tracking-wider mb-1">
                     {project.category}
                   </span>
-                  <h3 className="text-base font-sans font-bold text-black mb-1">
+                  <h2 className="text-base font-sans font-bold text-black mb-1">
                     {project.title}
-                  </h3>
+                  </h2>
                   <p className="text-sm font-sans text-gray-600 line-clamp-2">
                     {project.description ||
                       `Premium ${project.category.toLowerCase()} manufactured to perfection.`}

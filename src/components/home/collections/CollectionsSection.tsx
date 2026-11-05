@@ -120,7 +120,7 @@ export function CollectionsSection({
                   transition={{ duration: 0.6, delay: 0.2 + index * 0.1 }}
                   className="relative z-10 flex flex-col flex-grow"
                 >
-                  <div className="text-[10px] font-bold tracking-[3px] text-[#A67C52] uppercase mb-2">
+                  <div className="text-[10px] font-bold tracking-[3px] text-[#8A6238] uppercase mb-2">
                     {meta.label}
                   </div>
                   <CardHeading className="text-3xl font-sans font-black text-near-black tracking-tight mb-1">
