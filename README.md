@@ -1,4 +1,4 @@
-# RCI-WEAR — Rasheed Clothing International
+# Rasheed Clothing International
 
 > **Premium custom clothing — Where Imagination Meets Fabrication.**
 
@@ -48,7 +48,7 @@ RCI-WEAR is the marketing & e-commerce web app for **Rasheed Clothing Internatio
 
 ### Prerequisites
 
-- **Node.js** >= 18.0
+- **Node.js** >= 18.0.1
 - **npm** >= 9.0
 
 ### Install
@@ -93,7 +93,7 @@ npm run preview
 
 ---
 
-## Deployment
+## Deployment Stage
 
 ### Vercel (Recommended)
 
@@ -348,5 +348,12 @@ rci-wear/
 ```
 
 ---
+## Project Setup
 
-*Built with care for performance, accessibility, and scalability.*
+
+
+## 🤝 Contributing
+Thank you for your interest in Rasheed Clothing International. To contribute, fork the repository, create a feature branch, make your changes, test the site locally with npm run dev, and open a pull request describing your change clearly.
+
+## 📄 License
+This project is developed for Rasheed Clothing International for learning and demonstration purposes. Please contact the repository owner before reusing the code or branding for commercial purposes.
