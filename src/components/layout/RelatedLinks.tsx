@@ -323,36 +323,31 @@ export function RelatedLinks() {
   const links = keys.map((k) => ALL[k]).filter(Boolean);
 
   return (
-    <aside aria-labelledby="related-links" className="relative overflow-hidden bg-gradient-to-b from-[#2b2016] to-[#1a130d] border-b border-[#A67C52]/30 text-white pt-16 md:pt-20 pb-16 md:pb-24">
-      {/* Soft top glow; the lower gap + footer border keep this clearly separate from the footer */}
-      <div className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[1000px] h-[300px] bg-[#A67C52]/20 blur-[120px] rounded-full" />
-
-      <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
-        <div className="mb-10 md:mb-12 flex flex-col md:flex-row md:items-end md:justify-between gap-4">
-          <div>
-            <p className="font-sans text-[11px] font-bold tracking-[3px] uppercase text-[#C9A27A] mb-4 flex items-center gap-3">
-              <span className="h-px w-8 bg-[#A67C52]" />
-              Keep exploring
-            </p>
-            <h2 id="related-links" className="text-2xl md:text-4xl font-sans font-black tracking-tight text-balance">
-              Explore more from our Sialkot clothing manufacturer
-            </h2>
-          </div>
+    <aside aria-labelledby="related-links" className="bg-[#F8F8F8] text-near-black border-t border-black/5 py-16 md:py-20">
+      <div className="max-w-7xl mx-auto px-6 md:px-12">
+        <div className="mb-10 md:mb-12">
+          <p className="flex items-center gap-4 text-[11px] font-extrabold uppercase tracking-[6px] text-black mb-4">
+            <span className="h-[2px] w-8 bg-black" />
+            Keep exploring
+          </p>
+          <h2 id="related-links" className="text-2xl md:text-4xl font-sans font-black tracking-tight text-balance">
+            Explore more from our Sialkot clothing manufacturer
+          </h2>
         </div>
-        <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
           {links.map((l) => (
             <li
               key={l.href}
-              className="group relative h-full p-6 rounded-3xl border border-[#A67C52]/25 bg-black/20 hover:bg-black/35 hover:border-[#A67C52]/70 hover:-translate-y-0.5 transition-all duration-300"
+              className="group relative h-full p-6 rounded-3xl bg-white border border-black/10 hover:border-black hover:-translate-y-0.5 hover:shadow-[0_12px_30px_-12px_rgba(0,0,0,0.25)] transition-all duration-300"
             >
               {/* Anchor text is just the page name; the stretched link makes the whole card clickable */}
-              <Link href={l.href} className="flex items-center justify-between gap-3 text-white font-bold mb-2 after:absolute after:inset-0 after:content-['']">
+              <Link href={l.href} className="flex items-center justify-between gap-3 text-near-black font-bold mb-2 after:absolute after:inset-0 after:content-['']">
                 {l.label}
-                <span className="w-8 h-8 shrink-0 rounded-full bg-[#A67C52]/15 border border-[#A67C52]/40 flex items-center justify-center text-[#C9A27A] group-hover:bg-[#A67C52] group-hover:text-white group-hover:border-[#A67C52] transition-colors">
+                <span className="w-8 h-8 shrink-0 rounded-full bg-[#F8F8F8] border border-black/10 flex items-center justify-center text-near-black group-hover:bg-black group-hover:text-white group-hover:border-black transition-colors">
                   <ArrowUpRight size={14} />
                 </span>
               </Link>
-              <p className="text-sm text-white/65 leading-relaxed pr-6">{l.blurb}</p>
+              <p className="text-sm text-near-black/60 leading-relaxed pr-6">{l.blurb}</p>
             </li>
           ))}
         </ul>
