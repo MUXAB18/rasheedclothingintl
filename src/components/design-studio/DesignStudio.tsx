@@ -144,6 +144,9 @@ const fonts = [
   { name: "Heavy Block", value: fRubikMono.style.fontFamily },
 ];
 
+const SECTION_BASE =
+  "order-3 lg:order-none bg-[#F8F8F8] border border-gray-100 rounded-2xl p-4 lg:p-0 lg:bg-transparent lg:border-0 lg:rounded-none";
+
 export function DesignStudio() {
   const router = useRouter();
   const [garment, setGarment] = useState<GarmentType>("HOODIE");
@@ -160,6 +163,7 @@ export function DesignStudio() {
   const [isFontDropdownOpen, setIsFontDropdownOpen] = useState(false);
   const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [showAllPatches, setShowAllPatches] = useState(false);
+  const [mobileTab, setMobileTab] = useState<"garment" | "color" | "add" | "patches">("garment");
 
   // Refs
   const constraintsRef = useRef<HTMLDivElement>(null);
@@ -220,6 +224,8 @@ export function DesignStudio() {
     if (selectedLayerId === id) setSelectedLayerId(null);
   };
 
+  const selectedLayer = layers.find((l) => l.id === selectedLayerId) || null;
+
   const quoteHref = () => {
     const categoryBySlug: Record<GarmentType, string> = {
       HOODIE: "hoodies",
@@ -264,13 +270,83 @@ export function DesignStudio() {
 
         {/* 3-Column Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-8 items-start mt-4 md:mt-12">
+          {/* Mobile: edit bar for the selected element + tab bar (hidden on desktop) */}
+          {selectedLayer && (
+            <div
+              className="order-2 lg:hidden bg-white border border-gray-200 rounded-2xl p-3 shadow-sm flex flex-col gap-3"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="flex items-center gap-3">
+                <span className="text-[10px] font-bold uppercase tracking-widest text-gray-500 w-12">Size</span>
+                <input
+                  type="range"
+                  min={0.3}
+                  max={3}
+                  step={0.05}
+                  value={selectedLayer.scale}
+                  onChange={(e) => updateLayer(selectedLayer.id, { scale: parseFloat(e.target.value) })}
+                  className="flex-1 h-8 accent-black"
+                  aria-label="Size of selected element"
+                />
+              </div>
+              <div className="flex items-center gap-3">
+                <span className="text-[10px] font-bold uppercase tracking-widest text-gray-500 w-12">Rotate</span>
+                <input
+                  type="range"
+                  min={-180}
+                  max={180}
+                  step={5}
+                  value={selectedLayer.rotation}
+                  onChange={(e) => updateLayer(selectedLayer.id, { rotation: parseInt(e.target.value, 10) })}
+                  className="flex-1 h-8 accent-black"
+                  aria-label="Rotation of selected element"
+                />
+                <button
+                  onClick={() => removeLayer(selectedLayer.id)}
+                  className="min-w-11 min-h-11 flex items-center justify-center rounded-full bg-red-50 text-red-600"
+                  aria-label="Delete selected element"
+                >
+                  <Trash2 size={18} />
+                </button>
+              </div>
+            </div>
+          )}
+          <div
+            className="order-2 lg:hidden grid grid-cols-4 gap-1 bg-[#F8F8F8] border border-gray-100 rounded-2xl p-1"
+            role="tablist"
+            aria-label="Design tools"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {(
+              [
+                ["garment", "Garment"],
+                ["color", "Colour"],
+                ["add", "Add"],
+                ["patches", "Patches"],
+              ] as const
+            ).map(([id, label]) => (
+              <button
+                key={id}
+                role="tab"
+                aria-selected={mobileTab === id}
+                onClick={() => setMobileTab(id)}
+                className={cn(
+                  "min-h-11 rounded-xl text-[12px] font-bold uppercase tracking-wide transition-colors",
+                  mobileTab === id ? "bg-black text-white" : "text-gray-600",
+                )}
+              >
+                {label}
+              </button>
+            ))}
+          </div>
+
           {/* Left Column - Configuration */}
           <div
-            className="order-2 lg:order-1 lg:col-span-3 flex flex-col gap-5 lg:gap-8 bg-[#F8F8F8] border border-gray-100 rounded-2xl p-4 lg:p-6 shadow-sm"
+            className="contents lg:flex lg:order-1 lg:col-span-3 lg:flex-col lg:gap-8 lg:bg-[#F8F8F8] lg:border lg:border-gray-100 lg:rounded-2xl lg:p-6 lg:shadow-sm"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Garment Selection */}
-            <div>
+            <div className={cn(SECTION_BASE, mobileTab === "garment" ? "block" : "hidden", "lg:block")}>
               <h3 className="text-[10px] font-sans font-bold tracking-[2px] text-gray-500 uppercase mb-4">
                 1. Select Garment
               </h3>
@@ -300,7 +376,7 @@ export function DesignStudio() {
             </div>
 
             {/* Color Selection */}
-            <div>
+            <div className={cn(SECTION_BASE, mobileTab === "color" ? "block" : "hidden", "lg:block")}>
               <h3 className="text-[10px] font-sans font-bold tracking-[2px] text-gray-500 uppercase mb-4">
                 2. Select Color
               </h3>
@@ -353,8 +429,8 @@ export function DesignStudio() {
               </p>
             </div>
 
-            {/* View Selection */}
-            <div>
+            {/* View Selection (desktop; on mobile it is on the canvas) */}
+            <div className={cn(SECTION_BASE, "hidden", "lg:block")}>
               <h3 className="text-[10px] font-sans font-bold tracking-[2px] text-gray-500 uppercase mb-4">
                 3. Camera View
               </h3>
@@ -378,7 +454,27 @@ export function DesignStudio() {
           </div>
 
           {/* Center Column - Mockup Canvas */}
-          <div className="order-1 lg:order-2 lg:col-span-6 flex items-center justify-center bg-[#F5F5F0] rounded-3xl p-3 sm:p-8 shadow-inner relative h-[46vh] min-h-[320px] sm:h-[500px] lg:h-[700px] overflow-hidden sticky top-[88px] lg:static z-30 border border-black/5">
+          <div className="order-1 lg:order-2 lg:col-span-6 flex items-center justify-center bg-[#F5F5F0] rounded-3xl p-3 sm:p-8 shadow-inner relative h-[42vh] min-h-[300px] sm:h-[500px] lg:h-[700px] overflow-hidden sticky top-[88px] lg:static z-30 border border-black/5">
+            {/* Mobile: quick front/back switch on the canvas */}
+            <div
+              className="lg:hidden absolute top-2 left-2 z-30 flex rounded-full bg-white/90 border border-gray-200 p-0.5 shadow-sm"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {(["FRONT", "BACK"] as ViewType[]).map((v) => (
+                <button
+                  key={v}
+                  onClick={() => setView(v)}
+                  aria-pressed={view === v}
+                  className={cn(
+                    "min-h-9 px-3 rounded-full text-[11px] font-bold uppercase tracking-wide",
+                    view === v ? "bg-black text-white" : "text-gray-600",
+                  )}
+                >
+                  {v}
+                </button>
+              ))}
+            </div>
+
             {/* Toolbar for Selected Layer */}
             <AnimatePresence>
               {selectedLayerId && (
@@ -386,7 +482,7 @@ export function DesignStudio() {
                   initial={{ opacity: 0, y: -20 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
-                  className="absolute top-2 sm:top-6 z-40 bg-white/90 backdrop-blur-md shadow-xl rounded-full px-2 py-2 flex gap-1 items-center border border-gray-200"
+                  className="absolute top-2 sm:top-6 z-40 bg-white/90 backdrop-blur-md shadow-xl rounded-full px-2 py-2 hidden lg:flex gap-1 items-center border border-gray-200"
                   onClick={(e) => e.stopPropagation()}
                 >
                   <button
@@ -564,10 +660,10 @@ export function DesignStudio() {
 
           {/* Right Column - Tools */}
           <div
-            className="order-3 lg:order-3 lg:col-span-3 flex flex-col gap-5 lg:gap-8 bg-[#F8F8F8] border border-gray-100 rounded-2xl p-4 lg:p-6 shadow-sm"
+            className="contents lg:flex lg:order-3 lg:col-span-3 lg:flex-col lg:gap-8 lg:bg-[#F8F8F8] lg:border lg:border-gray-100 lg:rounded-2xl lg:p-6 lg:shadow-sm"
             onClick={(e) => e.stopPropagation()}
           >
-            <div>
+            <div className={cn(SECTION_BASE, mobileTab === "add" ? "block" : "hidden", "lg:block")}>
               <h3 className="text-[10px] font-sans font-bold tracking-[2px] text-gray-500 uppercase mb-4">
                 4. Add Design
               </h3>
@@ -711,7 +807,7 @@ export function DesignStudio() {
               </div>
             </div>
 
-            <div>
+            <div className={cn(SECTION_BASE, mobileTab === "patches" ? "block" : "hidden", "lg:block")}>
               <h3 className="text-[10px] font-sans font-bold tracking-[2px] text-gray-500 uppercase mb-4">
                 5. Patch Library
               </h3>
@@ -754,7 +850,7 @@ export function DesignStudio() {
               </button>
             </div>
 
-            <div className="mt-auto pt-4 lg:pt-6 border-t border-gray-200 flex flex-col gap-3">
+            <div className="order-4 lg:order-none mt-auto lg:pt-6 lg:border-t border-gray-200 flex flex-col gap-3">
               {layers.length > 0 && (
                 <button
                   onClick={() => {
