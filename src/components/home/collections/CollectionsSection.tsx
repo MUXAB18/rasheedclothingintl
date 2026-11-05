@@ -76,7 +76,7 @@ export function CollectionsSection({
         </div>
 
         {/* Grid Section */}
-        <div className="grid grid-cols-2 lg:grid-cols-3 gap-x-4 md:gap-x-8 gap-y-8 md:gap-y-14">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-8 md:gap-y-14">
           {collections.map((collection, index) => {
             const meta = collectionMeta[collection.slug] || {
               label: "PREMIUM",
@@ -92,7 +92,7 @@ export function CollectionsSection({
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-50px" }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="relative bg-white rounded-sm p-2 md:p-6 mb-3 md:mb-6 aspect-[1.2/1] md:aspect-[1.5/1] flex items-center justify-center border border-transparent group-hover:border-near-black/10 transition-colors duration-500 z-10 shadow-sm"
+                  className="relative bg-white rounded-sm p-4 md:p-6 mb-4 md:mb-6 aspect-[2/1] md:aspect-[1.5/1] flex items-center justify-center border border-transparent group-hover:border-near-black/10 transition-colors duration-500 z-10 shadow-sm"
                 >
                   {/* Corner Accents */}
                   <div className="absolute top-4 left-4 border-t border-l border-near-black/30 w-3 h-3" />
@@ -123,20 +123,20 @@ export function CollectionsSection({
                   <div className="text-[10px] font-bold tracking-[3px] text-[#8A6238] uppercase mb-2">
                     {meta.label}
                   </div>
-                  <CardHeading className="text-lg md:text-3xl font-sans font-black text-near-black tracking-tight mb-1">
+                  <CardHeading className="text-2xl md:text-3xl font-sans font-black text-near-black tracking-tight mb-1">
                     {collection.name}
                   </CardHeading>
-                  <p className="text-xs md:text-sm font-sans italic text-gray-400 mb-2 md:mb-4">
+                  <p className="text-sm font-sans italic text-gray-400 mb-3 md:mb-4">
                     {meta.subtitle}
                   </p>
-                  <p className="hidden md:block text-sm text-near-black/70 leading-relaxed mb-6 flex-grow pr-16 relative z-10">
+                  <p className="text-sm text-near-black/70 leading-relaxed mb-4 md:mb-6 flex-grow md:pr-16 relative z-10">
                     {collection.description ||
                       `Expertly crafted ${collection.name.toLowerCase()} designed for quality, comfort, and style.`}
                   </p>
                   <div className="flex justify-between items-end relative z-10">
                     <Link
                       href={`/request-quote?category=${collection.slug}`}
-                      className="inline-flex items-center text-[10px] md:text-[11px] font-bold tracking-[1px] md:tracking-[2px] text-near-black uppercase border-b border-near-black/20 hover:border-near-black pb-1 w-max transition-colors"
+                      className="inline-flex items-center text-[11px] font-bold tracking-[2px] text-near-black uppercase border-b border-near-black/20 hover:border-near-black pb-1 w-max transition-colors"
                     >
                       Order custom {collection.name.toLowerCase()} &rarr;
                     </Link>
