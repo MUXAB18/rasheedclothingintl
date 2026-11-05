@@ -31,7 +31,7 @@ export function SeoIntroSection() {
               Sialkot · Pakistan · Worldwide
             </p>
             <h2 className="text-4xl md:text-5xl font-sans font-black tracking-tight leading-[1.05] text-balance mb-8">
-              Top Clothing Manufacturer &amp; Exporter in Sialkot, Pakistan
+              Best Clothing Manufacturer in Sialkot, Pakistan &amp; Asia
             </h2>
             <div className="space-y-5 text-[15px] md:text-base text-white/65 leading-relaxed max-w-2xl">
               <p>

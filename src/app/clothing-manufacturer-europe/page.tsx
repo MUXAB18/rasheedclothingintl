@@ -3,11 +3,11 @@ import { PillarPage, type PillarProps } from "@/components/seo/PillarPage";
 
 const P: PillarProps = {
   path: "/clothing-manufacturer-europe",
-  metaTitle: "Clothing Manufacturer for Europe & UK | Made in Pakistan",
+  metaTitle: "Best Clothing Manufacturer in Asia for Europe & UK",
   metaDescription:
-    "Custom clothing manufacturer in Sialkot, Pakistan supplying brands in the UK, Germany, France, Netherlands and Europe. Low MOQ from 50 units, private label, fast sampling, air and sea freight.",
+    "Best clothing manufacturer in Asia for European brands: Sialkot, Pakistan factory. Private label from 50 units, sampling, air and sea freight to the UK and EU.",
   eyebrow: "Clothing Manufacturer for Europe",
-  h1: "Clothing Manufacturer for European & UK Brands, Made in Sialkot, Pakistan",
+  h1: "Best Clothing Manufacturer in Asia for European & UK Brands: Made in Sialkot, Pakistan",
   intro: [
     "Rasheed Clothing International is a clothing manufacturer and apparel exporter in Sialkot, Pakistan, producing custom and private label garments for brands in the UK, Germany, France, the Netherlands, Italy, Spain and across Europe.",
     "From a first 50-piece run for a new label to repeat bulk orders for an established retailer, we manage sampling, cut and sew production, quality control and shipping to your door.",
@@ -31,7 +31,7 @@ const P: PillarProps = {
       ],
     },
     {
-      heading: "Best clothing manufacturer in Asia for European brands?",
+      heading: "Why Pakistan is a top clothing manufacturer in Asia for Europe",
       body: [
         "Europe sources from China, Bangladesh, India, Turkey, Vietnam and Pakistan. Pakistan stands out for cotton, fleece and knit garments such as hoodies, tees, tracksuits and activewear, with lower minimums than many larger factories and a mature export base in Sialkot. The right choice depends on your product, order size and timeline, so ask each supplier for samples and lead times before deciding.",
       ],

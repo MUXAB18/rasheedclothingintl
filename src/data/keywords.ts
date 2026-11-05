@@ -15,17 +15,17 @@ export type KeywordTarget = {
 
 export const keywordMap: Record<string, KeywordTarget> = {
   "/": {
-    primary: "clothing manufacturer",
-    secondary: ["Sialkot", "Pakistan", "apparel exporter", "garment manufacturer", "clothing supplier"],
+    primary: "best clothing manufacturer in Sialkot",
+    secondary: ["clothing manufacturer", "Sialkot", "Pakistan", "apparel exporter", "garment manufacturer", "clothing supplier"],
     semantic: ["private label", "OEM", "wholesale", "bulk", "hoodies", "activewear", "export", "MOQ", "Asia"],
   },
   "/clothing-manufacturer-europe": {
-    primary: "clothing manufacturer for Europe",
+    primary: "best clothing manufacturer in Asia",
     secondary: ["UK", "Germany", "France", "Netherlands", "private label", "low MOQ", "made in Pakistan"],
     semantic: ["GSP+", "REACH", "customs", "sea freight", "air freight", "sizing", "labelling", "Brexit"],
   },
   "/apparel-manufacturer-pakistan": {
-    primary: "apparel manufacturer in Sialkot",
+    primary: "best clothing manufacturer in Pakistan",
     secondary: ["garment factory", "clothing manufacturer", "Pakistan", "hoodies", "uniforms"],
     semantic: ["Sialkot Chamber of Commerce", "cut and sew", "wholesale", "private label", "sportswear", "tech pack"],
   },

@@ -3,11 +3,11 @@ import { PillarPage, type PillarProps } from "@/components/seo/PillarPage";
 
 const P: PillarProps = {
   path: "/apparel-manufacturer-pakistan",
-  metaTitle: "Apparel Manufacturer in Sialkot, Pakistan | Any Garment",
+  metaTitle: "Best Clothing Manufacturer in Pakistan | Sialkot Factory",
   metaDescription:
-    "Apparel manufacturer in Sialkot, Pakistan making hoodies, tees, tracksuits, activewear, jackets and uniforms to order. Low MOQ from 50 units, for Pakistani and export brands.",
+    "Best clothing manufacturer in Pakistan: Sialkot factory making hoodies, tees, tracksuits, activewear and uniforms to order. Low MOQ from 50 units.",
   eyebrow: "Apparel Manufacturer in Pakistan",
-  h1: "Apparel Manufacturer in Sialkot, Pakistan: Any Garment, Made to Order",
+  h1: "Best Clothing Manufacturer in Pakistan: Sialkot Apparel Factory, Any Garment Made to Order",
   intro: [
     "Rasheed Clothing International is a garment factory and apparel manufacturer in Sialkot, Pakistan, founded in 2017 and an approved member of the Sialkot Chamber of Commerce and Industry.",
     "We manufacture hoodies, t-shirts, tracksuits, gymwear, jackets, uniforms and custom garments for Pakistani brands, wholesalers and international customers, with low minimums and fast sampling.",
@@ -50,7 +50,7 @@ const P: PillarProps = {
       ],
     },
     {
-      heading: "How to choose the best clothing manufacturer in Sialkot",
+      heading: "Best clothing manufacturer in Sialkot: how to choose",
       body: [
         "Every factory says it is the best, so judge by evidence. Check the minimum order per style, sample turnaround and bulk lead time, ask what quality checks happen and when, and confirm export experience with your target market. Ask for photos or a video of the production floor, request a paid sample before a large order, and confirm payment and shipping terms in writing.",
         "Also look for membership of a recognised body such as the Sialkot Chamber of Commerce and Industry, clear contact details, and references or case studies from real clients. We are happy to answer all of these before you place an order.",

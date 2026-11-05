@@ -40,7 +40,7 @@ export const viewport = {
   colorScheme: "light dark",
 };
 
-const HOME_TITLE = "Top Clothing Manufacturer in Sialkot, Pakistan | Rasheed Clothing";
+const HOME_TITLE = "Best Clothing Manufacturer in Sialkot, Pakistan | Rasheed Clothing";
 const HOME_DESC =
   "Top clothing manufacturer and exporter in Sialkot, Pakistan. Custom hoodies, activewear and uniforms, private label and OEM, MOQ 50. Export to Asia, UK and USA.";
 
@@ -50,7 +50,7 @@ export const metadata = {
   metadataBase: new URL("https://www.rasheedclothingintl.me"),
   title: {
     default:
-      "Top Clothing Manufacturer in Sialkot, Pakistan | Rasheed Clothing",
+      "Best Clothing Manufacturer in Sialkot, Pakistan | Rasheed Clothing",
     template: "%s | Rasheed Clothing",
   },
   description:
@@ -66,10 +66,10 @@ export const metadata = {
     type: "website",
     images: [
       {
-        url: ogImageUrl("Top Clothing Manufacturer in Sialkot, Pakistan", HOME_DESC, DEFAULT_OG_IMAGE),
+        url: ogImageUrl("Best Clothing Manufacturer in Sialkot, Pakistan", HOME_DESC, DEFAULT_OG_IMAGE),
         width: 1200,
         height: 630,
-        alt: "Top Clothing Manufacturer in Sialkot, Pakistan - Rasheed Clothing International",
+        alt: "Best Clothing Manufacturer in Sialkot, Pakistan - Rasheed Clothing International",
         type: "image/jpeg",
       },
     ],
@@ -79,7 +79,7 @@ export const metadata = {
     title: HOME_TITLE,
     description: HOME_DESC,
     images: [
-      ogImageUrl("Top Clothing Manufacturer in Sialkot, Pakistan", HOME_DESC, DEFAULT_OG_IMAGE),
+      ogImageUrl("Best Clothing Manufacturer in Sialkot, Pakistan", HOME_DESC, DEFAULT_OG_IMAGE),
     ],
   },
 };
