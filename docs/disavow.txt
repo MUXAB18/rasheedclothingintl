@@ -1,0 +1,4 @@
+# Google disavow file for rasheedclothingintl.me
+# EMPTY ON PURPOSE. Add a domain only after confirming it is a genuinely harmful link
+# and the webmaster did not remove it when asked. Format: one "domain:example.com" per line.
+# Upload at https://search.google.com/search-console/disavow-links
