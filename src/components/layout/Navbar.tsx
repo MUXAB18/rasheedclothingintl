@@ -71,7 +71,7 @@ export function Navbar() {
           <div
             className={cn(
               "relative z-10 w-full flex items-center justify-between transition-all duration-500",
-              "bg-[#0f0f0f]/80 backdrop-blur-3xl border border-white/20 shadow-[0_20px_60px_rgba(0,0,0,0.5),inset_0_1px_0_rgba(255,255,255,0.1)] rounded-full p-2 pl-6",
+              "bg-[#0f0f0f]/80 backdrop-blur-3xl border border-white/20 shadow-[0_20px_60px_rgba(0,0,0,0.5),inset_0_1px_0_rgba(255,255,255,0.1)] rounded-full p-2 pl-5 pr-2.5",
             )}
           >
             {/* Logo (White) */}
@@ -93,7 +93,7 @@ export function Navbar() {
 
             {/* Desktop Nav */}
             <nav
-              className="hidden lg:flex items-center gap-2 xl:gap-4 px-4"
+              className="hidden xl:flex items-center gap-1 px-4"
               onMouseLeave={() => setHoveredMenu(null)}
             >
               {navigation.main.map((item) => (
@@ -105,7 +105,7 @@ export function Navbar() {
                   <Link
                     href={item.href}
                     className={cn(
-                      "relative flex items-center gap-1 text-[14px] font-medium transition-colors duration-300 px-4 py-2.5 rounded-full z-10 whitespace-nowrap",
+                      "relative flex items-center gap-1 text-[14px] font-medium transition-colors duration-300 px-3.5 py-2.5 rounded-full z-10 whitespace-nowrap",
                       pathname === item.href
                         ? "text-white"
                         : "text-white/70 hover:text-white",
@@ -166,13 +166,13 @@ export function Navbar() {
             </nav>
 
             {/* Desktop CTA */}
-            <div className="hidden lg:block shrink-0 relative overflow-hidden rounded-full group/btn">
+            <div className="hidden xl:block shrink-0 relative overflow-hidden rounded-full group/btn">
               {/* Glossy Shine Effect on Hover */}
               <div className="absolute inset-0 translate-x-[-100%] group-hover/btn:translate-x-[100%] bg-gradient-to-r from-transparent via-black/10 to-transparent transition-transform duration-1000 z-20 pointer-events-none skew-x-12" />
 
               <Button
                 href="/request-quote"
-                className="relative py-3.5 px-8 md:px-10 rounded-full bg-white text-black hover:bg-gray-100 transition-colors border-none text-[14px] font-semibold z-10 shadow-[0_0_20px_rgba(255,255,255,0.1)]"
+                className="relative py-3.5 px-8 rounded-full bg-white text-black hover:bg-gray-100 transition-colors border-none text-[14px] font-semibold z-10 shadow-[0_0_20px_rgba(255,255,255,0.1)]"
               >
                 Get a Quote
               </Button>
@@ -180,7 +180,7 @@ export function Navbar() {
 
             {/* Mobile Menu Toggle */}
             <button
-              className="lg:hidden relative z-50 p-4 text-white hover:bg-white/10 rounded-full transition-colors mr-1 outline-none focus:outline-none focus:ring-0 active:outline-none -webkit-tap-highlight-color-transparent"
+              className="xl:hidden relative z-50 p-4 text-white hover:bg-white/10 rounded-full transition-colors mr-1 outline-none focus:outline-none focus:ring-0 active:outline-none -webkit-tap-highlight-color-transparent"
               style={{ WebkitTapHighlightColor: "transparent" }}
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
