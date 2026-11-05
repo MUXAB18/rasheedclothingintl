@@ -28,6 +28,9 @@ const staticRoutes: {
   // Trust & capability
   { path: "/clothing-manufacturer-europe", priority: 0.9, freq: "monthly" },
   { path: "/apparel-manufacturer-pakistan", priority: 0.9, freq: "monthly" },
+  { path: "/clothing-manufacturer-uk", priority: 0.9, freq: "monthly" },
+  { path: "/hoodie-manufacturer", priority: 0.85, freq: "monthly" },
+  { path: "/activewear-manufacturer", priority: 0.85, freq: "monthly" },
   { path: "/manufacturing", priority: 0.85, freq: "monthly", images: ["/aboutus/rasheed-clothing-factory-sialkot-sewing-machine-operator-grey-fabric.jpeg"] },
   { path: "/global", priority: 0.8, freq: "monthly" },
   { path: "/export-services", priority: 0.8, freq: "monthly" },

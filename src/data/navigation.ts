@@ -55,6 +55,7 @@ export const navigation: {
       { name: "Global Reach", href: "/global" },
       { name: "Export Services", href: "/export-services" },
       { name: "Manufacturer for Europe", href: "/clothing-manufacturer-europe" },
+      { name: "Manufacturer for UK", href: "/clothing-manufacturer-uk" },
     ],
     services: [
       { name: "Private Label", href: "/private-label" },
@@ -62,6 +63,8 @@ export const navigation: {
       { name: "Customization & Printing", href: "/customization" },
       { name: "Fabric Sourcing", href: "/fabrics" },
       { name: "Apparel Manufacturer Pakistan", href: "/apparel-manufacturer-pakistan" },
+      { name: "Hoodie Manufacturer", href: "/hoodie-manufacturer" },
+      { name: "Activewear Manufacturer", href: "/activewear-manufacturer" },
     ],
     resources: [
       { name: "Design Studio", href: "/design-studio" },

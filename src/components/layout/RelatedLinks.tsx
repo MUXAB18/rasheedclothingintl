@@ -7,6 +7,9 @@ import { ArrowUpRight } from "lucide-react";
 type L = { href: string; label: string; blurb: string };
 
 const ALL: Record<string, L> = {
+  "/clothing-manufacturer-uk": { href: "/clothing-manufacturer-uk", label: "Manufacturer for UK Brands", blurb: "Private label clothing shipped from Pakistan to the UK." },
+  "/hoodie-manufacturer": { href: "/hoodie-manufacturer", label: "Custom Hoodie Manufacturer", blurb: "Heavyweight fleece and French terry hoodies." },
+  "/activewear-manufacturer": { href: "/activewear-manufacturer", label: "Activewear Manufacturer", blurb: "Custom gymwear, singlets and tracksuits." },
   "/clothing-manufacturer-europe": {
     href: "/clothing-manufacturer-europe",
     label: "Manufacturer for Europe",
@@ -123,6 +126,9 @@ const RELATED: Record<string, string[]> = {
     "/case-studies",
     "/blog"
   ],
+  "/clothing-manufacturer-uk": ["/clothing-manufacturer-europe", "/private-label", "/hoodie-manufacturer", "/export-services", "/faq", "/request-quote"],
+  "/hoodie-manufacturer": ["/private-label", "/customization", "/fabrics", "/clothing-manufacturer-uk", "/products", "/request-quote"],
+  "/activewear-manufacturer": ["/private-label", "/customization", "/fabrics", "/hoodie-manufacturer", "/manufacturing", "/request-quote"],
   "/clothing-manufacturer-europe": [
     "/private-label",
     "/export-services",
@@ -148,6 +154,8 @@ const RELATED: Record<string, string[]> = {
     "/contact"
   ],
   "/products": [
+    "/hoodie-manufacturer",
+    "/activewear-manufacturer",
     "/private-label",
     "/custom-manufacturing",
     "/fabrics",

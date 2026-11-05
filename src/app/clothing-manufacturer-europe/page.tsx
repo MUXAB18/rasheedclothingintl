@@ -31,6 +31,12 @@ const P: PillarProps = {
       ],
     },
     {
+      heading: "Best clothing manufacturer in Asia for European brands?",
+      body: [
+        "Europe sources from China, Bangladesh, India, Turkey, Vietnam and Pakistan. Pakistan stands out for cotton, fleece and knit garments such as hoodies, tees, tracksuits and activewear, with lower minimums than many larger factories and a mature export base in Sialkot. The right choice depends on your product, order size and timeline, so ask each supplier for samples and lead times before deciding.",
+      ],
+    },
+    {
       heading: "Apparel we manufacture for Europe",
       body: [
         "We make almost any kind of apparel to your specification. Our most requested categories from European customers are:",

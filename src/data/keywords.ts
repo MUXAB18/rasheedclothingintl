@@ -29,6 +29,21 @@ export const keywordMap: Record<string, KeywordTarget> = {
     secondary: ["garment factory", "clothing manufacturer", "Pakistan", "hoodies", "uniforms"],
     semantic: ["Sialkot Chamber of Commerce", "cut and sew", "wholesale", "private label", "sportswear", "tech pack"],
   },
+  "/clothing-manufacturer-uk": {
+    primary: "clothing manufacturer for UK brands",
+    secondary: ["UK", "private label", "made in Pakistan", "low MOQ", "hoodies"],
+    semantic: ["Developing Countries Trading Scheme", "customs", "VAT", "air freight", "sea freight", "sizing", "labelling"],
+  },
+  "/hoodie-manufacturer": {
+    primary: "custom hoodie manufacturer",
+    secondary: ["heavyweight hoodies", "French terry", "puff print", "embroidery", "low MOQ"],
+    semantic: ["fleece", "oversized", "streetwear", "merch", "GSM", "private label"],
+  },
+  "/activewear-manufacturer": {
+    primary: "activewear manufacturer",
+    secondary: ["gymwear", "sportswear", "singlets", "leggings", "tracksuits"],
+    semantic: ["sublimation", "performance fabric", "team kits", "fitness brand", "Sialkot"],
+  },
   "/private-label": {
     primary: "private label clothing",
     secondary: ["white label", "start a clothing brand", "clothing line", "low MOQ"],

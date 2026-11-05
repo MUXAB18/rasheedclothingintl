@@ -50,6 +50,13 @@ const P: PillarProps = {
       ],
     },
     {
+      heading: "How to choose the best clothing manufacturer in Sialkot",
+      body: [
+        "Every factory says it is the best, so judge by evidence. Check the minimum order per style, sample turnaround and bulk lead time, ask what quality checks happen and when, and confirm export experience with your target market. Ask for photos or a video of the production floor, request a paid sample before a large order, and confirm payment and shipping terms in writing.",
+        "Also look for membership of a recognised body such as the Sialkot Chamber of Commerce and Industry, clear contact details, and references or case studies from real clients. We are happy to answer all of these before you place an order.",
+      ],
+    },
+    {
       heading: "For Pakistani brands, wholesalers and export buyers",
       body: [
         "Local brands and wholesalers use us for private label ranges, seasonal drops and repeat orders with domestic delivery. Export customers get commercial invoices, packing lists and shipping with DHL, FedEx, UPS or freight partners to the UK, Europe, USA, Canada, Australia and the UAE.",
