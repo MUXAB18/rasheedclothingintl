@@ -216,6 +216,16 @@ export default function RequestQuotePage() {
           setFormData((prev) => ({ ...prev, category: matchedCategory }));
         }
       }
+
+      const colorsParam = params.get("colors");
+      const noteParam = params.get("note");
+      if (colorsParam || noteParam) {
+        setFormData((prev) => ({
+          ...prev,
+          colors: colorsParam ? colorsParam.slice(0, 80) : prev.colors,
+          comments: noteParam ? noteParam.slice(0, 500) : prev.comments,
+        }));
+      }
     }
   }, []);
 

@@ -2,6 +2,7 @@
 
 import React, { useState, useRef } from "react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Bungee,
@@ -144,6 +145,7 @@ const fonts = [
 ];
 
 export function DesignStudio() {
+  const router = useRouter();
   const [garment, setGarment] = useState<GarmentType>("HOODIE");
   const [view, setView] = useState<ViewType>("FRONT");
   const [activeColor, setActiveColor] = useState(colors[0]);
@@ -218,29 +220,53 @@ export function DesignStudio() {
     if (selectedLayerId === id) setSelectedLayerId(null);
   };
 
+  const quoteHref = () => {
+    const categoryBySlug: Record<GarmentType, string> = {
+      HOODIE: "hoodies",
+      SHIRT: "tees",
+      TRACKSUIT: "tracksuits",
+      "TEAM UNIFORM": "corporate",
+    };
+    const items = layers.map((l) =>
+      l.type === "TEXT"
+        ? `text "${l.text}"`
+        : l.type === "PATCH"
+          ? `patch (${(l.src || "").split("/").pop()?.replace(/\.\w+$/, "").replace("embroidered-patch-", "")})`
+          : "uploaded artwork (I will send the file)",
+    );
+    const note = `Design Studio mockup: ${activeColor.name} ${garment.toLowerCase()}, ${view.toLowerCase()} view, ${layers.length} design element(s)${items.length ? ": " + items.join(", ") : ""}.`;
+    const p = new URLSearchParams({
+      category: categoryBySlug[garment],
+      colors: activeColor.name,
+      note,
+    });
+    return `/request-quote?${p.toString()}`;
+  };
+
   const handleSaveProceed = () => {
     setShowSuccessModal(true);
   };
 
   return (
     <div
-      className="pt-32 pb-24 min-h-screen bg-white"
+      className="pt-28 md:pt-32 pb-16 md:pb-24 min-h-screen bg-white"
       onClick={() => setSelectedLayerId(null)}
     >
       <div className="container mx-auto px-6 md:px-12">
         {/* Header */}
         <SectionHeading
           immediate
+          className="mb-4 md:mb-16"
           eyebrow="Design Studio"
           title="Create Your Vision"
           subtitle="Customize a premium garment with your colors, artwork, and patches."
         />
 
         {/* 3-Column Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mt-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-8 items-start mt-4 md:mt-12">
           {/* Left Column - Configuration */}
           <div
-            className="lg:col-span-3 flex flex-col gap-8 bg-[#F8F8F8] border border-gray-100 rounded-2xl p-6 shadow-sm"
+            className="order-2 lg:order-1 lg:col-span-3 flex flex-col gap-5 lg:gap-8 bg-[#F8F8F8] border border-gray-100 rounded-2xl p-4 lg:p-6 shadow-sm"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Garment Selection */}
@@ -248,7 +274,7 @@ export function DesignStudio() {
               <h3 className="text-[10px] font-sans font-bold tracking-[2px] text-gray-500 uppercase mb-4">
                 1. Select Garment
               </h3>
-              <div className="flex flex-col gap-2">
+              <div className="grid grid-cols-2 lg:grid-cols-1 gap-2">
                 {(
                   [
                     "HOODIE",
@@ -261,7 +287,7 @@ export function DesignStudio() {
                     key={type}
                     onClick={() => setGarment(type)}
                     className={cn(
-                      "py-3 px-4 rounded-md text-left text-sm font-sans font-semibold transition-all duration-300",
+                      "py-3 px-4 rounded-md text-center lg:text-left text-sm font-sans font-semibold transition-all duration-300 min-h-[44px]",
                       garment === type
                         ? "bg-black text-white shadow-md"
                         : "bg-white border border-gray-200 text-gray-600 hover:border-black hover:text-black",
@@ -291,6 +317,8 @@ export function DesignStudio() {
                     )}
                     style={{ backgroundColor: color.value }}
                     title={color.name}
+                    aria-label={`${color.name} color`}
+                    aria-pressed={activeColor.name === color.name}
                   />
                 ))}
                 {/* Custom Color Picker */}
@@ -350,7 +378,7 @@ export function DesignStudio() {
           </div>
 
           {/* Center Column - Mockup Canvas */}
-          <div className="lg:col-span-6 flex items-center justify-center bg-[#F5F5F0] rounded-3xl p-8 shadow-inner relative h-[500px] lg:h-[700px] overflow-hidden">
+          <div className="order-1 lg:order-2 lg:col-span-6 flex items-center justify-center bg-[#F5F5F0] rounded-3xl p-3 sm:p-8 shadow-inner relative h-[46vh] min-h-[320px] sm:h-[500px] lg:h-[700px] overflow-hidden sticky top-[88px] lg:static z-30 border border-black/5">
             {/* Toolbar for Selected Layer */}
             <AnimatePresence>
               {selectedLayerId && (
@@ -358,7 +386,7 @@ export function DesignStudio() {
                   initial={{ opacity: 0, y: -20 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
-                  className="absolute top-6 z-40 bg-white/90 backdrop-blur-md shadow-xl rounded-full px-2 py-2 flex gap-1 items-center border border-gray-200"
+                  className="absolute top-2 sm:top-6 z-40 bg-white/90 backdrop-blur-md shadow-xl rounded-full px-2 py-2 flex gap-1 items-center border border-gray-200"
                   onClick={(e) => e.stopPropagation()}
                 >
                   <button
@@ -369,8 +397,9 @@ export function DesignStudio() {
                             ?.scale || 1) + 0.1,
                       })
                     }
-                    className="p-2 hover:bg-gray-100 rounded-full transition-colors"
+                    className="p-2.5 min-w-10 min-h-10 flex items-center justify-center hover:bg-gray-100 rounded-full transition-colors"
                     title="Scale Up"
+                    aria-label="Scale Up"
                   >
                     <Plus size={16} />
                   </button>
@@ -384,8 +413,9 @@ export function DesignStudio() {
                         ),
                       })
                     }
-                    className="p-2 hover:bg-gray-100 rounded-full transition-colors"
+                    className="p-2.5 min-w-10 min-h-10 flex items-center justify-center hover:bg-gray-100 rounded-full transition-colors"
                     title="Scale Down"
+                    aria-label="Scale Down"
                   >
                     <Minus size={16} />
                   </button>
@@ -398,8 +428,9 @@ export function DesignStudio() {
                             ?.rotation || 0) - 15,
                       })
                     }
-                    className="p-2 hover:bg-gray-100 rounded-full transition-colors"
+                    className="p-2.5 min-w-10 min-h-10 flex items-center justify-center hover:bg-gray-100 rounded-full transition-colors"
                     title="Rotate Left"
+                    aria-label="Rotate Left"
                   >
                     <RotateCcw size={16} />
                   </button>
@@ -411,16 +442,18 @@ export function DesignStudio() {
                             ?.rotation || 0) + 15,
                       })
                     }
-                    className="p-2 hover:bg-gray-100 rounded-full transition-colors"
+                    className="p-2.5 min-w-10 min-h-10 flex items-center justify-center hover:bg-gray-100 rounded-full transition-colors"
                     title="Rotate Right"
+                    aria-label="Rotate Right"
                   >
                     <RotateCw size={16} />
                   </button>
                   <div className="w-px h-4 bg-gray-300 mx-1" />
                   <button
                     onClick={() => removeLayer(selectedLayerId)}
-                    className="p-2 hover:bg-red-50 text-red-500 rounded-full transition-colors"
+                    className="p-2.5 min-w-10 min-h-10 flex items-center justify-center hover:bg-red-50 text-red-500 rounded-full transition-colors"
                     title="Delete Layer"
+                    aria-label="Delete Layer"
                   >
                     <Trash2 size={16} />
                   </button>
@@ -482,7 +515,7 @@ export function DesignStudio() {
                     whileHover={{ cursor: "grab" }}
                     whileDrag={{ cursor: "grabbing" }}
                     className={cn(
-                      "absolute z-20 flex items-center justify-center origin-center",
+                      "absolute z-20 flex items-center justify-center origin-center touch-none",
                       selectedLayerId === layer.id
                         ? "ring-2 ring-blue-500 ring-offset-4 ring-offset-transparent border-dashed rounded-sm"
                         : "",
@@ -523,14 +556,15 @@ export function DesignStudio() {
               </motion.div>
             </AnimatePresence>
 
-            <div className="absolute bottom-6 text-center text-xs font-sans text-gray-600 font-bold tracking-widest uppercase pointer-events-none">
-              Click to Edit &bull; Drag to Move
+            <div className="absolute bottom-2 sm:bottom-6 text-center text-[10px] sm:text-xs font-sans text-gray-600 font-bold tracking-widest uppercase pointer-events-none">
+              <span className="hidden sm:inline">Click to Edit &bull; Drag to Move</span>
+              <span className="sm:hidden">Tap to Edit &bull; Drag to Move</span>
             </div>
           </div>
 
           {/* Right Column - Tools */}
           <div
-            className="lg:col-span-3 flex flex-col gap-8 bg-[#F8F8F8] border border-gray-100 rounded-2xl p-6 shadow-sm"
+            className="order-3 lg:order-3 lg:col-span-3 flex flex-col gap-5 lg:gap-8 bg-[#F8F8F8] border border-gray-100 rounded-2xl p-4 lg:p-6 shadow-sm"
             onClick={(e) => e.stopPropagation()}
           >
             <div>
@@ -681,15 +715,15 @@ export function DesignStudio() {
               <h3 className="text-[10px] font-sans font-bold tracking-[2px] text-gray-500 uppercase mb-4">
                 5. Patch Library
               </h3>
-              <div className="grid grid-cols-2 gap-3">
-                {(showAllPatches ? patches : patches.slice(0, 2)).map(
+              <div className="grid grid-cols-4 lg:grid-cols-2 gap-2 lg:gap-3">
+                {(showAllPatches ? patches : patches.slice(0, 4)).map(
                   (patch) => (
                     <button
                       key={patch.id}
                       onClick={() =>
                         addLayer({ type: "PATCH", src: patch.src })
                       }
-                      className="relative aspect-square rounded-md bg-white border border-gray-200 flex items-center justify-center p-4 hover:border-black transition-colors group overflow-hidden"
+                      className="relative aspect-square rounded-md bg-white border border-gray-200 flex items-center justify-center p-2 lg:p-4 hover:border-black transition-colors group overflow-hidden"
                     >
                       <div className="relative w-full h-full group-hover:scale-110 transition-transform duration-300">
                         <Image
@@ -716,11 +750,22 @@ export function DesignStudio() {
               >
                 {showAllPatches
                   ? "View Less"
-                  : "View More (" + (patches.length - 2) + "+)"}
+                  : "View More (" + (patches.length - 4) + "+)"}
               </button>
             </div>
 
-            <div className="mt-auto pt-6 border-t border-gray-200">
+            <div className="mt-auto pt-4 lg:pt-6 border-t border-gray-200 flex flex-col gap-3">
+              {layers.length > 0 && (
+                <button
+                  onClick={() => {
+                    setLayers([]);
+                    setSelectedLayerId(null);
+                  }}
+                  className="w-full py-2.5 rounded-md border border-gray-200 text-xs font-sans font-bold uppercase tracking-widest text-gray-600 hover:text-red-600 hover:border-red-300 transition-colors"
+                >
+                  Clear all ({layers.length})
+                </button>
+              )}
               <button
                 onClick={handleSaveProceed}
                 className="w-full bg-black text-white hover:bg-[#2A2A28] rounded-full px-8 h-14 flex items-center justify-center text-[13px] font-semibold uppercase whitespace-nowrap transition-colors duration-300 font-sans"
@@ -761,20 +806,19 @@ export function DesignStudio() {
               </div>
 
               <h2 className="text-2xl font-serif font-bold text-center mb-2">
-                Design Saved!
+                Design Ready!
               </h2>
               <p className="text-gray-600 text-center text-sm mb-8">
                 Your custom {activeColor.name} {garment.toLowerCase()} design
-                with {layers.length} customizations has been saved. Our team
-                will review your mockup and contact you with a detailed quote.
+                with {layers.length} customizations is ready. Continue to the quote form
+                and we will prefill your garment, colour and design details.
               </p>
 
               <div className="flex flex-col gap-3">
                 <button
                   onClick={() => {
-                    setShowSuccessModal(
-                      false,
-                    ); /* Route to checkout/inquiry in real app */
+                    setShowSuccessModal(false);
+                    router.push(quoteHref());
                   }}
                   className="w-full py-4 bg-black text-white rounded-full text-xs font-bold uppercase tracking-widest hover:bg-gray-800 transition-colors"
                 >
