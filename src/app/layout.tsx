@@ -8,7 +8,6 @@ import {
 } from "next/font/google";
 import { ConditionalLayout } from "@/components/layout/ConditionalLayout";
 import { Footer } from "@/components/layout/Footer";
-import { StickyMobileCTA } from "@/components/ui/StickyMobileCTA";
 import { DeferredScripts } from "@/components/seo/DeferredScripts";
 import { Toaster } from "react-hot-toast";
 const inter = Inter({ subsets: ["latin"], display: "optional", variable: "--font-sans" });
@@ -183,7 +182,7 @@ export default function RootLayout({
       <body className="bg-[#0a0a0a] text-near-black antialiased overflow-x-hidden flex flex-col min-h-screen">
         <DeferredScripts />
 
-        <ConditionalLayout footer={<Footer />} stickyCta={<StickyMobileCTA />}>
+        <ConditionalLayout footer={<Footer />}>
           {children}
         </ConditionalLayout>
         <Toaster position="bottom-right" />

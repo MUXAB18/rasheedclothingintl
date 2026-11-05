@@ -9,12 +9,10 @@ import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 export function ConditionalLayout({
   children,
   footer,
-  stickyCta,
 }: {
   children: React.ReactNode;
   /** Server-rendered (no client JS): passed in from the root layout */
   footer: React.ReactNode;
-  stickyCta: React.ReactNode;
 }) {
   const pathname = usePathname();
 
@@ -32,11 +30,10 @@ export function ConditionalLayout({
     <>
       <Navbar />
       <Breadcrumbs />
-      <main className="flex-grow pb-16 md:pb-0">{children}</main>
+      <main className="flex-grow">{children}</main>
       <RelatedLinks />
       {footer}
       <WhatsAppButton />
-      {stickyCta}
     </>
   );
 }
