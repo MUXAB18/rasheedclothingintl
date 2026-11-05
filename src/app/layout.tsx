@@ -142,6 +142,11 @@ export default function RootLayout({
                 "OEM garment production", "Hoodie manufacturing", "Activewear manufacturing",
                 "Streetwear manufacturing", "Corporate uniforms",
               ],
+              memberOf: {
+                "@type": "Organization",
+                name: "Sialkot Chamber of Commerce & Industry",
+                alternateName: "SCCI",
+              },
               sameAs: [
                 "https://instagram.com/rasheedclothingintl",
                 "https://www.linkedin.com/company/rasheed-clothing-international/",

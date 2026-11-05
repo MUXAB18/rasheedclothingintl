@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { ChamberBadge } from "@/components/ui/ChamberBadge";
 
 const STATS = [
   { value: "10,000+", label: "Units made every month" },
@@ -80,6 +81,8 @@ export function SeoIntroSection() {
                 </div>
               ))}
             </dl>
+
+            <ChamberBadge className="mt-4 w-full justify-center" />
 
             <div className="mt-4 rounded-2xl border border-white/10 bg-white/[0.03] p-6 flex items-center justify-between gap-4">
               <div>

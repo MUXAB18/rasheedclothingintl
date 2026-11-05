@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Instagram, WhatsApp, Linkedin } from "@/components/icons/SocialIcons";
 import { Mail, Phone, ExternalLink } from "lucide-react";
+import { ChamberBadge } from "@/components/ui/ChamberBadge";
 import { navigation } from "@/data/navigation";
 import { companyData } from "@/data/company";
 
@@ -36,6 +37,7 @@ export function Footer() {
               solutions. Engineering every piece for comfort, durability, and
               standout style in {companyData.location}.
             </p>
+            <ChamberBadge className="mb-5" />
             <div className="flex flex-col items-start gap-3 text-[11px] md:text-xs text-white/80">
               <a
                 href={`mailto:${companyData.emails.primary}`}

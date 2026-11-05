@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Check } from "lucide-react";
+import { ChamberBadge } from "@/components/ui/ChamberBadge";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { SITE_URL } from "@/lib/seo";
 import { BUSINESS_ID, WEBSITE_ID } from "@/lib/schema";
@@ -87,6 +88,13 @@ export function PillarPage(p: PillarProps) {
             />
           </div>
         </header>
+
+        <div className="mb-6 flex flex-wrap items-center gap-4">
+          <ChamberBadge className="!bg-[#F8F8F8]" />
+          <p className="text-sm text-near-black/60 max-w-md">
+            Rasheed Clothing International is a verified member of the Sialkot Chamber of Commerce &amp; Industry.
+          </p>
+        </div>
 
         <dl className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-20">
           {p.stats.map((s) => (
