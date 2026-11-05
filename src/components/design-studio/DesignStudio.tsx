@@ -255,7 +255,7 @@ export function DesignStudio() {
 
   return (
     <div
-      className="pt-28 md:pt-32 pb-16 md:pb-24 min-h-screen bg-white"
+      className="pt-36 md:pt-32 pb-16 md:pb-24 min-h-screen bg-white"
       onClick={() => setSelectedLayerId(null)}
     >
       <div className="container mx-auto px-6 md:px-12">

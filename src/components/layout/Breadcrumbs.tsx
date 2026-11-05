@@ -29,7 +29,7 @@ export function Breadcrumbs() {
   };
 
   return (
-    <nav aria-label="Breadcrumb" className="max-w-7xl mx-auto px-6 pt-[100px] -mb-[116px] relative z-10 text-xs">
+    <nav aria-label="Breadcrumb" className="max-w-7xl mx-auto px-6 pt-[92px] -mb-[108px] relative z-10 text-xs">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       {/* Dark pill: readable on both light and dark pages. Vertical padding gives ~36px touch targets
           while negative margins keep the page layout exactly as before. */}

@@ -54,7 +54,7 @@ export function CollectionsSection({
   return (
     <section
       id="collections"
-      className="py-14 md:py-20 bg-[#F5F5F0] relative overflow-hidden"
+      className={`${headingAs === "h1" ? "pt-32 pb-14 md:pt-36 md:pb-20" : "py-14 md:py-20"} bg-[#F5F5F0] relative overflow-hidden`}
     >
       <div className="container mx-auto px-6 md:px-12">
         {/* Header Section */}
