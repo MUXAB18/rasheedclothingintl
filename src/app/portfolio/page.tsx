@@ -1,7 +1,10 @@
-import React, { Suspense } from "react";
+import React from "react";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { getPublishedProjects } from "@/lib/api/portfolio.service";
 import { PortfolioClient } from "./PortfolioClient";
+
+// Refresh DB-backed content hourly instead of freezing it at build time
+export const revalidate = 3600;
 
 // Define the portfolio categories
 const portfolioCategories = [
@@ -22,23 +25,16 @@ export default async function PortfolioPage() {
       <div className="container mx-auto px-6 md:px-12">
         {/* Header */}
         <SectionHeading
+          as="h1"
           eyebrow="Our Work"
-          title="Portfolio"
+          title="Clothing Manufacturing Portfolio"
           subtitle="Explore our extensive catalog of premium manufactured apparel."
         />
 
-        <Suspense
-          fallback={
-            <div className="w-full py-24 text-center">
-              <p className="text-gray-500 font-sans">Loading portfolio...</p>
-            </div>
-          }
-        >
-          <PortfolioClient
+        <PortfolioClient
             projects={portfolioProjects}
             categories={portfolioCategories}
           />
-        </Suspense>
       </div>
     </div>
   );

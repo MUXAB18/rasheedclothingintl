@@ -142,8 +142,9 @@ export default function GlobalPage() {
       <div className="container mx-auto px-6 md:px-12">
         {/* Header */}
         <SectionHeading
+          as="h1"
           eyebrow="Global Reach"
-          title="Manufacturing for the World"
+          title="Clothing Exporter from Pakistan to the World"
           subtitle="From Pakistan to your doorstep - seamless international logistics and export services"
         />
 

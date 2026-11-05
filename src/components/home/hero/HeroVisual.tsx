@@ -30,7 +30,7 @@ export function HeroVisual() {
     <motion.div
       className="w-full h-full flex gap-3 md:gap-4 py-4 box-border"
       variants={staggerContainer}
-      initial="hidden"
+      initial={false}
       animate="visible"
     >
       {/* Left Column (Staggered down slightly) */}
@@ -41,12 +41,11 @@ export function HeroVisual() {
           className="relative w-full flex-[1.2] rounded-2xl md:rounded-3xl overflow-hidden shadow-sm bg-gray-100"
         >
           <Image
-            src="/media__1775818866466.webp"
-            alt="Custom apparel design"
+            src="/black-first-48-graphic-tee-shorts-set.webp"
+            alt="Black First 48 graphic tee and shorts set, custom streetwear made in Sialkot"
             fill
             sizes="(max-width: 1024px) 45vw, 25vw"
             className="object-cover"
-            priority
           />
         </motion.div>
 
@@ -56,8 +55,8 @@ export function HeroVisual() {
           className="relative w-full flex-[1.5] rounded-2xl md:rounded-3xl overflow-hidden shadow-sm bg-[#223B65]"
         >
           <Image
-            src="/media__1775818869472.webp"
-            alt="Clothing manufacturing process"
+            src="/red-first-48-graphic-tee-shorts-set.webp"
+            alt="Red First 48 graphic tee and shorts set, custom printed streetwear"
             fill
             sizes="(max-width: 1024px) 45vw, 25vw"
             className="object-cover opacity-90"
@@ -70,8 +69,8 @@ export function HeroVisual() {
           className="relative w-full flex-1 rounded-2xl md:rounded-3xl overflow-hidden shadow-sm bg-gray-100"
         >
           <Image
-            src="/IMG_5464.webp"
-            alt="Premium fabric details"
+            src="/black-red-racerback-gym-tank-tops.webp"
+            alt="Black and red racerback gym tank tops with a B logo, custom gymwear"
             fill
             sizes="(max-width: 1024px) 45vw, 25vw"
             className="object-cover object-center"
@@ -87,12 +86,11 @@ export function HeroVisual() {
           className="relative w-full flex-[1.8] rounded-2xl md:rounded-3xl overflow-hidden shadow-sm bg-gray-100"
         >
           <Image
-            src="/custom_hoodie_1.webp"
-            alt="Custom hoodie modeled"
+            src="/blue-zip-up-hoodie-puff-print-model.webp"
+            alt="Model wearing a blue zip-up hoodie with a puff-print graphic, custom hoodie"
             fill
             sizes="(max-width: 1024px) 45vw, 25vw"
             className="object-cover object-top"
-            priority
           />
         </motion.div>
 
@@ -102,8 +100,8 @@ export function HeroVisual() {
           className="relative w-full flex-[1.2] rounded-2xl md:rounded-3xl overflow-hidden shadow-sm bg-[#90B79B]"
         >
           <Image
-            src="/media__1775817925946.webp"
-            alt="Detailed product stitching"
+            src="/grey-zip-hoodie-tracksuit-models.webp"
+            alt="Models wearing a grey zip hoodie tracksuit and a black hoodie outfit"
             fill
             sizes="(max-width: 1024px) 45vw, 25vw"
             className="object-cover object-center opacity-90"

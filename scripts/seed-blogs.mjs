@@ -21,7 +21,7 @@ Beyond water savings, bio-based dyes derived from plants, insects, and minerals 
 ## What This Means for Your Brand
 
 At Rasheed Clothing International, we continuously evaluate and adopt sustainable dyeing practices to help our partners meet their ESG targets. Whether you're building a sustainability-first brand or simply want to future-proof your supply chain, we're ready to help.`,
-    coverImage: '/media__1775817922243.webp',
+    coverImage: '/black-hoodie-back-print-concrete-wall.webp',
     author: 'RCI Editorial',
     tags: ['Sustainability', 'Manufacturing', 'Textiles'],
     isPublished: true,
@@ -52,7 +52,7 @@ The streetwear market increasingly demands "heavyweight" garments. Consumers ass
 For most premium streetwear collections, we recommend 280–320 GSM for hoodies and 220–260 GSM for tees. This hits the sweet spot between comfort, durability, and perceived quality.
 
 Reach out to our team at RCI to request fabric swatches at your preferred GSM range.`,
-    coverImage: '/media__1775818866466.webp',
+    coverImage: '/black-first-48-graphic-tee-shorts-set.webp',
     author: 'RCI Editorial',
     tags: ['Education', 'Fabrics', 'Streetwear'],
     isPublished: true,
@@ -86,7 +86,7 @@ Our factory team executed the full run across two production lines. Every batch 
 All 5,000 units shipped within 43 days — 2 days ahead of schedule — with zero defect returns from the client's end.
 
 This is the RCI difference: experienced teams, transparent communication, and a commitment to getting it right the first time.`,
-    coverImage: '/media__1775818869472.webp',
+    coverImage: '/red-first-48-graphic-tee-shorts-set.webp',
     author: 'RCI Editorial',
     tags: ['Process', 'Case Study', 'Production'],
     isPublished: true,
@@ -116,7 +116,7 @@ Athleisure has been growing for years, but what we're seeing now goes beyond sim
 If you're building a lifestyle or luxury streetwear brand, integrating technical fabrics into your collection is one of the highest-impact moves you can make. Consumers are willing to pay premium prices for garments that genuinely perform.
 
 At RCI, we stock a wide range of technical fabric options and can help you develop a collection that bridges the gap between performance and style. Contact us to learn more.`,
-    coverImage: '/media__1775818888792.webp',
+    coverImage: '/black-hoodie-red-back-graphic-model.webp',
     author: 'RCI Editorial',
     tags: ['Trends', 'Activewear', 'Fabrics'],
     isPublished: true,

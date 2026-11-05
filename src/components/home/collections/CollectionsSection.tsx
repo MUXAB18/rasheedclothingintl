@@ -19,6 +19,8 @@ type Collection = {
 
 interface CollectionsSectionProps {
   collections: Collection[];
+  /** Set to "h1" when this section is the main heading of its page. */
+  headingAs?: "h1" | "h2";
 }
 
 // Define collection labels and subtitles based on the collection name/slug
@@ -44,7 +46,11 @@ const collectionMeta: Record<
 
 export function CollectionsSection({
   collections = [],
+  headingAs = "h2",
 }: CollectionsSectionProps) {
+  const Heading = headingAs;
+  // Card titles sit one level below the section heading
+  const CardHeading = headingAs === "h1" ? "h2" : "h3";
   return (
     <section
       id="collections"
@@ -60,9 +66,9 @@ export function CollectionsSection({
             </span>
             <span className="w-12 h-[2px] bg-near-black" />
           </div>
-          <h2 className="text-[clamp(2.8rem,10vw,80px)] font-sans font-black text-near-black tracking-tighter leading-[0.95] mb-4 lg:mb-6">
+          <Heading className="text-[clamp(2.8rem,10vw,80px)] font-sans font-black text-near-black tracking-tighter leading-[0.95] mb-4 lg:mb-6">
             Our Collections
-          </h2>
+          </Heading>
           <p className="text-base md:text-xl lg:text-2xl font-sans text-near-black/70 max-w-2xl mx-auto lg:mx-0">
             Describe anything you imagine, and let our manufacturing precision
             bring it to life in breathtaking, high-quality garments.
@@ -98,7 +104,7 @@ export function CollectionsSection({
                   <div className="relative w-full h-full flex items-center justify-center">
                     <Image
                       src={collection.imageUrl || "/placeholder-collection.png"}
-                      alt={collection.name}
+                      alt={`${collection.name} collection: ${collection.description ? collection.description.slice(0, 100) : "custom garments made to order"}`}
                       fill
                       className="object-contain scale-[0.85] group-hover:scale-95 transition-transform duration-700 ease-out mix-blend-multiply"
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -117,12 +123,12 @@ export function CollectionsSection({
                   <div className="text-[10px] font-bold tracking-[3px] text-[#A67C52] uppercase mb-2">
                     {meta.label}
                   </div>
-                  <h3 className="text-3xl font-sans font-black text-near-black tracking-tight mb-1">
+                  <CardHeading className="text-3xl font-sans font-black text-near-black tracking-tight mb-1">
                     {collection.name}
-                  </h3>
-                  <h4 className="text-sm font-sans italic text-gray-400 mb-4">
+                  </CardHeading>
+                  <p className="text-sm font-sans italic text-gray-400 mb-4">
                     {meta.subtitle}
-                  </h4>
+                  </p>
                   <p className="text-sm text-near-black/70 leading-relaxed mb-6 flex-grow pr-16 relative z-10">
                     {collection.description ||
                       `Expertly crafted ${collection.name.toLowerCase()} designed for quality, comfort, and style.`}
@@ -132,7 +138,7 @@ export function CollectionsSection({
                       href={`/request-quote?category=${collection.slug}`}
                       className="inline-flex items-center text-[11px] font-bold tracking-[2px] text-near-black uppercase border-b border-near-black/20 hover:border-near-black pb-1 w-max transition-colors"
                     >
-                      Order Now &rarr;
+                      Order custom {collection.name.toLowerCase()} &rarr;
                     </Link>
                   </div>
 

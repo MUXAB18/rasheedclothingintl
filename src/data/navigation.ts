@@ -17,7 +17,7 @@ export const navigation: {
     },
     { name: "Portfolio", href: "/portfolio" },
     {
-      name: "Explore",
+      name: "Our Factory",
       href: "/manufacturing",
       dropdown: [
         { name: "Manufacturing", href: "/manufacturing" },

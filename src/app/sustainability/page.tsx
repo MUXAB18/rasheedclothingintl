@@ -144,8 +144,9 @@ export default function SustainabilityPage() {
       <div className="container mx-auto px-6 md:px-12">
         {/* Header */}
         <SectionHeading
+          as="h1"
           eyebrow="Sustainability"
-          title="Conscious Manufacturing"
+          title="Sustainable Clothing Manufacturing"
           subtitle="Building a responsible supply chain that respects people and planet"
         />
 
@@ -393,7 +394,7 @@ export default function SustainabilityPage() {
               href="/contact"
               className="inline-flex items-center gap-2 bg-transparent border-2 border-white text-white px-8 py-3 rounded-full font-sans font-bold text-sm uppercase tracking-wider hover:bg-white/10 transition-all duration-300"
             >
-              Learn More
+              Ask About Sustainable Manufacturing
             </a>
           </div>
         </motion.section>

@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 import { MessageCircle } from "lucide-react";
 import { companyData } from "@/data/company";

@@ -95,8 +95,9 @@ export default function CustomizationPage() {
       <div className="container mx-auto px-6 md:px-12">
         {/* Header */}
         <SectionHeading
+          as="h1"
           eyebrow="Customization & Printing"
-          title="Bring Your Designs to Life"
+          title="Apparel Printing & Embroidery for Your Designs"
           subtitle="Professional customization services to perfectly brand your apparel with logos, graphics, and unique designs"
         />
 

@@ -12,21 +12,21 @@ export const capabilities: Capability[] = [
     num: "01",
     title: "CUT & SEW",
     desc: "Precision craftsmanship from pattern to finished garment.",
-    image: "/media__1775818869472.webp", // factory image
+    image: "/red-first-48-graphic-tee-shorts-set.webp", // factory image
   },
   {
     id: "embroidery",
     num: "02",
     title: "EMBROIDERY",
     desc: "Detailed embroidery and branded garment finishing.",
-    image: "/media__1775817925946.webp",
+    image: "/grey-zip-hoodie-tracksuit-models.webp",
   },
   {
     id: "printing",
     num: "03",
     title: "PRINTING",
     desc: "Modern printing techniques for high-quality visual identity.",
-    image: "/media__1775817915164.webp",
+    image: "/grey-zip-hoodie-joggers-model.webp",
   },
   {
     id: "fabric-sourcing",
@@ -40,7 +40,7 @@ export const capabilities: Capability[] = [
     num: "05",
     title: "PRIVATE LABEL",
     desc: "Custom labels, tags, packaging and complete brand identity.",
-    image: "/media__1775818866466.webp",
+    image: "/black-first-48-graphic-tee-shorts-set.webp",
   },
   {
     id: "packaging",
@@ -54,7 +54,7 @@ export const capabilities: Capability[] = [
     num: "07",
     title: "QUALITY CONTROL",
     desc: "Inspection throughout the production process.",
-    image: "/media__1775818888792.webp",
+    image: "/black-hoodie-red-back-graphic-model.webp",
   },
   {
     id: "global-shipping",

@@ -1,4 +1,6 @@
 import { pageMeta } from "@/lib/seo";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { pageSchema } from "@/lib/schema";
 
 export const metadata = pageMeta({
   title: "Clothing Export Services Pakistan",
@@ -8,5 +10,17 @@ export const metadata = pageMeta({
 });
 
 export default function Layout({ children }: { children: React.ReactNode }) {
-  return <>{children}</>;
+  return (
+    <>
+      <JsonLd
+        data={pageSchema({
+          type: "Service",
+          name: String(metadata.title),
+          description: String(metadata.description),
+          path: "/export-services", serviceType: "Clothing export services",
+        })}
+      />
+      {children}
+    </>
+  );
 }

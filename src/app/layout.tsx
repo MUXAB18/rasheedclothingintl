@@ -1,4 +1,5 @@
 import "./globals.css";
+import { ogImageUrl, DEFAULT_OG_IMAGE } from "@/lib/seo";
 import {
   Inter,
   Playfair_Display,
@@ -6,21 +7,28 @@ import {
   Cormorant_Garamond,
 } from "next/font/google";
 import { ConditionalLayout } from "@/components/layout/ConditionalLayout";
-import Script from "next/script";
+import { Footer } from "@/components/layout/Footer";
+import { StickyMobileCTA } from "@/components/ui/StickyMobileCTA";
+import { DeferredScripts } from "@/components/seo/DeferredScripts";
 import { Toaster } from "react-hot-toast";
-const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
+const inter = Inter({ subsets: ["latin"], display: "optional", variable: "--font-sans" });
 const playfair = Playfair_Display({
   subsets: ["latin"],
+  display: "swap",
+  preload: false,
   variable: "--font-serif",
 });
 const dmSerif = DM_Serif_Display({
   weight: "400",
   subsets: ["latin"],
+  display: "swap",
   variable: "--font-display",
 });
 const cormorant = Cormorant_Garamond({
   weight: "500",
   subsets: ["latin"],
+  display: "swap",
+  preload: false,
   style: "italic",
   variable: "--font-italic",
 });
@@ -29,6 +37,10 @@ export const viewport = {
   width: "device-width",
   initialScale: 1,
 };
+
+const HOME_TITLE = "Top Clothing Manufacturer in Sialkot, Pakistan | Rasheed Clothing";
+const HOME_DESC =
+  "Top clothing manufacturer and exporter in Sialkot, Pakistan. Custom hoodies, activewear and uniforms, private label and OEM, MOQ 50. Export to Asia, UK and USA.";
 
 export const metadata = {
   applicationName: "Rasheed Clothing International",
@@ -40,34 +52,33 @@ export const metadata = {
     template: "%s | Rasheed Clothing",
   },
   description:
-    "Top clothing manufacturer and apparel supplier in Sialkot, Pakistan. Custom hoodies, activewear, streetwear and uniforms exported to Asia, UK, USA, Europe and worldwide. Private label, OEM, low MOQ 50 units.",
+    "Top clothing manufacturer and exporter in Sialkot, Pakistan. Custom hoodies, activewear and uniforms, private label and OEM, MOQ 50. Export to Asia, UK and USA.",
   keywords:
     "best clothing manufacturer in Pakistan, top clothing manufacturer in Asia, clothing manufacturer Sialkot, best clothes supplier Pakistan, Sialkot clothing exporter, apparel exporter Pakistan, garment manufacturer Asia, top apparel supplier, private label clothing manufacturer, OEM clothing Pakistan, wholesale clothing supplier, hoodie manufacturer Pakistan, activewear manufacturer Sialkot, sportswear manufacturer Pakistan, custom clothing manufacturer, streetwear manufacturer, corporate uniform manufacturer, low MOQ clothing manufacturer",
-  alternates: { canonical: "/" },
   openGraph: {
-    title:
-      "Rasheed Clothing International - Where Imagination Meets Fabrication",
-    description:
-      "Premium B2B apparel manufacturing from Pakistan. Custom clothing solutions for international brands.",
-    url: "https://www.rasheedclothingintl.me",
+    title: HOME_TITLE,
+    description: HOME_DESC,
+    url: "/",
     siteName: "Rasheed Clothing International",
     locale: "en_US",
     type: "website",
     images: [
       {
-        url: "/custom_hoodie_1.jpg",
+        url: ogImageUrl("Top Clothing Manufacturer in Sialkot, Pakistan", HOME_DESC, DEFAULT_OG_IMAGE),
         width: 1200,
         height: 630,
-        alt: "Custom hoodies manufactured by Rasheed Clothing International",
+        alt: "Top Clothing Manufacturer in Sialkot, Pakistan - Rasheed Clothing International",
+        type: "image/jpeg",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Rasheed Clothing International",
-    description:
-      "Premium B2B apparel manufacturing from Sialkot, Pakistan.",
-    images: ["/custom_hoodie_1.jpg"],
+    title: HOME_TITLE,
+    description: HOME_DESC,
+    images: [
+      ogImageUrl("Top Clothing Manufacturer in Sialkot, Pakistan", HOME_DESC, DEFAULT_OG_IMAGE),
+    ],
   },
 };
 
@@ -119,7 +130,7 @@ export default function RootLayout({
                 opens: "09:00",
                 closes: "19:00",
               },
-              image: "https://www.rasheedclothingintl.me/custom_hoodie_1.jpg",
+              image: "https://www.rasheedclothingintl.me/blue-zip-up-hoodie-puff-print-model.jpg",
               areaServed: [
                 "Pakistan", "Asia", "United Kingdom", "United States", "Canada",
                 "Australia", "United Arab Emirates", "Europe", "Worldwide",
@@ -147,6 +158,7 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "WebSite",
+              "@id": "https://www.rasheedclothingintl.me/#website",
               name: "Rasheed Clothing International",
               alternateName: ["RCI Clothing", "Rasheed Clothing Sialkot"],
               url: "https://www.rasheedclothingintl.me/",
@@ -157,25 +169,11 @@ export default function RootLayout({
         />
       </head>
       <body className="bg-[#0a0a0a] text-near-black antialiased overflow-x-hidden flex flex-col min-h-screen">
-        {/* Google Analytics */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-JZHHWJ6J4G"
-          strategy="afterInteractive"
-        />
-        <Script id="ga-init" strategy="afterInteractive">{`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'G-JZHHWJ6J4G');
-        `}</Script>
-        {/* AdSense */}
-        <Script
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6650426189914940"
-          strategy="afterInteractive"
-          crossOrigin="anonymous"
-        />
+        <DeferredScripts />
 
-        <ConditionalLayout>{children}</ConditionalLayout>
+        <ConditionalLayout footer={<Footer />} stickyCta={<StickyMobileCTA />}>
+          {children}
+        </ConditionalLayout>
         <Toaster position="bottom-right" />
       </body>
     </html>

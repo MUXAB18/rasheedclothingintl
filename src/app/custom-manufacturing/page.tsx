@@ -171,8 +171,9 @@ export default function CustomManufacturingPage() {
       <div className="container mx-auto px-6 md:px-12">
         {/* Header */}
         <SectionHeading
+          as="h1"
           eyebrow="Custom Manufacturing"
-          title="Manufacture Any Custom Apparel"
+          title="Custom Clothing Manufacturer for Any Apparel"
           subtitle="From concept to delivery, we manufacture high-quality custom garments tailored to your exact specifications"
         />
 
@@ -396,7 +397,7 @@ export default function CustomManufacturingPage() {
               href="/request-quote"
               className="inline-flex items-center gap-2 bg-white text-near-black px-8 py-3 rounded-full font-sans font-bold text-sm uppercase tracking-wider hover:bg-gray-100 transition-all duration-300 hover:scale-105"
             >
-              Get Quote
+              Request a Manufacturing Quote
               <svg
                 className="w-4 h-4"
                 fill="none"

@@ -22,8 +22,9 @@ export function Footer() {
             >
               <Image
                 src="/rasheed-clothing-logo-transparent.png"
-                alt="RCI Logo"
+                alt="Rasheed Clothing International logo"
                 fill
+                sizes="160px"
                 className="object-contain brightness-0 invert opacity-90"
               />
             </Link>
@@ -81,9 +82,9 @@ export function Footer() {
 
               return (
                 <div key={key} className="flex flex-col items-start text-left">
-                  <h4 className="font-sans text-[10px] font-bold tracking-[2px] uppercase text-white mb-4">
+                  <h2 className="font-sans text-[10px] font-bold tracking-[2px] uppercase text-white mb-4">
                     {title}
-                  </h4>
+                  </h2>
                   <ul className="flex flex-col gap-3">
                     {links.map((link) => (
                       <li key={link.name}>
@@ -167,6 +168,7 @@ export function Footer() {
               <div className="flex items-center gap-3 z-10">
                 <a
                   href={companyData.socials.instagram}
+                  aria-label="Rasheed Clothing International on Instagram"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/70 hover:text-white hover:bg-white/10 hover:border-white/20 transition-all duration-300"
@@ -175,6 +177,7 @@ export function Footer() {
                 </a>
                 <a
                   href={companyData.socials.whatsapp}
+                  aria-label="Chat with Rasheed Clothing International on WhatsApp"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/70 hover:text-white hover:bg-white/10 hover:border-white/20 transition-all duration-300"
@@ -183,6 +186,7 @@ export function Footer() {
                 </a>
                 <a
                   href={companyData.socials.linkedin}
+                  aria-label="Rasheed Clothing International on LinkedIn"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/70 hover:text-white hover:bg-white/10 hover:border-white/20 transition-all duration-300"

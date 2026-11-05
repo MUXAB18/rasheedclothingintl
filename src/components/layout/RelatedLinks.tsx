@@ -71,11 +71,6 @@ const ALL: Record<string, L> = {
     "label": "Collections",
     "blurb": "Browse our apparel collections."
   },
-  "/lookbook": {
-    "href": "/lookbook",
-    "label": "Lookbook",
-    "blurb": "A visual tour of our latest garments."
-  },
   "/design-studio": {
     "href": "/design-studio",
     "label": "Design Studio",
@@ -115,7 +110,7 @@ const RELATED: Record<string, string[]> = {
     "/manufacturing",
     "/global",
     "/case-studies",
-    "/request-quote"
+    "/blog"
   ],
   "/about": [
     "/manufacturing",
@@ -138,7 +133,7 @@ const RELATED: Record<string, string[]> = {
     "/customization",
     "/fabrics",
     "/products",
-    "/faq",
+    "/case-studies",
     "/request-quote"
   ],
   "/custom-manufacturing": [
@@ -170,7 +165,7 @@ const RELATED: Record<string, string[]> = {
     "/sustainability",
     "/custom-manufacturing",
     "/global",
-    "/about",
+    "/case-studies",
     "/request-quote"
   ],
   "/quality": [
@@ -186,7 +181,7 @@ const RELATED: Record<string, string[]> = {
     "/manufacturing",
     "/products",
     "/private-label",
-    "/faq",
+    "/case-studies",
     "/request-quote"
   ],
   "/export-services": [
@@ -201,7 +196,7 @@ const RELATED: Record<string, string[]> = {
     "/manufacturing",
     "/quality",
     "/fabrics",
-    "/about",
+    "/case-studies",
     "/private-label",
     "/contact"
   ],
@@ -209,7 +204,6 @@ const RELATED: Record<string, string[]> = {
     "/case-studies",
     "/products",
     "/collections",
-    "/lookbook",
     "/private-label",
     "/request-quote"
   ],
@@ -223,18 +217,9 @@ const RELATED: Record<string, string[]> = {
   ],
   "/collections": [
     "/products",
-    "/lookbook",
     "/portfolio",
     "/private-label",
     "/design-studio",
-    "/request-quote"
-  ],
-  "/lookbook": [
-    "/collections",
-    "/portfolio",
-    "/products",
-    "/customization",
-    "/private-label",
     "/request-quote"
   ],
   "/design-studio": [
@@ -307,11 +292,12 @@ export function RelatedLinks() {
         </h2>
         <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {links.map((l) => (
-            <li key={l.href}>
-              <Link href={l.href} className="block h-full p-5 rounded-2xl border border-white/10 hover:border-white/40 transition-colors">
-                <span className="block text-white font-bold mb-1">{l.label}</span>
-                <span className="block text-sm text-white/55">{l.blurb}</span>
+            <li key={l.href} className="relative h-full p-5 rounded-2xl border border-white/10 hover:border-white/40 transition-colors">
+              {/* Anchor text is just the page name; the stretched link makes the whole card clickable */}
+              <Link href={l.href} className="block text-white font-bold mb-1 after:absolute after:inset-0 after:content-['']">
+                {l.label}
               </Link>
+              <p className="text-sm text-white/55">{l.blurb}</p>
             </li>
           ))}
         </ul>

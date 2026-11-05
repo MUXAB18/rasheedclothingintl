@@ -194,8 +194,9 @@ export function FAQClient() {
       <div className="container mx-auto px-6 md:px-12">
         {/* Header */}
         <SectionHeading
+          as="h1"
           eyebrow="Help Center"
-          title="Frequently Asked Questions"
+          title="Clothing Manufacturing FAQ: Questions Answered"
           subtitle="Everything you need to know about working with Rasheed Clothing International"
         />
 
@@ -237,9 +238,9 @@ export function FAQClient() {
                     <span className="inline-block text-[10px] font-sans font-bold tracking-wider uppercase text-gray-400 mb-2">
                       {faq.category}
                     </span>
-                    <h3 className="text-base md:text-lg font-sans font-bold text-black">
+                    <h2 className="text-base md:text-lg font-sans font-bold text-black">
                       {faq.question}
-                    </h3>
+                    </h2>
                   </div>
 
                   {/* Icon */}
@@ -296,9 +297,9 @@ export function FAQClient() {
           className="mt-16 md:mt-20 text-center"
         >
           <div className="bg-gradient-to-br from-near-black to-gray-900 rounded-3xl p-8 md:p-12">
-            <h3 className="text-2xl md:text-3xl font-serif font-bold text-white mb-4">
+            <h2 className="text-2xl md:text-3xl font-serif font-bold text-white mb-4">
               Still Have Questions?
-            </h3>
+            </h2>
             <p className="text-white/70 font-sans text-base md:text-lg mb-8 max-w-2xl mx-auto">
               Our team is here to help. Reach out via email, WhatsApp, or phone
               and we'll respond within 2 hours during business hours.

@@ -81,7 +81,7 @@ export function PortfolioPreviewSection({
               >
                 <Image
                   src={item.imageUrl}
-                  alt={item.title}
+                  alt={`${item.title}: ${(item.description || item.category || "custom garment").slice(0, 110)}`}
                   fill
                   className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03] mix-blend-multiply"
                   sizes="(max-width: 768px) 50vw, (max-width: 1024px) 50vw, 25vw"

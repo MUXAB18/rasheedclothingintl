@@ -82,8 +82,9 @@ export function Navbar() {
               <div className="relative w-full h-full">
                 <Image
                   src="/rasheed-clothing-logo-transparent.png"
-                  alt="RCI Logo"
+                  alt="Rasheed Clothing International logo"
                   fill
+                  sizes="160px"
                   className="object-contain brightness-0 invert opacity-90 hover:opacity-100 transition-opacity"
                   priority
                 />
@@ -173,7 +174,7 @@ export function Navbar() {
                 href="/request-quote"
                 className="relative py-3.5 px-8 md:px-10 rounded-full bg-white text-black hover:bg-gray-100 transition-colors border-none text-[14px] font-semibold z-10 shadow-[0_0_20px_rgba(255,255,255,0.1)]"
               >
-                Order Now
+                Request a Quote
               </Button>
             </div>
 
@@ -236,6 +237,7 @@ export function Navbar() {
                   src="/rasheed-clothing-logo-transparent.png"
                   alt="Rasheed Clothing International"
                   fill
+                  sizes="160px"
                   className="object-contain object-left brightness-0 invert opacity-90"
                   priority
                 />
@@ -337,7 +339,7 @@ export function Navbar() {
                 className="w-full bg-[#efefef] text-[#0a0a0a] py-[15px] rounded-full text-[10px] font-semibold uppercase tracking-[0.22em] border-none hover:bg-white active:bg-white/90 transition-colors duration-200 flex items-center justify-center gap-2.5 group"
                 style={{ WebkitTapHighlightColor: "transparent" }}
               >
-                Order Now
+                Request a Quote
                 <ArrowRight
                   className="w-3.5 h-3.5 transition-transform duration-250 group-hover:translate-x-0.5"
                   strokeWidth={2}

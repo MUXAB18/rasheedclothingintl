@@ -7,7 +7,7 @@ import { companyData } from "@/data/company";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Button } from "@/components/ui/Button";
 import emailjs from "@emailjs/browser";
-import PhoneInput, { isValidPhoneNumber } from "react-phone-number-input";
+import PhoneInput, { isValidPhoneNumber } from "react-phone-number-input/min";
 import "react-phone-number-input/style.css";
 
 export default function ContactPage() {
@@ -114,8 +114,9 @@ export default function ContactPage() {
     <div className="pt-32 md:pt-40 pb-24 min-h-screen bg-white">
       <div className="container mx-auto px-6 md:px-12">
         <SectionHeading
+          as="h1"
           eyebrow="Get in Touch"
-          title="Start Your Project"
+          title="Contact Our Clothing Factory in Sialkot"
           subtitle="Reach out to discuss your manufacturing requirements, request samples, or ask for a quote."
         />
 
@@ -128,18 +129,18 @@ export default function ContactPage() {
             className="flex flex-col gap-12"
           >
             <div>
-              <h3 className="text-3xl font-sans font-bold tracking-tight mb-10">
+              <h2 className="text-3xl font-sans font-bold tracking-tight mb-10">
                 Contact Information
-              </h3>
+              </h2>
               <div className="space-y-10">
                 <div className="flex items-start gap-5 group">
                   <div className="w-12 h-12 rounded-2xl bg-[#F8F8F8] flex items-center justify-center shrink-0 border border-gray-100 group-hover:bg-black group-hover:border-black transition-colors duration-300 shadow-sm">
                     <MapPin className="w-5 h-5 text-gray-500 group-hover:text-white transition-colors duration-300" />
                   </div>
                   <div>
-                    <h4 className="text-[11px] font-sans font-bold tracking-[2px] uppercase text-gray-400 mb-2">
+                    <h3 className="text-[11px] font-sans font-bold tracking-[2px] uppercase text-gray-400 mb-2">
                       Headquarters
-                    </h4>
+                    </h3>
                     <p className="font-sans font-bold text-lg text-near-black mb-1">
                       Address
                     </p>
@@ -154,9 +155,9 @@ export default function ContactPage() {
                     <Phone className="w-5 h-5 text-gray-500 group-hover:text-white transition-colors duration-300" />
                   </div>
                   <div>
-                    <h4 className="text-[11px] font-sans font-bold tracking-[2px] uppercase text-gray-400 mb-2">
+                    <h3 className="text-[11px] font-sans font-bold tracking-[2px] uppercase text-gray-400 mb-2">
                       Phone / WhatsApp
-                    </h4>
+                    </h3>
                     <div className="space-y-1">
                       {companyData.phones.map((phone) => (
                         <p
@@ -181,9 +182,9 @@ export default function ContactPage() {
                     <Mail className="w-5 h-5 text-gray-500 group-hover:text-white transition-colors duration-300" />
                   </div>
                   <div>
-                    <h4 className="text-[11px] font-sans font-bold tracking-[2px] uppercase text-gray-400 mb-2">
+                    <h3 className="text-[11px] font-sans font-bold tracking-[2px] uppercase text-gray-400 mb-2">
                       Email Address
-                    </h4>
+                    </h3>
                     <p className="font-sans font-bold text-lg text-near-black">
                       <a
                         href={`mailto:${companyData.emails.primary}`}
@@ -200,14 +201,14 @@ export default function ContactPage() {
                     <Clock className="w-5 h-5 text-gray-500 group-hover:text-white transition-colors duration-300" />
                   </div>
                   <div>
-                    <h4 className="text-[11px] font-sans font-bold tracking-[2px] uppercase text-gray-400 mb-2">
+                    <h3 className="text-[11px] font-sans font-bold tracking-[2px] uppercase text-gray-400 mb-2">
                       Business Hours
-                    </h4>
+                    </h3>
                     <p className="font-sans font-bold text-near-black mb-1">
                       Monday - Saturday
                     </p>
                     <p className="font-sans text-gray-500">
-                      9:00 AM - 6:00 PM (PKT)
+                      9:00 AM - 7:00 PM (PKT)
                     </p>
                     <p className="font-sans text-xs font-bold text-green-600 mt-2">
                       We reply to every enquiry within 24 hours.
@@ -227,16 +228,16 @@ export default function ContactPage() {
           >
             <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-black via-gray-600 to-black"></div>
 
-            <h3 className="text-2xl font-sans font-bold tracking-tight mb-8">
+            <h2 className="text-2xl font-sans font-bold tracking-tight mb-8">
               Send us a message
-            </h3>
+            </h2>
 
             {formStatus === "success" ? (
               <div className="bg-green-50 text-green-800 p-8 rounded-2xl flex flex-col items-center text-center font-sans">
                 <CheckCircle2 className="w-12 h-12 mb-4 text-green-500" />
-                <h4 className="text-xl font-bold mb-2">
+                <h3 className="text-xl font-bold mb-2">
                   Message Sent Successfully
-                </h4>
+                </h3>
                 <p className="text-sm">
                   Thank you for reaching out. One of our manufacturing experts
                   will get back to you within 24 hours.
@@ -250,7 +251,7 @@ export default function ContactPage() {
               </div>
             ) : formStatus === "error" ? (
               <div className="bg-red-50 text-red-800 p-8 rounded-2xl flex flex-col items-center text-center font-sans">
-                <h4 className="text-xl font-bold mb-2">Something went wrong</h4>
+                <h3 className="text-xl font-bold mb-2">Something went wrong</h3>
                 <p className="text-sm">
                   Please try again or email us directly.
                 </p>
@@ -395,9 +396,9 @@ export default function ContactPage() {
         {/* Map & Directions */}
         <div className="mt-20">
           <div className="flex flex-wrap items-end justify-between gap-4 mb-6">
-            <h3 className="text-2xl font-sans font-bold tracking-tight">
+            <h2 className="text-2xl font-sans font-bold tracking-tight">
               Find Our Factory
-            </h3>
+            </h2>
             <a
               href="https://www.google.com/maps/dir/?api=1&destination=Sialkot,+Pakistan"
               target="_blank"

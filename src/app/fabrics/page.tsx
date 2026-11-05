@@ -413,8 +413,9 @@ export default function FabricsPage() {
       <div className="container mx-auto px-6 md:px-12">
         {/* Hero */}
         <SectionHeading
+          as="h1"
           eyebrow="Fabric Sourcing"
-          title="The Foundation of Every Great Garment"
+          title="Garment Fabric Sourcing for Every Great Garment"
           subtitle="We source, develop, and quality-test over 500 premium textiles from certified mills across Pakistan, Turkey, China, India, and Europe — so your collections feel as good as they look."
           align="center"
         />
@@ -484,9 +485,9 @@ export default function FabricsPage() {
                     className="group bg-[#F8F8F8] p-8 rounded-3xl hover:bg-black transition-colors duration-500 flex flex-col gap-4"
                   >
                     <div>
-                      <h4 className="text-xl font-sans font-black tracking-tight mb-1 group-hover:text-white transition-colors duration-500">
+                      <h3 className="text-xl font-sans font-black tracking-tight mb-1 group-hover:text-white transition-colors duration-500">
                         {item.name}
-                      </h4>
+                      </h3>
                       <p className="text-xs font-bold uppercase tracking-[1px] text-near-black/40 group-hover:text-white/40 transition-colors duration-500">
                         {item.weight}
                       </p>
@@ -599,9 +600,9 @@ export default function FabricsPage() {
                   className="w-8 h-8 mb-5 text-near-black group-hover:text-white transition-colors duration-500"
                   strokeWidth={1.5}
                 />
-                <h4 className="font-sans font-black text-lg tracking-tight mb-2 group-hover:text-white transition-colors duration-500">
+                <h3 className="font-sans font-black text-lg tracking-tight mb-2 group-hover:text-white transition-colors duration-500">
                   {prop.label}
-                </h4>
+                </h3>
                 <p className="text-near-black/60 group-hover:text-white/60 text-sm leading-relaxed font-sans transition-colors duration-500">
                   {prop.desc}
                 </p>
@@ -682,9 +683,9 @@ export default function FabricsPage() {
                   className="w-8 h-8 mb-6 text-near-black"
                   strokeWidth={1.5}
                 />
-                <h4 className="font-sans font-black text-xl tracking-tight mb-3">
+                <h3 className="font-sans font-black text-xl tracking-tight mb-3">
                   {step.title}
-                </h4>
+                </h3>
                 <p className="text-near-black/60 text-sm leading-relaxed font-sans">
                   {step.desc}
                 </p>

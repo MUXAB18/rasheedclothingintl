@@ -161,6 +161,7 @@ export default function QualityPage() {
       <div className="container mx-auto px-6 md:px-12">
         {/* Header */}
         <SectionHeading
+          as="h1"
           eyebrow="Quality Assurance"
           title="Zero-Defect Manufacturing"
           subtitle="Rigorous quality control at every stage from fabric to finished product"

@@ -7,7 +7,7 @@ const collectionsData = [
     name: 'Hoodies',
     slug: 'hoodies',
     description: 'Engineered from premium 450gsm fleece for a structured, luxury fit that withstands daily wear and tear.',
-    imageUrl: '/hoodie-new.png',
+    imageUrl: '/custom-hoodies-collection.png',
     isPublished: true,
     order: 1
   },
@@ -15,7 +15,7 @@ const collectionsData = [
     name: 'Tees & Essentials',
     slug: 'tees',
     description: 'Crafted from tightly knit, enzyme-washed cotton for an incredibly soft hand-feel and perfect drape.',
-    imageUrl: '/tees-essential.png',
+    imageUrl: '/custom-tees-collection.png',
     isPublished: true,
     order: 2
   },
@@ -23,7 +23,7 @@ const collectionsData = [
     name: 'Tracksuits',
     slug: 'tracksuits',
     description: 'Moisture-wicking tech-fleece sets with sleek profiles, designed for mobility and effortless off-duty style.',
-    imageUrl: '/tracksuit.png',
+    imageUrl: '/custom-tracksuits-collection.png',
     isPublished: true,
     order: 3
   },
@@ -31,7 +31,7 @@ const collectionsData = [
     name: 'Gymwear',
     slug: 'gymwear',
     description: 'Built for high-intensity output with four-way stretch fabrics and targeted breathability to withstand the toughest workouts.',
-    imageUrl: '/gymwear.png',
+    imageUrl: '/custom-gymwear-collection.png',
     isPublished: true,
     order: 4
   },
@@ -39,7 +39,7 @@ const collectionsData = [
     name: 'Corporate Uniforms',
     slug: 'corporate',
     description: 'Bespoke corporate apparel designed to perfectly translate your brand identity into professional, highly durable daily wear.',
-    imageUrl: '/corporate-uniform.png',
+    imageUrl: '/corporate-uniforms-collection.png',
     isPublished: true,
     order: 5
   },
@@ -47,7 +47,7 @@ const collectionsData = [
     name: 'Outerwear & Jackets',
     slug: 'outerwear',
     description: 'Constructed with weatherproof materials and technical hardware, offering ultimate protection without compromising on modern style.',
-    imageUrl: '/outerwear.png',
+    imageUrl: '/outerwear-jackets-collection.png',
     isPublished: true,
     order: 6
   }

@@ -7,13 +7,23 @@ import { CheckCircle2, Factory, Users, Target, Award } from "lucide-react";
 import { companyData } from "@/data/company";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 
+const FACTORY_ALTS = [
+  "Operator stitching grey fabric on an industrial sewing machine in our Sialkot factory",
+  "Overlock machine finishing the seams of a black garment",
+  "Row of multi-head embroidery machines stitching red garments",
+  "Close-up of an industrial sewing machine stitching black fabric",
+  "Overlock sewing machine assembling a black garment at a workstation",
+  "Industrial sewing workstation with thread cones and a black garment",
+];
+
 export default function AboutPage() {
   return (
     <div className="pt-32 pb-24 min-h-screen bg-white">
       <div className="container mx-auto px-6 md:px-12">
         <SectionHeading
+          as="h1"
           eyebrow="Our Story"
-          title="About Rasheed Clothing International"
+          title="About Rasheed Clothing International, Sialkot Clothing Manufacturer"
           subtitle={`${companyData.slogan} - A legacy of manufacturing excellence from ${companyData.location}.`}
         />
 
@@ -25,9 +35,9 @@ export default function AboutPage() {
             transition={{ duration: 0.8 }}
             className="flex flex-col justify-center"
           >
-            <h3 className="text-3xl font-sans font-black tracking-tight mb-6">
+            <h2 className="text-3xl font-sans font-black tracking-tight mb-6">
               Built on Craftsmanship. <br /> Scaled by Technology.
-            </h3>
+            </h2>
             <p className="text-near-black/70 leading-relaxed mb-6">
               {companyData.description}
             </p>
@@ -65,9 +75,10 @@ export default function AboutPage() {
             className="relative h-full min-h-[400px] lg:min-h-0 w-full bg-[#F8F8F8] rounded-3xl overflow-hidden"
           >
             <Image
-              src="/aboutus/factory-image.jpeg"
-              alt="Manufacturing Facility"
+              src="/aboutus/rasheed-clothing-factory-sialkot-sewing-machine-operator-grey-fabric.jpeg"
+              alt="Operator stitching grey fabric on an industrial sewing machine at the Rasheed Clothing factory in Sialkot"
               fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
               className="object-cover grayscale hover:grayscale-0 transition-all duration-700"
             />
           </motion.div>
@@ -118,12 +129,12 @@ export default function AboutPage() {
 
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-32">
           {[
-            "/aboutus/factory-image.jpeg",
-            "/aboutus/factory-image-2.jpeg",
-            "/aboutus/factory-image-3.jpeg",
-            "/aboutus/factory-image-4.jpeg",
-            "/aboutus/factory-image-5.jpeg",
-            "/aboutus/factory-image-6.jpeg",
+            "/aboutus/rasheed-clothing-factory-sialkot-sewing-machine-operator-grey-fabric.jpeg",
+            "/aboutus/rasheed-clothing-factory-sialkot-overlock-machine-black-garment-seams.jpeg",
+            "/aboutus/rasheed-clothing-factory-sialkot-multi-head-embroidery-machines-red-garments.jpeg",
+            "/aboutus/rasheed-clothing-factory-sialkot-industrial-sewing-machine-black-fabric-closeup.jpeg",
+            "/aboutus/rasheed-clothing-factory-sialkot-overlock-sewing-machine-black-garment-assembly.jpeg",
+            "/aboutus/rasheed-clothing-factory-sialkot-sewing-workstation-thread-cones-black-garment.jpeg",
           ].map((src, i) => (
             <motion.div
               key={src}
@@ -135,8 +146,9 @@ export default function AboutPage() {
             >
               <Image
                 src={src}
-                alt={`Factory Image ${i + 1}`}
+                alt={FACTORY_ALTS[i]}
                 fill
+                sizes="(max-width: 768px) 50vw, 33vw"
                 className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
               />
             </motion.div>
@@ -174,9 +186,9 @@ export default function AboutPage() {
               className="p-8 border border-gray-100 bg-[#F8F8F8] rounded-2xl hover:shadow-lg transition-all duration-300"
             >
               <CheckCircle2 className="w-8 h-8 text-near-black mb-6" />
-              <h4 className="text-xl font-sans font-black tracking-tight mb-4">
+              <h3 className="text-xl font-sans font-black tracking-tight mb-4">
                 {val.title}
-              </h4>
+              </h3>
               <p className="text-sm font-sans text-near-black/70 leading-relaxed">
                 {val.desc}
               </p>

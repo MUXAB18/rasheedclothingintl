@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import { useSearchParams } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 
@@ -33,9 +32,11 @@ export function PortfolioClient({
   projects,
   categories,
 }: PortfolioClientProps) {
-  const searchParams = useSearchParams();
-  const categoryParam = searchParams.get("category");
-
+  // Read ?category= after hydration so the server-rendered HTML contains every project
+  const [categoryParam, setCategoryParam] = useState<string | null>(null);
+  useEffect(() => {
+    setCategoryParam(new URLSearchParams(window.location.search).get("category"));
+  }, []);
   const [activeCategory, setActiveCategory] = useState<string>("All");
   const [selectedProduct, setSelectedProduct] =
     useState<PortfolioProject | null>(null);
@@ -111,21 +112,19 @@ export function PortfolioClient({
 
       {/* Product Grid */}
       <motion.div
-        layout
         className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8"
       >
-        <AnimatePresence mode="popLayout">
-          {filteredProjects.map((project) => {
+        <AnimatePresence mode="popLayout" initial={false}>
+          {filteredProjects.map((project, index) => {
             const badge = getBadge(project);
             return (
               <motion.div
-                layout
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.4, ease: "easeOut" }}
                 key={project.id}
-                className="group relative flex flex-col"
+                className={`group relative flex flex-col ${index >= 4 ? "[content-visibility:auto] [contain-intrinsic-size:auto_480px]" : ""}`}
               >
                 {/* Image Container */}
                 <div
@@ -134,10 +133,13 @@ export function PortfolioClient({
                 >
                   <Image
                     src={project.imageUrl}
-                    alt={project.title}
+                    alt={`${project.title}: ${(project.description || project.category).slice(0, 110)}`}
                     fill
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
-                    sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                    sizes="(max-width: 640px) 50vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                    // first row is above the fold: load eagerly, lazy-load the rest
+                    priority={index < 4}
+                    fetchPriority={index === 0 ? "high" : undefined}
                   />
                   {/* Badge */}
                   {badge && (
@@ -230,7 +232,7 @@ export function PortfolioClient({
               <div className="relative w-full md:w-1/2 aspect-square md:aspect-auto md:min-h-[600px] bg-[#F8F8F8]">
                 <Image
                   src={selectedProduct.imageUrl}
-                  alt={selectedProduct.title}
+                  alt={`${selectedProduct.title}: ${(selectedProduct.description || selectedProduct.category).slice(0, 110)}`}
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, 50vw"

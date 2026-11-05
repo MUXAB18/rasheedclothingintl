@@ -19,7 +19,6 @@ type Post = {
 
 export function BlogList({ posts }: { posts: Post[] }) {
   const [selectedCategory, setSelectedCategory] = useState<string>("All");
-  const [displayCount, setDisplayCount] = useState(6);
 
   // Extract unique categories from tags
   const allCategories = [
@@ -35,11 +34,7 @@ export function BlogList({ posts }: { posts: Post[] }) {
 
   // Get featured post (latest post)
   const featuredPost = filteredPosts[0];
-  const regularPosts = filteredPosts.slice(1, displayCount);
-
-  const handleLoadMore = () => {
-    setDisplayCount((prev) => prev + 6);
-  };
+  const regularPosts = filteredPosts.slice(1);
 
   return (
     <div className="mt-16">
@@ -53,7 +48,6 @@ export function BlogList({ posts }: { posts: Post[] }) {
             key={category}
             onClick={() => {
               setSelectedCategory(category);
-              setDisplayCount(6);
             }}
             className={`px-4 py-2 rounded-full font-sans text-sm font-semibold transition-all duration-300 ${
               selectedCategory === category
@@ -93,6 +87,7 @@ export function BlogList({ posts }: { posts: Post[] }) {
                         src={featuredPost.coverImage}
                         alt={featuredPost.title}
                         fill
+                        sizes="(max-width: 1024px) 100vw, 60vw"
                         className="object-cover transform group-hover:scale-105 transition-transform duration-700"
                       />
                     ) : (
@@ -186,6 +181,7 @@ export function BlogList({ posts }: { posts: Post[] }) {
                             src={post.coverImage}
                             alt={post.title}
                             fill
+                            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                             className="object-cover transform group-hover:scale-105 transition-transform duration-700"
                           />
                         ) : (
@@ -243,22 +239,6 @@ export function BlogList({ posts }: { posts: Post[] }) {
             </motion.div>
           </AnimatePresence>
 
-          {/* Load More Button */}
-          {filteredPosts.length > displayCount && (
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="mt-16 flex justify-center"
-            >
-              <button
-                onClick={handleLoadMore}
-                className="bg-white border-2 border-near-black text-near-black px-8 py-4 rounded-full font-sans font-bold text-sm uppercase tracking-wider hover:bg-near-black hover:text-white transition-all duration-300 hover:scale-105"
-              >
-                Load More Articles
-              </button>
-            </motion.div>
-          )}
         </>
       )}
     </div>

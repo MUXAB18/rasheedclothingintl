@@ -9,15 +9,15 @@ export function SeoIntroSection() {
         </h2>
         <div className="space-y-5 text-white/65 leading-relaxed">
           <p>
-            Rasheed Clothing International is a clothing manufacturer and supplier based in
-            Sialkot, Pakistan, serving brands across Asia, the UK, USA, Canada, Australia, the
+            Rasheed Clothing International is a clothing manufacturer, garment manufacturer and
+            apparel exporter based in Sialkot, Pakistan, serving brands across Asia, the UK, USA, Canada, Australia, the
             UAE and Europe. We produce hoodies, tees, tracksuits, activewear, streetwear and
             corporate uniforms with low minimums from 50 units per design.
           </p>
           <p>
             Sialkot is one of Asia&apos;s best-known hubs for sportswear and garment exports. Our
             factory combines that heritage with strict quality control, fast sampling and
-            reliable worldwide shipping, so you get a dependable clothes supplier and export
+            reliable worldwide shipping, so you get a dependable clothing supplier and export
             partner from first sample to bulk delivery.
           </p>
           <p>

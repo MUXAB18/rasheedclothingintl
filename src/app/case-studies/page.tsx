@@ -49,8 +49,9 @@ export default function CaseStudiesPage() {
     <div className="pt-32 pb-24 min-h-screen bg-white">
       <div className="container mx-auto px-6 md:px-12">
         <SectionHeading
+          as="h1"
           eyebrow="Our Track Record"
-          title="Success Stories"
+          title="Clothing Manufacturing Case Studies"
           subtitle="Real challenges. Proven solutions. See how we've helped brands scale their production without compromising their aesthetic."
         />
 
@@ -81,9 +82,9 @@ export default function CaseStudiesPage() {
                   <span className="text-sm font-bold uppercase tracking-[2px] text-near-black/50 block mb-2">
                     {study.category}
                   </span>
-                  <h3 className="text-4xl md:text-5xl font-sans font-black tracking-tight">
+                  <h2 className="text-4xl md:text-5xl font-sans font-black tracking-tight">
                     {study.client}
-                  </h3>
+                  </h2>
                 </div>
 
                 <p className="text-xl text-near-black/70 leading-relaxed font-sans mb-12">

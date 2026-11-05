@@ -1,11 +1,14 @@
 import Link from "next/link";
-import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import { CheckCircle2 } from "lucide-react";
 
-export const metadata: Metadata = {
+export const metadata = pageMeta({
   title: "Thank You",
-  robots: { index: false, follow: false },
-};
+  description: "Thanks for contacting Rasheed Clothing International. Our team will reply to your enquiry within 24 hours.",
+  path: "/thank-you",
+  noindex: true,
+  follow: false,
+});
 
 export default function ThankYouPage() {
   return (

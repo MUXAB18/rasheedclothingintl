@@ -37,25 +37,28 @@ export function CapabilitiesSection() {
               <div className="w-full md:w-[45%] flex flex-col gap-4">
                 <div className="relative w-full aspect-[21/9] md:aspect-[16/7] rounded-3xl overflow-hidden shadow-sm">
                   <Image
-                    src="/media__1775818869472.webp"
-                    alt="Manufacturing"
+                    src="/red-first-48-graphic-tee-shorts-set.webp"
+                    alt="Red graphic tee and shorts set produced in our Sialkot clothing factory"
                     fill
+                    sizes="(max-width: 768px) 90vw, 400px"
                     className="object-cover"
                   />
                 </div>
                 <div className="relative w-full aspect-[21/9] md:aspect-[16/7] rounded-3xl overflow-hidden shadow-sm">
                   <Image
-                    src="/media__1775817925946.webp"
-                    alt="Embroidery"
+                    src="/grey-zip-hoodie-tracksuit-models.webp"
+                    alt="Models wearing custom grey and black hoodie and tracksuit sets"
                     fill
+                    sizes="(max-width: 768px) 90vw, 400px"
                     className="object-cover"
                   />
                 </div>
                 <div className="relative w-full aspect-[21/9] md:aspect-[16/7] rounded-3xl overflow-hidden shadow-sm">
                   <Image
-                    src="/media__1775817915164.webp"
-                    alt="Printing"
+                    src="/grey-zip-hoodie-joggers-model.webp"
+                    alt="Model wearing a grey zip-up hoodie and joggers with embroidered details"
                     fill
+                    sizes="(max-width: 768px) 90vw, 400px"
                     className="object-cover"
                   />
                 </div>

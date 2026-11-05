@@ -31,20 +31,9 @@ export function HeroContent({ mobile = false }: HeroContentProps) {
     <motion.div
       className="flex flex-col z-20 w-full h-full justify-center pt-8 lg:pt-0"
       variants={staggerContainer}
-      initial="hidden"
+      initial={false}
       animate="visible"
     >
-      {/* Eyebrow label */}
-      <motion.div variants={fadeInUp} className="mb-5">
-        <span
-          className={`text-[10px] uppercase tracking-[0.3em] font-medium ${
-            mobile ? "text-white/50" : "text-gray-500"
-          }`}
-        >
-          Where Imagination Meets Fabrication
-        </span>
-      </motion.div>
-
       {/* Main Headline */}
       <motion.div variants={fadeInUp} className="mb-6 lg:mb-8">
         <Heading
@@ -52,6 +41,13 @@ export function HeroContent({ mobile = false }: HeroContentProps) {
             mobile ? "text-white" : "text-near-black"
           }`}
         >
+          <span
+            className={`block mb-5 text-[10px] uppercase tracking-[0.3em] font-medium leading-normal ${
+              mobile ? "text-white/50" : "text-gray-500"
+            }`}
+          >
+            Clothing Manufacturer in Sialkot, Pakistan
+          </span>
           Turn Your Ideas
           <br />
           into Premium
@@ -108,16 +104,14 @@ export function HeroContent({ mobile = false }: HeroContentProps) {
           className="hidden lg:flex items-center gap-4"
         >
           <div className="flex -space-x-3">
-            {[1, 2, 3, 4].map((i) => (
+            {["R", "C", "I", "B"].map((initial, i) => (
               <div
-                key={i}
-                className="w-10 h-10 rounded-full border-2 border-white bg-gray-200 overflow-hidden relative"
+                key={initial}
+                aria-hidden="true"
+                className="w-10 h-10 rounded-full border-2 border-white flex items-center justify-center text-xs font-bold text-white"
+                style={{ backgroundColor: ["#1a1a1a", "#3a3a38", "#555552", "#777774"][i] }}
               >
-                <img
-                  src={`https://i.pravatar.cc/100?img=${i + 10}`}
-                  alt="User avatar"
-                  className="w-full h-full object-cover"
-                />
+                {initial}
               </div>
             ))}
           </div>

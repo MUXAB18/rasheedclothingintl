@@ -6,7 +6,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { motion } from "framer-motion";
 import { ArrowLeft, CheckCircle2 } from "lucide-react";
-import { products } from "@/data/products";
+import { products, productSlug, findProduct } from "@/data/products";
 import { Button } from "@/components/ui/Button";
 
 // NOTE: Since we are not fetching from a DB right now, we use a simple generic layout for the category.
@@ -18,7 +18,7 @@ export default function CategoryPage({
   params: Promise<{ category: string }>;
 }) {
   const { category } = React.use(params);
-  const product = products.find((p) => String(p.id) === category);
+  const product = findProduct(category);
 
   if (!product) {
     notFound();
@@ -36,22 +36,24 @@ export default function CategoryPage({
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
+            initial={false}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             className="relative h-[600px] w-full bg-[#F8F8F8]"
           >
             <Image
               src={product.img}
-              alt={product.title}
+              alt={`${product.title}: ${product.desc}`}
               fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
               className="object-cover"
               priority
+              fetchPriority="high"
             />
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
+            initial={false}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             className="flex flex-col"
@@ -72,9 +74,9 @@ export default function CategoryPage({
             </p>
 
             <div className="mb-12">
-              <h3 className="text-[11px] font-bold tracking-[2px] uppercase text-near-black mb-6">
+              <h2 className="text-[11px] font-bold tracking-[2px] uppercase text-near-black mb-6">
                 Key Specifications
-              </h3>
+              </h2>
               <ul className="space-y-4">
                 {[
                   "Custom fabric sourcing and dyeing (Pantone matching)",
@@ -98,6 +100,32 @@ export default function CategoryPage({
               <Button href="/request-quote" variant="primary">
                 Request Quote
               </Button>
+            </div>
+
+            <div className="mt-12">
+              <h2 className="text-[11px] font-bold tracking-[2px] uppercase text-near-black mb-4">
+                More {product.cat}
+              </h2>
+              <ul className="flex flex-wrap gap-2">
+                {products
+                  .filter((p) => p.cat === product.cat && p.id !== product.id)
+                  .slice(0, 6)
+                  .map((p) => (
+                    <li key={p.id}>
+                      <Link
+                        href={`/products/${productSlug(p)}`}
+                        className="text-sm underline text-near-black/70 hover:text-near-black"
+                      >
+                        {p.title}
+                      </Link>
+                    </li>
+                  ))}
+                <li>
+                  <Link href="/products" className="text-sm underline font-bold">
+                    All products
+                  </Link>
+                </li>
+              </ul>
             </div>
           </motion.div>
         </div>

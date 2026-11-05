@@ -43,72 +43,72 @@ interface CanvasLayer {
 }
 
 const patches = [
-  { id: "tiger", src: "/studio/patch_tiger.webp", alt: "Tiger Patch" },
-  { id: "vintage", src: "/studio/patch_vintage.webp", alt: "Vintage Patch" },
+  { id: "tiger", src: "/studio/embroidered-patch-comic-bam.webp", alt: "Comic BAM! embroidered patch" },
+  { id: "vintage", src: "/studio/embroidered-patch-vintage-tiger.webp", alt: "Vintage snarling tiger embroidered patch" },
   {
     id: "eagle",
-    src: "/studio/patch_eagle_1787901459680_v2.png",
-    alt: "Eagle Patch",
+    src: "/studio/embroidered-patch-eagle.png",
+    alt: "Bald eagle embroidered patch with stars and stripes",
   },
   {
     id: "rose",
-    src: "/studio/patch_rose_1787901470599_v2.png",
-    alt: "Rose Patch",
+    src: "/studio/embroidered-patch-rose.png",
+    alt: "Red rose embroidered patch",
   },
   {
     id: "snake",
-    src: "/studio/patch_snake_1787901482278_v2.png",
-    alt: "Snake Patch",
+    src: "/studio/embroidered-patch-snake.png",
+    alt: "Green cobra embroidered patch",
   },
   {
     id: "panther",
-    src: "/studio/patch_panther_1787901493445_v2.png",
-    alt: "Panther Patch",
+    src: "/studio/embroidered-patch-panther.png",
+    alt: "Black panther embroidered patch",
   },
   {
     id: "wolf",
-    src: "/studio/patch_wolf_1787901504562_v2.png",
-    alt: "Wolf Patch",
+    src: "/studio/embroidered-patch-wolf.png",
+    alt: "Howling wolf embroidered patch",
   },
   {
     id: "bear",
-    src: "/studio/patch_bear_1787901514291_v2.png",
-    alt: "Bear Patch",
+    src: "/studio/embroidered-patch-bear.png",
+    alt: "Brown bear embroidered patch",
   },
   {
     id: "dragon",
-    src: "/studio/patch_dragon_1787901525541_v2.png",
-    alt: "Dragon Patch",
+    src: "/studio/embroidered-patch-dragon.png",
+    alt: "Red dragon embroidered patch",
   },
   {
     id: "anchor",
-    src: "/studio/patch_anchor_1787901536949_v2.png",
-    alt: "Anchor Patch",
+    src: "/studio/embroidered-patch-anchor.png",
+    alt: "Navy anchor and rope embroidered patch",
   },
   {
     id: "motorcycle",
-    src: "/studio/patch_motorcycle_1787901713370_v2.png",
-    alt: "Motorcycle Patch",
+    src: "/studio/embroidered-patch-motorcycle.png",
+    alt: "Cafe racer motorcycle embroidered patch",
   },
   {
     id: "flames",
-    src: "/studio/patch_flames_1787901724539_v2.png",
-    alt: "Flames Patch",
+    src: "/studio/embroidered-patch-flames.png",
+    alt: "Flames embroidered patch",
   },
   {
     id: "skull_rose",
-    src: "/studio/patch_skull_rose_1787901790259_v2.png",
-    alt: "Skull Rose Patch",
+    src: "/studio/embroidered-patch-skull-rose.png",
+    alt: "Skull and rose embroidered patch",
   },
   {
     id: "dagger",
-    src: "/studio/patch_dagger_1787901802170_v2.png",
-    alt: "Dagger Patch",
+    src: "/studio/embroidered-patch-dagger.png",
+    alt: "True Heart dagger embroidered patch",
   },
   {
     id: "spider",
-    src: "/studio/patch_spider_1787901814493_v2.png",
-    alt: "Spider Patch",
+    src: "/studio/embroidered-patch-spider.png",
+    alt: "Black widow spider embroidered patch",
   },
 ];
 
@@ -230,6 +230,7 @@ export function DesignStudio() {
       <div className="container mx-auto px-6 md:px-12">
         {/* Header */}
         <SectionHeading
+          immediate
           eyebrow="Design Studio"
           title="Create Your Vision"
           subtitle="Customize a premium garment with your colors, artwork, and patches."
@@ -442,7 +443,7 @@ export function DesignStudio() {
                   {/* The Base Image (Texture and Shadows) */}
                   <Image
                     src={getGarmentImage()}
-                    alt={`${garment} ${view}`}
+                    alt={`Custom ${garment} ${view} view in the design studio`}
                     fill
                     className="object-contain drop-shadow-2xl"
                     sizes="(max-width: 1024px) 100vw, 50vw"
@@ -506,8 +507,9 @@ export function DesignStudio() {
                       <div className="relative w-32 h-32 pointer-events-none select-none">
                         <Image
                           src={layer.src!}
-                          alt="Layer"
+                          alt="Your design element on the garment"
                           fill
+                          sizes="128px"
                           className={cn(
                             "object-contain",
                             layer.type === "PATCH" ? "drop-shadow-xl" : "",
@@ -694,6 +696,7 @@ export function DesignStudio() {
                           src={patch.src}
                           alt={patch.alt}
                           fill
+                          sizes="96px"
                           className="object-contain drop-shadow-sm mix-blend-multiply"
                         />
                       </div>

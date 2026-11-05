@@ -198,8 +198,9 @@ export default function ManufacturingPage() {
       <div className="container mx-auto px-6 md:px-12">
         {/* Header */}
         <SectionHeading
+          as="h1"
           eyebrow="Manufacturing"
-          title="World-Class Production Facility"
+          title="Garment Factory in Sialkot: World-Class Production"
           subtitle="Advanced manufacturing combining skilled craftsmanship with modern technology in Sialkot, Pakistan"
         />
 

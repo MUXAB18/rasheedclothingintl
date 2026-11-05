@@ -11,7 +11,7 @@ import {
   Calendar,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
-import PhoneInput, { isValidPhoneNumber } from "react-phone-number-input";
+import PhoneInput, { isValidPhoneNumber } from "react-phone-number-input/min";
 import "react-phone-number-input/style.css";
 
 const InputField = ({
@@ -588,7 +588,7 @@ export default function RequestQuotePage() {
         {step < 5 && (
           <div className="text-center mb-12">
             <h1 className="text-4xl md:text-5xl font-sans font-black tracking-tight text-near-black mb-4">
-              Start Your Order
+              Request a Bulk Clothing Quote
             </h1>
             <p className="text-gray-600 font-sans max-w-xl mx-auto">
               Fill out our detailed order form to receive a precise quote and

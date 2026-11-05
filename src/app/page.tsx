@@ -1,16 +1,38 @@
 import React from "react";
+import dynamic from "next/dynamic";
 
 import { Hero } from "@/components/home/hero/Hero";
 import { TrustBadgesSection } from "@/components/home/trust/TrustBadgesSection";
 import { CollectionsSection } from "@/components/home/collections/CollectionsSection";
-import { CapabilitiesSection } from "@/components/home/capabilities/CapabilitiesSection";
-import { ProcessTimelineSection } from "@/components/home/process/ProcessTimelineSection";
-import { PortfolioPreviewWrapper } from "@/components/home/portfolio/PortfolioPreviewWrapper";
 import { SeoIntroSection } from "@/components/home/seo/SeoIntroSection";
-import { HomeFaqSection } from "@/components/home/faq/HomeFaqSection";
-import { HomeCtaSection } from "@/components/home/cta/HomeCtaSection";
 
 import { getPublishedCollections } from "@/lib/api/collection.service";
+
+
+// Below-the-fold sections are split into their own chunks (still server-rendered for SEO)
+// so the first screen hydrates sooner.
+const CapabilitiesSection = dynamic(() =>
+  import("@/components/home/capabilities/CapabilitiesSection").then((m) => m.CapabilitiesSection),
+);
+const ProcessTimelineSection = dynamic(() =>
+  import("@/components/home/process/ProcessTimelineSection").then((m) => m.ProcessTimelineSection),
+);
+const PortfolioPreviewWrapper = dynamic(() =>
+  import("@/components/home/portfolio/PortfolioPreviewWrapper").then((m) => m.PortfolioPreviewWrapper),
+);
+const HomeFaqSection = dynamic(() =>
+  import("@/components/home/faq/HomeFaqSection").then((m) => m.HomeFaqSection),
+);
+const HomeCtaSection = dynamic(() =>
+  import("@/components/home/cta/HomeCtaSection").then((m) => m.HomeCtaSection),
+);
+
+// Refresh DB-backed content hourly instead of freezing it at build time
+export const revalidate = 3600;
+
+export const metadata = {
+  alternates: { canonical: "/" },
+};
 
 export default async function Home() {
   const collections = await getPublishedCollections();

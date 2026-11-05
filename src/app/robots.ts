@@ -5,7 +5,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: "*",
       allow: "/",
-      disallow: ["/admin", "/api/", "/track/", "/thank-you"],
+      disallow: ["/admin", "/api/"],
     },
     sitemap: "https://www.rasheedclothingintl.me/sitemap.xml",
   };

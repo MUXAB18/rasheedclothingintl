@@ -142,9 +142,9 @@ export function TrustBadgesSection() {
               </div>
 
               {/* Title */}
-              <h3 className="text-xs md:text-sm font-sans font-bold text-black mb-1">
+              <p className="text-xs md:text-sm font-sans font-bold text-black mb-1">
                 {badge.title}
-              </h3>
+              </p>
 
               {/* Description */}
               <p className="text-[10px] md:text-xs text-gray-600 font-sans">

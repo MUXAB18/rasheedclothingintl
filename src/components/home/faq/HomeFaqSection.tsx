@@ -8,7 +8,7 @@ const faqs = [
   {
     question: "What is your minimum order quantity (MOQ)?",
     answer:
-      "Our standard minimum order quantity is typically 100 pieces per style and color. This allows us to maintain strict quality control while offering cost-effective production runs for both emerging labels and established global brands.",
+      "Our minimum order quantity starts at 50 units per style (100 units per style for fully custom silhouettes). This allows us to maintain strict quality control while offering cost-effective production runs for both emerging labels and established global brands.",
   },
   {
     question: "Do you provide custom sampling before bulk production?",

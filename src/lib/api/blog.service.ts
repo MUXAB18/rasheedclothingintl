@@ -4,7 +4,7 @@
  */
 
 import prisma from "@/lib/prisma";
-import { revalidatePath } from "next/cache";
+import { revalidatePath, revalidateTag, unstable_cache } from "next/cache";
 
 export type CreateBlogPostInput = {
   title: string;
@@ -29,11 +29,31 @@ export async function getAllBlogPosts() {
   });
 }
 
+// unstable_cache stores JSON, so Date fields come back as strings: turn them back into Dates
+type BlogPostRow = Awaited<ReturnType<typeof prisma.blogPost.findMany>>[number];
+const revive = <T extends BlogPostRow | null>(p: T): T =>
+  p
+    ? ({
+        ...p,
+        publishedAt: p.publishedAt ? new Date(p.publishedAt) : null,
+        createdAt: new Date(p.createdAt),
+        updatedAt: new Date(p.updatedAt),
+      } as T)
+    : p;
+
+// Public blog reads are cached for 5 minutes (and cleared immediately when an admin saves),
+// so visitors don't wait on a database round trip.
+const cachedPublishedPosts = unstable_cache(
+  async () =>
+    prisma.blogPost.findMany({
+      where: { isPublished: true },
+      orderBy: { publishedAt: "desc" },
+    }),
+  ["blog-published-posts"],
+  { revalidate: 300, tags: ["blog"] },
+);
 export async function getPublishedBlogPosts() {
-  return prisma.blogPost.findMany({
-    where: { isPublished: true },
-    orderBy: { publishedAt: "desc" },
-  });
+  return (await cachedPublishedPosts()).map((p) => revive(p));
 }
 
 export async function getFeaturedBlogPosts(limit = 3) {
@@ -54,9 +74,12 @@ export async function getBlogPostById(id: string) {
 }
 
 export async function getBlogPostBySlug(slug: string) {
-  return prisma.blogPost.findUnique({
-    where: { slug },
-  });
+  const post = await unstable_cache(
+    async () => prisma.blogPost.findUnique({ where: { slug } }),
+    ["blog-post", slug],
+    { revalidate: 300, tags: ["blog"] },
+  )();
+  return revive(post);
 }
 
 export async function getBlogPostsByTag(tag: string) {
@@ -138,6 +161,7 @@ export async function deleteBlogPost(id: string) {
 function revalidatePaths() {
   revalidatePath("/");
   revalidatePath("/blog");
+  revalidateTag("blog", "max");
   revalidatePath("/admin/blog");
 }
 

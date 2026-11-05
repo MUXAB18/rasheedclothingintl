@@ -120,7 +120,7 @@ export function PortfolioModal({
               onChange={handleChange}
               required
               className="w-full px-3 py-2 border rounded-md focus:ring-2 focus:ring-black outline-none transition"
-              placeholder="e.g. /portfolio/IMG_5442.PNG"
+              placeholder="e.g. /portfolio/dead-snake-custom-hoodie.png"
             />
             {formData.imageUrl && (
               <div className="mt-2 text-sm text-gray-500 flex items-center gap-2">

@@ -2,13 +2,20 @@
 
 import { usePathname } from "next/navigation";
 import { Navbar } from "./Navbar";
-import { Footer } from "./Footer";
 import { RelatedLinks } from "./RelatedLinks";
 import { Breadcrumbs } from "./Breadcrumbs";
-import { StickyMobileCTA } from "@/components/ui/StickyMobileCTA";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 
-export function ConditionalLayout({ children }: { children: React.ReactNode }) {
+export function ConditionalLayout({
+  children,
+  footer,
+  stickyCta,
+}: {
+  children: React.ReactNode;
+  /** Server-rendered (no client JS): passed in from the root layout */
+  footer: React.ReactNode;
+  stickyCta: React.ReactNode;
+}) {
   const pathname = usePathname();
 
   // Check if current route is admin or track
@@ -27,9 +34,9 @@ export function ConditionalLayout({ children }: { children: React.ReactNode }) {
       <Breadcrumbs />
       <main className="flex-grow pb-16 md:pb-0">{children}</main>
       <RelatedLinks />
-      <Footer />
+      {footer}
       <WhatsAppButton />
-      <StickyMobileCTA />
+      {stickyCta}
     </>
   );
 }

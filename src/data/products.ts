@@ -7,13 +7,23 @@ export type ProductItem = {
   badge?: string;
 };
 
+export const slugify = (text: string) =>
+  text
+    .toLowerCase()
+    .replace(/&/g, "and")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+
+/** SEO-friendly URL segment for a product, e.g. "celestial-blue-zip-up". */
+export const productSlug = (p: ProductItem) => slugify(p.title);
+
 export const products: ProductItem[] = [
   {
     id: 101,
     cat: "Hoodies",
     title: "Celestial Blue Zip-Up",
     desc: "Blue heavyweight zip-up with white star graphics",
-    img: "/portfolio/custom_hoodie_1.jpg",
+    img: "/portfolio/celestial-blue-zip-up-hoodie.jpg",
     badge: "New Arrival",
   },
   {
@@ -21,7 +31,7 @@ export const products: ProductItem[] = [
     cat: "Hoodies",
     title: "Celestial Purple Zip-Up",
     desc: "Purple heavyweight zip-up with white star graphics",
-    img: "/portfolio/custom_hoodie_2.jpg",
+    img: "/portfolio/celestial-purple-zip-up-hoodie.jpg",
     badge: "New Arrival",
   },
   {
@@ -29,21 +39,21 @@ export const products: ProductItem[] = [
     cat: "Hoodies",
     title: "Celestial Blue Detail",
     desc: "Detailed view of the blue star zip-up hoodie",
-    img: "/portfolio/custom_hoodie_3.webp",
+    img: "/portfolio/celestial-blue-detail-hoodie.webp",
   },
   {
     id: 104,
     cat: "Hoodies",
     title: "Celestial Purple Detail",
     desc: "Detailed view of the purple star zip-up hoodie",
-    img: "/portfolio/custom_hoodie_4.webp",
+    img: "/portfolio/celestial-purple-detail-hoodie.webp",
   },
   {
     id: 1,
     cat: "Hoodies",
     title: "Dead Snake Custom",
     desc: "Black hoodie with red serpent graphic",
-    img: "/portfolio/IMG_5442.PNG",
+    img: "/portfolio/dead-snake-custom-hoodie.png",
     badge: "Limited",
   },
   {
@@ -51,7 +61,7 @@ export const products: ProductItem[] = [
     cat: "Hoodies",
     title: "Forever Havin Motion",
     desc: "Heavyweight black hoodie with white puff print",
-    img: "/portfolio/IMG_5441.PNG",
+    img: "/portfolio/forever-havin-motion-hoodie.png",
     badge: "Signature",
   },
   {
@@ -59,7 +69,7 @@ export const products: ProductItem[] = [
     cat: "Hoodies",
     title: "Jetlag Studios Signature",
     desc: "Two-tone sleeve lettering with chest logo",
-    img: "/portfolio/IMG_5440.PNG",
+    img: "/portfolio/jetlag-studios-signature-hoodie.png",
     badge: "Premium",
   },
   {
@@ -67,14 +77,14 @@ export const products: ProductItem[] = [
     cat: "Hoodies",
     title: "Dark Root Minimal",
     desc: "Subtle gray root graphic on pure black",
-    img: "/portfolio/IMG_5443.PNG",
+    img: "/portfolio/dark-root-minimal-hoodie.png",
   },
   {
     id: 5,
     cat: "Hoodies",
     title: "Neon Benji 21",
     desc: "Bright green hoodie with patches & print",
-    img: "/portfolio/IMG_5444.PNG",
+    img: "/portfolio/neon-benji-21-hoodie.png",
     badge: "New",
   },
   {
@@ -82,21 +92,21 @@ export const products: ProductItem[] = [
     cat: "Hoodies",
     title: "Premium Edition",
     desc: "Custom crafted detailing",
-    img: "/portfolio/IMG_5445.PNG",
+    img: "/portfolio/premium-edition-hoodie.png",
   },
   {
     id: 7,
     cat: "Hoodies",
     title: "Classic Heavyweight",
     desc: "High-quality cotton construction",
-    img: "/portfolio/IMG_5446.PNG",
+    img: "/portfolio/classic-heavyweight-hoodie.png",
   },
   {
     id: 8,
     cat: "Hoodies",
     title: "Signature Drop",
     desc: "Exclusive release garment",
-    img: "/portfolio/IMG_5447.PNG",
+    img: "/portfolio/signature-drop-hoodie.png",
     badge: "Exclusive",
   },
   {
@@ -104,7 +114,7 @@ export const products: ProductItem[] = [
     cat: "Tees & Essentials",
     title: "First 48 Crimson Set",
     desc: "Red motion matching short set",
-    img: "/portfolio/IMG_5454.PNG",
+    img: "/portfolio/first-48-crimson-set-tee.png",
     badge: "New",
   },
   {
@@ -112,14 +122,14 @@ export const products: ProductItem[] = [
     cat: "Tees & Essentials",
     title: "Plain White Heavyweight",
     desc: "Premium cotton construction tee",
-    img: "/portfolio/IMG_5449.PNG",
+    img: "/portfolio/plain-white-heavyweight-tee.png",
   },
   {
     id: 11,
     cat: "Tees & Essentials",
     title: "Broken Tears Graphic",
     desc: "Raven puff print back design",
-    img: "/portfolio/IMG_5450.PNG",
+    img: "/portfolio/broken-tears-graphic-tee.png",
     badge: "Limited",
   },
   {
@@ -127,14 +137,14 @@ export const products: ProductItem[] = [
     cat: "Tees & Essentials",
     title: "First 48 Midnight Set",
     desc: "Black motion matching short set",
-    img: "/portfolio/IMG_5453.PNG",
+    img: "/portfolio/first-48-midnight-set-tee.png",
   },
   {
     id: 13,
     cat: "Tees & Essentials",
     title: "First 48 Snow Set",
     desc: "White motion matching short set",
-    img: "/portfolio/IMG_5455.PNG",
+    img: "/portfolio/first-48-snow-set-tee.png",
     badge: "New",
   },
   {
@@ -142,28 +152,28 @@ export const products: ProductItem[] = [
     cat: "Tees & Essentials",
     title: "Essential Core Tee",
     desc: "Minimalist street styling",
-    img: "/portfolio/IMG_5448.PNG",
+    img: "/portfolio/essential-core-tee.png",
   },
   {
     id: 15,
     cat: "Tees & Essentials",
     title: "Lounge Comfort Set",
     desc: "Premium relaxation fit",
-    img: "/portfolio/IMG_5451.PNG",
+    img: "/portfolio/lounge-comfort-set-tee.png",
   },
   {
     id: 16,
     cat: "Tees & Essentials",
     title: "Signature Athletic Gear",
     desc: "High motion mobility set",
-    img: "/portfolio/IMG_5452.PNG",
+    img: "/portfolio/signature-athletic-gear-tee.png",
   },
   {
     id: 17,
     cat: "Tracksuits",
     title: "Pain 2 Champain Noir",
     desc: "Black heavyweight tracksuit matching set",
-    img: "/portfolio/IMG_5456.PNG",
+    img: "/portfolio/pain-2-champain-noir-tracksuit.png",
     badge: "Signature",
   },
   {
@@ -171,7 +181,7 @@ export const products: ProductItem[] = [
     cat: "Tracksuits",
     title: "Money Crazy Noir",
     desc: "Full zip black tracksuit with patches",
-    img: "/portfolio/IMG_5457.PNG",
+    img: "/portfolio/money-crazy-noir-tracksuit.png",
     badge: "Limited",
   },
   {
@@ -179,21 +189,21 @@ export const products: ProductItem[] = [
     cat: "Tracksuits",
     title: "Noir Tracksuit Profile",
     desc: "Form-fitting custom black activewear",
-    img: "/portfolio/IMG_5458.PNG",
+    img: "/portfolio/noir-tracksuit-profile.png",
   },
   {
     id: 20,
     cat: "Tracksuits",
     title: "Noir Back Graphic",
     desc: "Bold back print on premium fleece",
-    img: "/portfolio/IMG_5459.PNG",
+    img: "/portfolio/noir-back-graphic-tracksuit.png",
   },
   {
     id: 21,
     cat: "Tracksuits",
     title: "Pain 2 Champain Ash",
     desc: "Gray heavyweight tracksuit with embroidery",
-    img: "/portfolio/IMG_5460.PNG",
+    img: "/portfolio/pain-2-champain-ash-tracksuit.png",
     badge: "New",
   },
   {
@@ -201,14 +211,14 @@ export const products: ProductItem[] = [
     cat: "Tracksuits",
     title: "Ash Back Graphic",
     desc: "Signature back motif on premium heather",
-    img: "/portfolio/IMG_5461.PNG",
+    img: "/portfolio/ash-back-graphic-tracksuit.png",
   },
   {
     id: 23,
     cat: "Gymwear",
     title: "Core Logo Singlet Stack",
     desc: "Red and black high-performance gym wear",
-    img: "/portfolio/IMG_5462.PNG",
+    img: "/portfolio/core-logo-singlet-stack-gymwear.png",
     badge: "Performance",
   },
   {
@@ -216,14 +226,14 @@ export const products: ProductItem[] = [
     cat: "Gymwear",
     title: "Signature Training Top",
     desc: "Sleek black B-logo performance singlet",
-    img: "/portfolio/IMG_5463.jpg",
+    img: "/portfolio/signature-training-top-gymwear.jpg",
   },
   {
     id: 25,
     cat: "Gymwear",
     title: "Crimson Training Top",
     desc: "Bold red B-logo performance singlet",
-    img: "/portfolio/IMG_5464.jpg",
+    img: "/portfolio/crimson-training-top-gymwear.jpg",
     badge: "New",
   },
 ];
@@ -255,7 +265,7 @@ export const collectionsData: CollectionItem[] = [
     subtitle: "Heavyweight Comfort",
     description:
       "Engineered from premium 450gsm fleece for a structured, luxury fit that withstands daily wear and tear.",
-    image: "/hoodie-new.png",
+    image: "/custom-hoodies-collection.png",
     number: "01",
   },
   {
@@ -265,7 +275,7 @@ export const collectionsData: CollectionItem[] = [
     subtitle: "Everyday Staples",
     description:
       "Crafted from tightly knit, enzyme-washed cotton for an incredibly soft hand-feel and perfect drape.",
-    image: "/tees-essential.png",
+    image: "/custom-tees-collection.png",
     number: "02",
   },
   {
@@ -275,7 +285,7 @@ export const collectionsData: CollectionItem[] = [
     subtitle: "Athleisure Excellence",
     description:
       "Moisture-wicking tech-fleece sets with sleek profiles, designed for mobility and effortless off-duty style.",
-    image: "/tracksuit.png",
+    image: "/custom-tracksuits-collection.png",
     number: "03",
   },
   {
@@ -285,7 +295,7 @@ export const collectionsData: CollectionItem[] = [
     subtitle: "Performance Focus",
     description:
       "Built for high-intensity output with four-way stretch fabrics and targeted breathability to withstand the toughest workouts.",
-    image: "/gymwear.png",
+    image: "/custom-gymwear-collection.png",
     number: "04",
   },
   {
@@ -295,7 +305,7 @@ export const collectionsData: CollectionItem[] = [
     subtitle: "Brand Excellence",
     description:
       "Bespoke corporate apparel designed to perfectly translate your brand identity into professional, highly durable daily wear.",
-    image: "/corporate-uniform.png",
+    image: "/corporate-uniforms-collection.png",
     number: "05",
   },
   {
@@ -305,7 +315,11 @@ export const collectionsData: CollectionItem[] = [
     subtitle: "Weather-Ready Style",
     description:
       "Constructed with weatherproof materials and technical hardware, offering ultimate protection without compromising on modern style.",
-    image: "/outerwear.png",
+    image: "/outerwear-jackets-collection.png",
     number: "06",
   },
 ];
+
+export const findProduct = (segment: string) =>
+  products.find((p) => productSlug(p) === segment) ??
+  products.find((p) => String(p.id) === segment);

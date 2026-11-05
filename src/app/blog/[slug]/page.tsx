@@ -2,12 +2,23 @@ import React from "react";
 import Link from "next/link";
 import { ArrowLeft, Calendar, Clock, User, Share2 } from "lucide-react";
 import Image from "next/image";
-import { getBlogPostBySlug } from "@/lib/api/blog.service";
+import { getBlogPostBySlug, getPublishedBlogPosts } from "@/lib/api/blog.service";
 import { notFound } from "next/navigation";
 import { BlogViewTracker } from "@/components/blog/BlogViewTracker";
 import { SocialShare } from "@/components/blog/SocialShare";
 import type { Metadata } from "next";
 import { pageMeta } from "@/lib/seo";
+
+// Pre-generate published posts at build; new posts render on first request, then refresh every 5 min
+export const revalidate = 300;
+
+export async function generateStaticParams() {
+  try {
+    return (await getPublishedBlogPosts()).map((p) => ({ slug: p.slug }));
+  } catch {
+    return [];
+  }
+}
 
 export async function generateMetadata({
   params,
@@ -24,6 +35,12 @@ export async function generateMetadata({
     path: `/blog/${slug}`,
     image: post.coverImage || undefined,
     type: "article",
+    article: {
+      publishedTime: (post.publishedAt ?? post.createdAt).toISOString(),
+      modifiedTime: post.updatedAt.toISOString(),
+      authors: ["Rasheed Clothing International"],
+      tags: post.tags,
+    },
   });
 }
 
@@ -44,9 +61,36 @@ export default async function BlogPostPage({
     process.env.NEXT_PUBLIC_SITE_URL || "https://www.rasheedclothingintl.me";
   const postUrl = `${baseUrl}/blog/${slug}`;
 
+  const morePosts = (await getPublishedBlogPosts())
+    .filter((p) => p.slug !== slug)
+    .slice(0, 3);
+
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.excerpt || undefined,
+    image: post.coverImage
+      ? [post.coverImage.startsWith("http") ? post.coverImage : `${baseUrl}${post.coverImage}`]
+      : undefined,
+    author: { "@type": "Organization", name: "Rasheed Clothing International" },
+    publisher: {
+      "@type": "Organization",
+      name: "Rasheed Clothing International",
+      logo: { "@type": "ImageObject", url: `${baseUrl}/logo-512.png` },
+    },
+    datePublished: (post.publishedAt ?? post.createdAt).toISOString(),
+    dateModified: post.updatedAt.toISOString(),
+    mainEntityOfPage: postUrl,
+  };
+
   return (
     <div className="pt-32 pb-24 min-h-screen bg-gradient-to-b from-gray-50 to-white">
       <BlogViewTracker slug={slug} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
 
       {/* Back Button & Breadcrumb */}
       <div className="container mx-auto px-6 md:px-12 max-w-5xl mb-8">
@@ -119,6 +163,7 @@ export default async function BlogPostPage({
                 src={post.coverImage}
                 alt={post.title}
                 fill
+                sizes="(max-width: 1024px) 100vw, 1024px"
                 className="object-cover"
                 priority
               />
@@ -158,9 +203,9 @@ export default async function BlogPostPage({
 
             {/* Tags at Bottom */}
             <div className="mt-12 pt-8 border-t border-gray-200">
-              <h3 className="text-sm font-sans font-bold uppercase tracking-wider text-gray-500 mb-4">
+              <h2 className="text-sm font-sans font-bold uppercase tracking-wider text-gray-500 mb-4">
                 Tagged in:
-              </h3>
+              </h2>
               <div className="flex flex-wrap gap-3">
                 {post.tags.map((tag, idx) => (
                   <span
@@ -181,9 +226,9 @@ export default async function BlogPostPage({
               <div className="bg-white border border-gray-200 rounded-2xl p-6">
                 <div className="flex items-center gap-2 mb-4">
                   <Share2 className="w-5 h-5 text-gray-700" />
-                  <h3 className="text-sm font-sans font-bold uppercase tracking-wider text-gray-700">
+                  <h2 className="text-sm font-sans font-bold uppercase tracking-wider text-gray-700">
                     Share Article
-                  </h3>
+                  </h2>
                 </div>
                 <SocialShare
                   url={postUrl}
@@ -199,9 +244,9 @@ export default async function BlogPostPage({
                     {(post.author || "RCI Team").charAt(0)}
                   </div>
                   <div>
-                    <h3 className="font-sans font-bold text-lg">
+                    <h2 className="font-sans font-bold text-lg">
                       {post.author || "RCI Team"}
-                    </h3>
+                    </h2>
                     <p className="text-white/70 text-sm">Author</p>
                   </div>
                 </div>
@@ -214,9 +259,9 @@ export default async function BlogPostPage({
 
               {/* Quick Info */}
               <div className="bg-gray-50 border border-gray-200 rounded-2xl p-6">
-                <h3 className="text-sm font-sans font-bold uppercase tracking-wider text-gray-700 mb-4">
+                <h2 className="text-sm font-sans font-bold uppercase tracking-wider text-gray-700 mb-4">
                   Article Info
-                </h3>
+                </h2>
                 <div className="space-y-3 text-sm">
                   <div className="flex items-center justify-between">
                     <span className="text-gray-600">Published</span>
@@ -245,9 +290,9 @@ export default async function BlogPostPage({
 
               {/* CTA Box */}
               <div className="bg-gradient-to-br from-yellow-50 to-yellow-100 border-2 border-yellow-200 rounded-2xl p-6">
-                <h3 className="text-lg font-sans font-bold text-black mb-3">
+                <h2 className="text-lg font-sans font-bold text-black mb-3">
                   Ready to Start Manufacturing?
-                </h3>
+                </h2>
                 <p className="text-gray-700 text-sm mb-4 leading-relaxed">
                   Get a free quote for your apparel manufacturing needs.
                 </p>
@@ -255,7 +300,7 @@ export default async function BlogPostPage({
                   href="/contact"
                   className="block w-full bg-black text-white text-center px-6 py-3 rounded-full font-sans font-bold text-sm uppercase tracking-wider hover:bg-gray-900 transition-all duration-300"
                 >
-                  Get Quote
+                  Request a Manufacturing Quote
                 </a>
               </div>
             </div>
@@ -287,6 +332,31 @@ export default async function BlogPostPage({
           </div>
         </div>
       </article>
+
+      {morePosts.length > 0 && (
+        <section className="container mx-auto px-6 md:px-12 max-w-5xl mt-16">
+          <h2 className="text-2xl font-sans font-bold mb-6">More articles</h2>
+          <ul className="grid gap-4 md:grid-cols-3">
+            {morePosts.map((p) => (
+              <li key={p.id}>
+                <Link
+                  href={`/blog/${p.slug}`}
+                  className="block h-full p-5 rounded-2xl border border-gray-200 hover:border-black transition-colors"
+                >
+                  <span className="block font-bold mb-1">{p.title}</span>
+                  {p.excerpt && (
+                    <span className="block text-sm text-gray-500 line-clamp-3">{p.excerpt}</span>
+                  )}
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <p className="mt-8 text-sm text-gray-600">
+            Ready to start? <Link className="underline" href="/private-label">Private label manufacturing</Link>{" "}
+            or <Link className="underline" href="/request-quote">request a quote</Link>.
+          </p>
+        </section>
+      )}
     </div>
   );
 }

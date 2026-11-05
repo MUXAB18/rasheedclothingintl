@@ -228,8 +228,9 @@ export default function PrivateLabelPage() {
       <div className="container mx-auto px-6 md:px-12">
         {/* ── Hero ── */}
         <SectionHeading
+          as="h1"
           eyebrow="White Label & Private Label"
-          title="Your Brand. Our Expertise. Total Invisibility."
+          title="Private Label Clothing: Your Brand, Our Expertise"
           subtitle="End-to-end private label manufacturing — from custom silhouettes and woven labels to branded packaging and worldwide delivery. We remain invisible so your brand can shine."
           align="center"
         />
@@ -288,9 +289,9 @@ export default function PrivateLabelPage() {
                   className="w-8 h-8 mb-5 text-near-black group-hover:text-white transition-colors duration-500"
                   strokeWidth={1.5}
                 />
-                <h4 className="font-sans font-black text-lg tracking-tight mb-2 group-hover:text-white transition-colors duration-500">
+                <h3 className="font-sans font-black text-lg tracking-tight mb-2 group-hover:text-white transition-colors duration-500">
                   {item.title}
-                </h4>
+                </h3>
                 <p className="text-near-black/60 group-hover:text-white/60 text-sm leading-relaxed font-sans transition-colors duration-500">
                   {item.desc}
                 </p>
@@ -420,9 +421,9 @@ export default function PrivateLabelPage() {
                   className="w-8 h-8 mb-6 text-near-black"
                   strokeWidth={1.5}
                 />
-                <h4 className="font-sans font-black text-xl tracking-tight mb-3">
+                <h3 className="font-sans font-black text-xl tracking-tight mb-3">
                   {step.title}
-                </h4>
+                </h3>
                 <p className="text-near-black/60 text-sm leading-relaxed font-sans">
                   {step.desc}
                 </p>

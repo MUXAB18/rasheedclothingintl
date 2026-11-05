@@ -12,10 +12,12 @@ export function Hero() {
       <div className="absolute inset-0 lg:hidden">
         <Image
           src="/mobile-hero-hoodies.jpg"
-          alt="Premium clothing manufacturing"
+          alt="Stack of dark heavyweight hoodies hanging on a rail, premium custom hoodies"
           fill
+          sizes="100vw"
           className="object-cover object-center"
           priority
+          fetchPriority="high"
         />
         {/* Gradient overlay — much lighter since the new image is naturally very dark */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/60" />
